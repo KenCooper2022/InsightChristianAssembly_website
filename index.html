@@ -15,7 +15,27 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
+        
         <div id="hero">
+            <div id ="announcement_dropdown">
+                    <div id="paypal-donate-button-container"></div>
+                   
+                     <script>
+                      PayPal.Donation.Button({
+                          env: 'sandbox',
+                          hosted_button_id: 'YOUR_SANDBOX_HOSTED_BUTTON_ID',
+                          // business: 'YOUR_EMAIL_OR_PAYERID',
+                          image: {
+                              src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+                              title: 'PayPal - The safer, easier way to pay online!',
+                              alt: 'Donate with PayPal button'
+                          },
+                          onComplete: function (params) {
+                              // Your onComplete handler
+                          },
+                      }).render('#paypal-donate-button-container');
+                   </script>
+            </div>
             <div id ="nav_bar">
                 <img src="./assets/3554219.jpg" id ="church-logo">
                 <li><a href ="#">Home</a></li>

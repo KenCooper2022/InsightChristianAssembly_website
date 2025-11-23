@@ -2,6 +2,23 @@ body {
     background-color: #444442;
     padding-top: 85px;
 }
+#nav_bar{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    width: 100%;
+    margin-right:10px;
+}
+#nav_bar > li{
+    list-style:none;
+    font-family:'NotoS ans',sans-serif;
+    font-size: 20px;
+    
+}
+#nav_bar > li > a{
+    text-decoration: none;
+    color:white;
+}
 
 h1 {
     font-family: 'Poppins', sans-serif, 'arial';

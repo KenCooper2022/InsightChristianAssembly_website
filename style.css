@@ -10,12 +10,26 @@
 h2{
     color:#0a667d;
 }
-#ministy_border{
+.cards{
+  margin-left:20px;
+}
+#ministry_border{
     text-align: center;
     height:100px;
     width:100%;
     background-color: aliceblue;
     border-radius: 5px;
+    padding:10px;
+}
+#ministry_section{
+  background-color: #003459;
+  margin-top: 40px;
+  margin-bottom:50px;
+  
+}
+.footer{
+  margin:0;
+  background-color:#00A7E1;
 }
 
 #hero_content{
@@ -82,11 +96,36 @@ h2{
 
 }
 #announcement_dropdown{
+
     position:absolute;
-    background-color: #003459;
-    width:1200px;
-    height:400px;
+
+    width:100%;
     z-index:999;
+    height:100%;
+    border-radius:0%;
+    background-color: rgba(6, 105, 198, 0.5);
+
+
+
+}
+.container{
+    background-color: rgba(5, 28, 50, 0.5);
+    width: 100%;
+    color:whitesmoke
+}
+.lower_container{
+    background-color: #86b6d9;
+    opacity: 0;
+}
+#donate_section{
+    
+    position:relative;
+    margin-right:30px;
+    margin-top:60px;
+    width:500px;
+    height:400px;
+    border-radius: 10%;
+    margin-left:450px;
 
 }
 #address_text{
@@ -133,4 +172,341 @@ iframe:hover{
 }
 .lead{
     color:white;
+}
+
+
+.thumbnail {
+    position: relative;
+    width: 450px;
+    border-radius: 6%;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.35s ease;
+    /* Hover transition */
+  }
+  .thumbnail:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-bottom: 100%;
+  }
+  .thumbnail:hover {
+    box-shadow: 0 20px 15px -8px rgba(0, 0, 0, 0.8);
+  }
+  
+  .thumbnail__container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .thumbnail__img {
+    flex: 4 0 auto;
+    background-position: center;
+    background-size: cover;
+    transform: scale(1.2);
+    transition: transform 0.35s ease;
+    /* Hover transition */
+  }
+  .thumbnail:hover .thumbnail__img {
+    transform: scale(1);
+  }
+  .thumbnail__img:before, .thumbnail__img:after {
+    position: absolute;
+  }
+  .thumbnail__img:before {
+    content: "Donate to our Building Fund";
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    color: #F8F8F8;
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    line-height: 2;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, #F8F8F8 0%, #F8F8F8 100%);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 45% 3%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.35s linear, transform 0.35s ease;
+    /* Hover transition */
+  }
+  .thumbnail:hover .thumbnail__img:before {
+    opacity: 0;
+    transform: translate(-50%, -500%) scale(0.5);
+  }
+  .thumbnail__img:after {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.3;
+    transition: opacity 0.35s linear;
+    /* Hover transition */
+  }
+  .thumbnail:hover .thumbnail__img:after {
+    opacity: 0;
+  }
+  
+  .thumbnail__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 0;
+    background-color: #F8F8F8;
+    overflow: hidden;
+    transition: flex-grow 0.35s ease;
+    /* Hover transition */
+  }
+  .thumbnail:hover .thumbnail__content {
+    flex-grow: 1;
+  }
+  
+  .thumbnail__caption {
+    color: #ABABAB;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.5) translateY(100%);
+    transition: opacity 0.35s linear, transform 0.35s ease;
+    /* Hover transition */
+  }
+  .thumbnail:hover .thumbnail__caption {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .donate_button {
+
+  }
+
+  
+  #paypal_donate_button {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #003459;
+    color:#003459;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease; }
+    #paypal_donate_button:hover {
+      color: white;
+      background: #003459; }
+    #paypal_donate_button:active {
+      letter-spacing: 2px; }
+    #paypal_donate_button:after {
+      content: "Donate"; }
+  
+  #paypal_donate_button.onclic {
+    width: 40px;
+    border-color: #bbbbbb;
+    border-width: 3px;
+    font-size: 0;
+    border-left-color: #1ECD97;
+    animation: rotating 2s 0.25s linear infinite; }
+    #paypal_donate_button.onclic:after {
+      content: ""; }
+    #paypal_donate_button.onclic:hover {
+      color: #1ECD97;
+      background: white; }
+  
+  #paypal_donate_button.validate {
+    font-size: 13px;
+    color: white;
+    background: #1ECD97; }
+    #paypal_donate_button.validate:after {
+      font-family: 'FontAwesome';
+      content: "\f00c"; }
+  
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg); }
+    to {
+      transform: rotate(360deg); } }
+  
+
+#x_button{
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #003459;
+    color:#003459;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease; }
+    #x_button:hover {
+      color: white;
+      background: #003459; }
+    #x_button:active {
+      letter-spacing: 2px; }
+    #x_button:after {
+      content: "Close"; }
+  
+  #x_button.onclic {
+    width: 40px;
+    border-color: #bbbbbb;
+    border-width: 3px;
+    font-size: 0;
+    border-left-color: #1ECD97;
+    animation: rotating 2s 0.25s linear infinite; }
+    #x_button.onclic:after {
+      content: ""; }
+    #x_button.onclic:hover {
+      color: #1ECD97;
+      background: white; }
+  
+  #x_button.validate {
+    font-size: 13px;
+    color: white;
+    background: #1ECD97; }
+    #x_button.validate:after {
+      font-family: 'FontAwesome';
+      content: "\f00c"; }
+  
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg); }
+    to {
+      transform: rotate(360deg); } }
+
+
+
+
+
+      img {
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+      }
+      .btn {
+        background-color: white;
+        border: 1px solid #cccccc;
+        color: #696969;
+        padding: 0.5rem;
+        text-transform: lowercase;
+      }
+      .btn--block {
+        display: block;
+        width: 100%;
+      }
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .cards__item {
+        display: flex;
+        padding: 1rem;
+      }
+      @media (min-width: 40rem) {
+        .cards__item {
+          width: 50%;
+        }
+      }
+      @media (min-width: 56rem) {
+        .cards__item {
+          width: 33.3333%;
+        }
+      }
+      .card {
+        background-color: white;
+        border-radius: 0.25rem;
+        box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .card:hover .card__image {
+        filter: contrast(100%);
+      }
+      .card__content {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        padding: 1rem;
+      }
+      .card__image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        filter: contrast(70%);
+        overflow: hidden;
+        position: relative;
+        transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+      }
+      .card__image::before {
+        content: "";
+        display: block;
+        padding-top: 56.25%;
+      }
+      @media (min-width: 40rem) {
+        .card__image::before {
+          padding-top: 66.6%;
+        }
+      }
+      .card__image--flowers {
+        background-image: url(/assets/pastor_preaching_img_1.jpeg);
+      }
+      .card__image--river {
+        background-image: url(/assets/youth_minister_prayer.jpeg);
+      }
+      .card__image--record {
+        background-image: url(/assets/choir.jpg);
+      }
+      .card__image--fence {
+        background-image: url(./assets/pastor_preaching_img_2.jpeg);
+      }
+      .card__title {
+        color: #696969;
+        font-size: 1.25rem;
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .card__text {
+        flex: 1 1 auto;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        margin-bottom: 1.25rem;
+      }
+      /* Reduce space only on the third card */
+      .card:nth-child(3) .card__text {
+        flex: 0 0 auto; /* stops text block from expanding */
+        margin-bottom: 0.5rem;
+    }
+    
+           
+#section_1{
+  margin-top:0;
+  background-color: #003459;
 }

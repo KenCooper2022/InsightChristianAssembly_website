@@ -13,20 +13,6 @@ h2{
 .cards{
   margin-left:20px;
 }
-#ministry_border{
-    text-align: center;
-    height:100px;
-    width:100%;
-    background-color: aliceblue;
-    border-radius: 5px;
-    padding:10px;
-}
-#ministry_section{
-  background-color: #003459;
-  margin-top: 40px;
-  margin-bottom:50px;
-  
-}
 .footer{
   margin:0;
   background-color:#00A7E1;
@@ -87,14 +73,7 @@ h2{
    background-repeat: no-repeat;
    background-size: cover;
 }
-#location_card{
-    display:flex;
-    gap:50px;
-    justify-content: center;
-    justify-content: space-evenly;
 
-
-}
 #announcement_dropdown{
 
     position:absolute;
@@ -127,32 +106,6 @@ h2{
     border-radius: 10%;
     margin-left:450px;
 
-}
-#address_text{
-    margin-top:10px;
-    background-color: white;
-    font-family:'NotoS ans',sans-serif;
-    font-size:30px;
-    font-weight: none;
-    text-align: center;
-    border-radius:2em;
-    border:none;
-    width:max-content;
-    height:400px;
-    opacity: 0.8;
-}
-iframe{
-    margin-top:10px;
-    border-radius: 2em;
-    border:none;
-    width:500px;
-    height:400px;
-    transition: 0.3s ease-in-out;
-}
-iframe:hover{
-    transform:scale(1,1);
-    opacity:1;
-    
 }
 #custom-cards{
     opacity:0.8;

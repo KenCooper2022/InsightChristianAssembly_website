@@ -507,3 +507,44 @@ h2{
 #myCarousel {
   width: 100%;
 }
+
+#plan_visit_section {
+  background-color: #001d3d;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+#plan_visit_section h2 {
+  color: white;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#plan_visit_section p {
+  color: white;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plan_visit_btn {
+  display: inline-block;
+  background-color: white;
+  color: #001d3d;
+  padding: 15px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.plan_visit_btn:hover {
+  background-color: #00A7E1;
+  color: white;
+}

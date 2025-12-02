@@ -1,0 +1,107 @@
+/* ==================== VISIT US PAGE STYLES ==================== */
+
+.visit-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.visit-info-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.visit-info-card:hover {
+    transform: translateY(-5px);
+}
+
+.visit-info-card h3 {
+    color: #003459;
+    font-family: 'Libre Baskerville', serif;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.visit-info-card p {
+    color: #555;
+    margin: 0;
+}
+
+.visit-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+    color: #00A7E1;
+}
+
+.visit-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.visit-cta {
+    background-color: #003459;
+    padding: 50px 40px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.visit-cta h2 {
+    color: white;
+    font-family: 'Libre Baskerville', serif;
+    margin-bottom: 15px;
+}
+
+.visit-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
+}
+
+.visit-cta-btn {
+    display: inline-block;
+    background-color: #00A7E1;
+    color: white;
+    padding: 12px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.visit-cta-btn:hover {
+    background-color: white;
+    color: #003459;
+}
+
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+
+@media (max-width: 768px) {
+    .visit-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .visit-info-card {
+        padding: 25px 20px;
+    }
+
+    .visit-cta {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .visit-info-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .visit-icon {
+        width: 40px;
+        height: 40px;
+    }
+}

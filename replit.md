@@ -8,7 +8,15 @@ This is a static HTML/CSS/JavaScript website for Insight Christian Assembly, a c
 
 ## Project Structure
 - **HTML Pages**: `index.html`, `about_us.html`, `contact_us.html`, `ministries.html`, `ministry_page.html`, `give.html`, `building_fund.html`, `visit_us.html`
-- **CSS Files**: `style.css`, `about_us_style.css`, `contact.css`, `pages.css`
+- **CSS Files**:
+  - `style.css` - Main homepage styles
+  - `about_us_style.css` - About Us page styles
+  - `contact.css` - Contact Us page styles
+  - `css/common.css` - Shared styles (nav, footer, page-header, etc.)
+  - `css/give_style.css` - Give page styles
+  - `css/building_fund_style.css` - Building Fund page styles
+  - `css/ministries_style.css` - Ministries page styles
+  - `css/visit_us_style.css` - Visit Us page styles
 - **JavaScript Files**: `index.js`, `contact.js`, `about_us.js`, `give.js`, `building_fund.js`
 - **Assets**: Images and videos stored in the `/assets` directory
 

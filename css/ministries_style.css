@@ -1,0 +1,50 @@
+/* ==================== MINISTRY PAGE STYLES ==================== */
+
+.ministry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.ministry-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.ministry-card:hover {
+    transform: translateY(-5px);
+}
+
+.ministry-card h3 {
+    color: #003459;
+    margin-top: 0;
+}
+
+.ministry-card p {
+    color: #555;
+}
+
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+
+@media (max-width: 768px) {
+    .ministry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ministry-card {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ministry-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .ministry-card p {
+        font-size: 0.9rem;
+    }
+}

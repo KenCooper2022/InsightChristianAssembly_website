@@ -1,0 +1,162 @@
+.give-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.give-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+}
+
+.give-card h3 {
+    color: #003459;
+    margin-top: 0;
+}
+
+.give-card p {
+    color: #555;
+}
+
+.give-btn {
+    display: inline-block;
+    background-color: #003459;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.give-btn:hover {
+    background-color: #00A7E1;
+    color: white;
+}
+
+/* ==================== SCRIPTURE HERO STYLES ==================== */
+
+.scripture-hero {
+    background-color: #001d3d;
+    padding: 60px 40px;
+    margin: 50px 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.scripture-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.scripture-verse {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.scripture-reference {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #00A7E1;
+    margin: 0;
+}
+
+/* ==================== FEATURED GIVE CARD STYLES ==================== */
+
+.give-card-featured {
+    position: relative;
+    background: linear-gradient(135deg, #003459 0%, #001d3d 100%);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(0, 52, 89, 0.4);
+    border: 2px solid #00A7E1;
+}
+
+.give-card-featured h3 {
+    color: white;
+}
+
+.give-card-featured p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00A7E1;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.give-btn-featured {
+    background-color: #00A7E1 !important;
+    border: 2px solid #00A7E1;
+}
+
+.give-btn-featured:hover {
+    background-color: white !important;
+    color: #003459 !important;
+}
+
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+
+@media (max-width: 768px) {
+    .give-options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .give-card {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+
+    .give-card-featured {
+        transform: scale(1);
+        margin: 20px 0;
+    }
+
+    .scripture-hero {
+        padding: 40px 20px;
+        margin: 30px 0;
+    }
+
+    .scripture-verse {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .give-card {
+        padding: 25px 15px;
+    }
+
+    .give-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .give-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+}

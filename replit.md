@@ -19,7 +19,7 @@ This is a static HTML/CSS/JavaScript website for Insight Christian Assembly, a c
   - `css/visit_us_style.css` - Visit Us page styles
   - `css/shop_style.css` - Shop page styles
   - `css/prayer_requests.css` - Prayer Requests page styles
-- **JavaScript Files**: `index.js`, `contact.js`, `about_us.js`, `give.js`, `building_fund.js`, `shop.js`, `prayer_requests.js`
+- **JavaScript Files**: `index.js`, `contact.js`, `about_us.js`, `give.js`, `building_fund.js`, `shop.js`, `prayer_requests.js`, `visit_us.js`
 - **Assets**: Images and videos stored in the `/assets` directory
 
 ## Technology Stack

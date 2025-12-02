@@ -1,107 +1,182 @@
 /* ==================== VISIT US PAGE STYLES ==================== */
 
-.visit-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
+.page-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.1rem;
+    margin-top: 10px;
 }
 
-.visit-info-card {
+.accordion-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
     background-color: white;
     border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.visit-info-card:hover {
-    transform: translateY(-5px);
-}
-
-.visit-info-card h3 {
-    color: #003459;
-    font-family: 'Libre Baskerville', serif;
-    margin-top: 0;
     margin-bottom: 15px;
-}
-
-.visit-info-card p {
-    color: #555;
-    margin: 0;
-}
-
-.visit-icon {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto 20px;
-    color: #00A7E1;
-}
-
-.visit-icon svg {
-    width: 100%;
-    height: 100%;
-}
-
-.visit-cta {
-    background-color: #003459;
-    padding: 50px 40px;
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 40px;
-}
-
-.visit-cta h2 {
-    color: white;
-    font-family: 'Libre Baskerville', serif;
-    margin-bottom: 15px;
-}
-
-.visit-cta p {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 25px;
-}
-
-.visit-cta-btn {
-    display: inline-block;
-    background-color: #00A7E1;
-    color: white;
-    padding: 12px 35px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     transition: all 0.3s ease;
 }
 
-.visit-cta-btn:hover {
-    background-color: white;
+.accordion-item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #003459;
+}
+
+.accordion-header:hover h3 {
+    color: #fff;
+}
+
+.accordion-header:hover .accordion-icon {
+    color: #fff;
+}
+
+.accordion-header h3 {
+    margin: 0;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.3rem;
+    color: #003459;
+    transition: color 0.3s ease;
+}
+
+.accordion-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: #003459;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.accordion-header:hover .accordion-icon {
+    background-color: #fff;
+    color: #003459;
+}
+
+.accordion-icon svg {
+    transition: transform 0.3s ease;
+}
+
+.accordion-icon .vertical-line {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon .vertical-line {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.accordion-item.active .accordion-header {
+    background-color: #003459;
+}
+
+.accordion-item.active .accordion-header h3 {
+    color: #fff;
+}
+
+.accordion-item.active .accordion-icon {
+    background-color: #fff;
+    color: #003459;
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 30px;
+    background-color: #f8f9fa;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+    padding: 25px 30px;
+}
+
+.accordion-content p {
+    font-family: 'Noto Sans', sans-serif;
+    color: #555;
+    line-height: 1.8;
+    margin: 0 0 15px 0;
+}
+
+.accordion-content p:last-child {
+    margin-bottom: 0;
+}
+
+.accordion-content p strong {
     color: #003459;
 }
 
 /* ==================== MOBILE RESPONSIVE STYLES ==================== */
 
 @media (max-width: 768px) {
-    .visit-info-grid {
-        grid-template-columns: 1fr;
+    .accordion-header {
+        padding: 20px;
     }
 
-    .visit-info-card {
-        padding: 25px 20px;
+    .accordion-header h3 {
+        font-size: 1.1rem;
     }
 
-    .visit-cta {
-        padding: 40px 20px;
+    .accordion-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .accordion-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .accordion-content {
+        padding: 0 20px;
+    }
+
+    .accordion-item.active .accordion-content {
+        padding: 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .visit-info-card h3 {
-        font-size: 1.1rem;
+    .accordion-header {
+        padding: 15px;
     }
 
-    .visit-icon {
-        width: 40px;
-        height: 40px;
+    .accordion-header h3 {
+        font-size: 1rem;
+    }
+
+    .accordion-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .accordion-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .accordion-content p {
+        font-size: 0.95rem;
     }
 }

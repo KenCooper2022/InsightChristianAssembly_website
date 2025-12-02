@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="./css/common.css">
         <link rel="stylesheet" href="./css/visit_us_style.css">
         <link rel="shortcut icon" type="image/x-icon" href="./assets/3554219.jpg" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
         <div id="nav_bar">
@@ -26,26 +27,91 @@
 
         <div class="page-header">
             <h1>Visit Us</h1>
+            <p>We'd love to have you join us</p>
         </div>
 
         <div class="page-content">
             <div class="content-container">
-                <div class="info-card">
-                    <h3>Service Times</h3>
-                    <p><strong>Sunday Worship:</strong> 10:00 AM - 12:00 PM</p>
-                    <p><strong>Wednesday Bible Study:</strong> 7:00 PM - 8:30 PM</p>
-                    <p><strong>Friday Prayer Meeting:</strong> 7:00 PM - 9:00 PM</p>
-                </div>
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Service Times</h3>
+                            <div class="accordion-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <p><strong>Sunday Worship:</strong> 10:00 AM - 12:00 PM</p>
+                            <p><strong>Wednesday Bible Study:</strong> 7:00 PM - 8:30 PM</p>
+                            <p><strong>Friday Prayer Meeting:</strong> 7:00 PM - 9:00 PM</p>
+                        </div>
+                    </div>
 
-                <div class="info-card">
-                    <h3>Our Location</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p><strong>Address:</strong> 123 Faith Avenue, City, State 12345</p>
-                </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Our Location</h3>
+                            <div class="accordion-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>Address:</strong> 123 Faith Avenue, City, State 12345</p>
+                        </div>
+                    </div>
 
-                <div class="info-card">
-                    <h3>What to Expect</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>What to Expect</h3>
+                            <div class="accordion-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Parking & Accessibility</h3>
+                            <div class="accordion-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Free parking is available in our main lot. Handicap accessible parking spaces are located near the main entrance.</p>
+                            <p>Our building is fully wheelchair accessible with ramps and elevators available.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Children's Ministry</h3>
+                            <div class="accordion-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <p>We offer age-appropriate programs for children during our Sunday services. Check-in is available at the Children's Ministry desk in the main lobby.</p>
+                            <p>Nursery care is provided for infants and toddlers.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,5 +126,7 @@
                 <p class="text-center text-body-secondary">© 2025 Insight Christian Assembly</p>
             </footer>
         </div>
+
+        <script src="./visit_us.js"></script>
     </body>
 </html>

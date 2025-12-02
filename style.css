@@ -319,25 +319,26 @@ h2{
 
 #x_button{
     outline: none;
-    height: 55px;
+    height: 50px;
     text-align: center;
-    width: 180px;
+    width: 160px;
     border-radius: 40px;
-    background: #ff4757;
-    border: 3px solid #fff;
-    color: #fff;
+    background: #fff;
+    border: 3px solid #003459;
+    color: #003459;
     letter-spacing: 2px;
     text-shadow: 0;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.25s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    margin-top: 20px; }
+    position: absolute;
+    bottom: 80px;
+    left: 40px; }
     #x_button:hover {
-      color: #ff4757;
-      background: #fff;
-      border-color: #ff4757;
+      color: #fff;
+      background: #003459;
       transform: scale(1.05); }
     #x_button:active {
       letter-spacing: 2px;

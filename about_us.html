@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Average+Sans&family=Libertinus+Keyboard&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Momo+Signature&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
         <div id ="nav_bar">
@@ -48,15 +49,14 @@
                 </div>
             </section>
             <div class="image-container">
-                <div class="image" style="--clip-start: ellipse(0 0 at 0 0); --clip-end: ellipse(150% 150% at 0 0);">
-                    <div class ="image_title"><h4>Pastor Charles</h4></div>
-                    <img src="./assets/pastor_charles.jpeg"/><img src="./assets/pastor_charles.jpeg"/>
-                </div>
-
-                <div class="image" style="--clip-start: inset(100% 0 0 0); --clip-end: inset(0 0 0 0);">
-                    <div class="image_title"><h4>Pastor Evelyn</h4></div>
-                
-                    <img src="./assets/pastor_evelyn.jpeg"/><img src="./assets/pastor_evelyn.jpeg"/>
+                <div class="pastor-card">
+                    <div class="pastor-image-wrapper">
+                        <img src="./assets/pastor_charles.jpeg" alt="Pastor Charles"/>
+                        <div class="pastor-bio">
+                            <h4>Pastor Charles</h4>
+                            <p>Pastor Charles has been faithfully serving the congregation of Insight Christian Assembly for over 15 years. His dedication to spreading the Gospel and nurturing spiritual growth has touched countless lives in our community. With a heart for teaching and a passion for discipleship, he continues to lead our church family with wisdom and grace.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
                 
@@ -75,14 +75,17 @@
                         When you do it your way you can go anywhere you choose.</p>
                     </div>
                 </section>
-                <div class="bottmom_container"> 
-                    <footer class="footer"> <ul class="nav justify-content-center border-bottom pb-3 mb-3"> 
-                        <li class="nav-item"><a href="./index.html" class="nav-link px-2 text-body-secondary">Home</a></li> 
-                        <li class="nav-item"><a href="./about_us.html" class="nav-link px-2 text-body-secondary">About</a></li> 
-                        <li class="nav-item"><a href="./contact_us.html" class="nav-link px-2 text-body-secondary">Contact Us</a></li> 
-                        </li> </ul> 
-                        <p class="text-center text-body-secondary">© 2025 Company Insight Christian Assembly </p> </footer> 
+                <div class="bottom_container"> 
+                    <footer class="footer"> 
+                        <ul class="nav justify-content-center pb-3 mb-3"> 
+                            <li class="nav-item"><a href="./index.html" class="nav-link px-2">Home</a></li> 
+                            <li class="nav-item"><a href="./about_us.html" class="nav-link px-2">About</a></li> 
+                            <li class="nav-item"><a href="./contact_us.html" class="nav-link px-2">Contact Us</a></li> 
+                        </ul> 
+                        <p class="text-center">© 2025 Insight Christian Assembly</p> 
+                    </footer> 
                 </div>
+        <script src="./about_us.js"></script>
     </body>
 </html>
 

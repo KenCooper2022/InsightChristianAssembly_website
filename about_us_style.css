@@ -186,52 +186,57 @@ figure {
 }
 
 .image-container {
-    margin-left:350px;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    width: 600px;
-    grid-gap: 1rem;;
-    margin-bottom:0;
-  }
-  .image-container .image {
-    position: relative;
-    padding-bottom: 100%;
-    margin-bottom:0;
-  }
-  .image-container .image img {
-    height: 100%;
-    width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    left: 0;
-    position: absolute;
-    top: 0;
-    margin-bottom:0;
-  }
-  .image-container .image img:nth-of-type(1) {
-    filter: grayscale(1) brightness(40%);
-  }
-  .image-container .image img:nth-of-type(2) {
-    -webkit-clip-path: var(--clip-start);
-            clip-path: var(--clip-start);
-    transition: -webkit-clip-path 0.5s;
-    transition: clip-path 0.5s;
-    transition: clip-path 0.5s, -webkit-clip-path 0.5s;
-  }
-  .image-container .image:hover img:nth-of-type(2) {
-    -webkit-clip-path: var(--clip-end);
-            clip-path: var(--clip-end);
-  }
-
-  .image_title{
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
     background-color: #474e5d;
-    position: relative; /* or absolute */
-    z-index: 999;
-    color:white;
-    text-align: center;
+  }
 
+  .pastor-card {
+    width: 100%;
+    max-width: 700px;
+  }
 
+  .pastor-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .pastor-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .pastor-bio {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #001d3d;
+    color: white;
+    padding: 30px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  }
+
+  .pastor-bio h4 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: white;
+  }
+
+  .pastor-bio p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
   }
 
   #mission_statement{
@@ -249,9 +254,23 @@ figure {
   section{
     margin-top:0;
   }
-  .footer{
-    margin:0;
-    background-color:#00A7E1;
+  .footer {
+    margin: 0;
+    background-color: #001d3d;
+    padding: 20px 0;
+  }
+
+  .footer .nav-link,
+  .footer p {
+    color: white !important;
+  }
+
+  .footer .nav {
+    border-bottom: none !important;
+  }
+
+  .footer .nav-link:hover {
+    color: #00A7E1 !important;
   }
 
 /* ==================== MOBILE RESPONSIVE STYLES ==================== */
@@ -297,9 +316,23 @@ figure {
     }
 
     .image-container {
-        margin-left: 0;
-        width: 100%;
-        padding: 0 15px;
+        padding: 30px 15px;
+    }
+
+    .pastor-card {
+        max-width: 100%;
+    }
+
+    .pastor-bio {
+        padding: 20px;
+    }
+
+    .pastor-bio h4 {
+        font-size: 1.4rem;
+    }
+
+    .pastor-bio p {
+        font-size: 0.95rem;
     }
 
     .about-section {
@@ -314,6 +347,16 @@ figure {
         margin-top: 20px;
         margin-bottom: 50px;
         padding: 20px;
+    }
+
+    .footer {
+        padding: 30px 15px;
+    }
+
+    .footer .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 }
 
@@ -346,5 +389,19 @@ figure {
 
     .content__author {
         font-size: 1rem;
+    }
+
+    .pastor-bio {
+        padding: 15px;
+    }
+
+    .pastor-bio h4 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .pastor-bio p {
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
 }

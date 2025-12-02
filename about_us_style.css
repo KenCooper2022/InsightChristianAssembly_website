@@ -1,51 +1,56 @@
 #nav_bar{
-    background-color: #474e5d;
+    background-color: #001d3d;
 
     display:flex;
     justify-content:center;
     gap:10px;
     width: 100%;
     margin-right:10px;
+    padding: 15px 0;
 }
 #nav_bar > li{
     list-style:none;
-    font-family:'NotoS ans',sans-serif;
-    font-size: 20px;
-    
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
 }
 #nav_bar > li > a{
     text-decoration: none;
-    color:white;
+    color: white;
+    transition: color 0.3s ease;
+}
+#nav_bar > li > a:hover{
+    color: #00A7E1;
 }
 * {
   box-sizing: border-box;
 }
 
 p {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  font-family: "Libre Baskerville", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400;
+  color: #333;
 }
 
 blockquote {
   position: relative;
   padding-left: 1.5rem;
-  font-family: "Libre Baskerville", serif;
-  font-size: 2rem;
-  line-height: 1.25;
-  letter-spacing: -0.05rem;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: white;
 }
 blockquote:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 6px;
+  width: 4px;
   height: 100%;
-  background-color: #A9DFBF;
+  background-color: #00A7E1;
   border-radius: 60px;
 }
 
@@ -103,14 +108,16 @@ figure {
   width: 100%;
   height: 100%;
   color: white;
-  font-family:"Libre Baskerville", serif;
-  font-size: 8vw;
-  letter-spacing: -0.125rem;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 7vw;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
   text-align: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 @media (min-width: 1200px) {
   .hero__title {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 }
 
@@ -132,10 +139,18 @@ figure {
 
 }
 .about-section {
-    padding: 50px;
+    padding: 60px 40px;
     text-align: center;
-    background-color: #474e5d;
+    background-color: #003459;
     color: white;
+  }
+
+.about-section h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.02rem;
   }
 .content__inner {
   margin: 0 auto;
@@ -149,15 +164,17 @@ figure {
 }
 
 .content__title {
-  font-family: "Courgette", serif;
-  font-size: 3rem;
-  line-height: 1.25;
-  letter-spacing: -0.125rem;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.02rem;
   text-align: center;
+  color: white;
 }
 @media (min-width: 600px) {
   .content__title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 
@@ -188,8 +205,8 @@ figure {
 .image-container {
     display: flex;
     justify-content: center;
-    padding: 40px 20px;
-    background-color: #474e5d;
+    padding: 60px 20px;
+    background-color: #003459;
   }
 
   .pastor-card {
@@ -241,7 +258,7 @@ figure {
 
   #mission_statement{
     display:none;
-    background-color: #474e5d;
+    background-color: #003459;
     clear:both;
     width:50%;
   }
@@ -249,7 +266,14 @@ figure {
     margin-top:40px;
     margin-bottom:100px;
     padding:40px;
+    background-color: #003459;
+  }
 
+  #mission_statement_text p {
+    color: rgba(255, 255, 255, 0.95);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.9;
   }
   section{
     margin-top:0;

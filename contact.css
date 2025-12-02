@@ -82,6 +82,71 @@ hr {
     padding: 60px 20px 80px;
 }
 
+/* ==================== THANK YOU MESSAGE ==================== */
+
+#thank-you-message {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.thank-you-icon {
+    color: #00A7E1;
+    margin-bottom: 30px;
+    animation: scaleIn 0.6s ease-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#thank-you-message h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.5rem;
+    color: white;
+    margin: 0 0 20px 0;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+#thank-you-message p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin: 0 0 15px 0;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.thank-you-note {
+    color: #00A7E1 !important;
+    font-style: italic;
+    font-size: 1.2rem !important;
+    margin-top: 25px !important;
+    animation: fadeInUp 0.6s ease-out 0.6s both !important;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .form-container {
     max-width: 700px;
     margin: 0 auto;

@@ -17,42 +17,46 @@
             <li><a href="./shop.html">Shop</a></li>
             <li><a href="./contact_us.html">Contact Us</a></li>
         </div>
-        <hr>
         
-        <div id="contact_element" class="container">
-            <div class="row">
-                <h1>Contact Us</h1>
-            </div>
-            <div class="row">
-                <h4 style="text-align:center">We'd love to hear from you!</h4>
-            </div>
-            <div class="row input-container">
-                <div class="col-xs-12">
-                    <div class="styled-input wide">
-                        <input type="text" required />
-                        <label>Name</label> 
+        <div class="page-header">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you!</p>
+        </div>
+
+        <div id="contact_element">
+            <div class="form-container">
+                <div class="form-row full-width">
+                    <div class="form-field full">
+                        <div class="styled-input">
+                            <input type="text" id="name" required />
+                            <label for="name">Name</label>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="styled-input">
-                        <input type="text" required />
-                        <label>Email</label> 
+                <div class="form-row">
+                    <div class="form-field">
+                        <div class="styled-input">
+                            <input type="email" id="email" required />
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <div class="styled-input">
+                            <input type="tel" id="phone" required />
+                            <label for="phone">Phone Number</label>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="styled-input" style="float:right;">
-                        <input type="text" required />
-                        <label>Phone Number</label> 
+                <div class="form-row full-width">
+                    <div class="form-field full">
+                        <div class="styled-input">
+                            <textarea id="message" required></textarea>
+                            <label for="message">Message</label>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xs-12">
-                    <div class="styled-input wide">
-                        <textarea required></textarea>
-                        <label>Message</label>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="btn-lrg submit-btn">Send Message</div>
+                <div class="submit-row">
+                    <button class="submit-btn">Send Message</button>
                 </div>
             </div>
         </div>

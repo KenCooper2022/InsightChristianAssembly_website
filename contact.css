@@ -13,25 +13,19 @@ body {
     list-style:none;
     font-family:'Noto Sans',sans-serif;
     font-size: 20px;
-    padding: 0 15px;
-    position: relative;
-}
-#nav_bar > li::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 16px;
-    width: 1px;
-    background-color: rgba(255, 255, 255, 0.4);
-}
-#nav_bar > li:last-child::after {
-    display: none;
 }
 #nav_bar > li > a{
     text-decoration: none;
     color:white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+#nav_bar > li > a:hover{
+    background-color: rgba(0, 167, 225, 0.3);
+    color: #00A7E1;
+    transform: translateY(-2px);
 }
 
 h1 {

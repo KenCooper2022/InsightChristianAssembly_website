@@ -68,21 +68,24 @@ h2{
     border-radius:50%;
 }
 #body_background{
-
-     /* The image used */
-  background-image: url("./assets/v871batch2-wan-19.jpg");
-
-  /* Set a specific height */
-
-  /* Create the parallax scrolling effect */
-   /* Full height */
+   position: relative;
    height: 100%; 
+}
 
-   /* Create the parallax scrolling effect */
+#body_background::before {
+   content: "";
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+   background-image: url("./assets/v871batch2-wan-19.jpg");
    background-attachment: fixed;
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
+   filter: invert(1);
 }
 
 #announcement_dropdown{

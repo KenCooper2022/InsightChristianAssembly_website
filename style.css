@@ -15,7 +15,18 @@ h2{
 }
 .footer{
   margin:0;
-  background-color:#00A7E1;
+  background-color:#001d3d;
+  padding: 20px 0;
+}
+
+.footer .nav-link,
+.footer p,
+.footer .text-body-secondary {
+  color: white !important;
+}
+
+.footer .nav {
+  border-bottom: none !important;
 }
 
 #hero_content{

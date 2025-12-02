@@ -7,7 +7,7 @@ This is a static HTML/CSS/JavaScript website for Insight Christian Assembly, a c
 - Contact Us page with a contact form
 
 ## Project Structure
-- **HTML Pages**: `index.html`, `about_us.html`, `contact_us.html`, `ministries.html`, `ministry_page.html`, `give.html`, `building_fund.html`, `visit_us.html`
+- **HTML Pages**: `index.html`, `about_us.html`, `contact_us.html`, `ministries.html`, `ministry_page.html`, `give.html`, `building_fund.html`, `visit_us.html`, `shop.html`
 - **CSS Files**:
   - `style.css` - Main homepage styles
   - `about_us_style.css` - About Us page styles
@@ -17,7 +17,8 @@ This is a static HTML/CSS/JavaScript website for Insight Christian Assembly, a c
   - `css/building_fund_style.css` - Building Fund page styles
   - `css/ministries_style.css` - Ministries page styles
   - `css/visit_us_style.css` - Visit Us page styles
-- **JavaScript Files**: `index.js`, `contact.js`, `about_us.js`, `give.js`, `building_fund.js`
+  - `css/shop_style.css` - Shop page styles
+- **JavaScript Files**: `index.js`, `contact.js`, `about_us.js`, `give.js`, `building_fund.js`, `shop.js`
 - **Assets**: Images and videos stored in the `/assets` directory
 
 ## Technology Stack
@@ -69,6 +70,8 @@ The project is configured as a static deployment:
 - Created dedicated Building Fund page with scrolling image gallery, vision section, and PayPal donation integration
 - Added lightbox/expand feature for viewing gallery images individually with keyboard navigation support
 - Redesigned events carousel: compact 800px width, navy gradient overlay, teal accent buttons, rounded corners
+- Created Shop page with hero section and expandable product cards with dropdown descriptions and prices
+- Added Shop link to navigation bar across all pages
 
 ## Design System
 - **Color Scheme**: Navy blue (#001d3d), White, Teal (#00A7E1)

@@ -1,0 +1,202 @@
+/* ==================== SHOP PAGE STYLES ==================== */
+
+.shop-header {
+    background: linear-gradient(135deg, #003459 0%, #001d3d 100%);
+    padding: 80px 40px;
+}
+
+.header-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.3rem;
+    margin-top: 15px;
+}
+
+.shop-intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.shop-intro h2 {
+    color: #003459;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.shop-intro p {
+    color: #555;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==================== PRODUCTS GRID ==================== */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* ==================== PRODUCT CARD ==================== */
+
+.product-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.product-thumbnail {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-thumbnail img {
+    transform: scale(1.05);
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #001d3d;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-header:hover {
+    background-color: #003459;
+}
+
+.product-title {
+    color: white;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.product-toggle {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card.expanded .product-toggle {
+    transform: rotate(180deg);
+}
+
+/* ==================== PRODUCT DETAILS (DROPDOWN) ==================== */
+
+.product-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    background-color: #f8f9fa;
+    padding: 0 20px;
+}
+
+.product-card.expanded .product-details {
+    max-height: 300px;
+    padding: 20px;
+}
+
+.product-description {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00A7E1;
+    margin-bottom: 15px;
+}
+
+.product-btn {
+    display: inline-block;
+    background-color: #00A7E1;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.product-btn:hover {
+    background-color: #001d3d;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+    .shop-header {
+        padding: 50px 20px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .product-thumbnail {
+        height: 220px;
+    }
+
+    .product-header {
+        padding: 15px;
+    }
+
+    .product-title {
+        font-size: 1.1rem;
+    }
+
+    .product-card.expanded .product-details {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .shop-intro h2 {
+        font-size: 1.6rem;
+    }
+
+    .shop-intro p {
+        font-size: 1rem;
+    }
+
+    .product-thumbnail {
+        height: 200px;
+    }
+
+    .product-price {
+        font-size: 1.3rem;
+    }
+}

@@ -11,9 +11,13 @@ body {
 }
 #nav_bar > li{
     list-style:none;
-    font-family:'NotoS ans',sans-serif;
+    font-family:'Noto Sans',sans-serif;
     font-size: 20px;
-    
+    padding: 0 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+#nav_bar > li:last-child {
+    border-right: none;
 }
 #nav_bar > li > a{
     text-decoration: none;

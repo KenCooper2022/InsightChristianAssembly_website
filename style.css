@@ -364,20 +364,6 @@ h2{
     margin-bottom: 10px;
   }
 
-  .donate_link {
-    display: block;
-    text-decoration: none;
-  }
-
-  .donate_link .thumbnail {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .donate_link:hover .thumbnail {
-    transform: scale(1.02);
-    box-shadow: 0 25px 20px -10px rgba(0, 0, 0, 0.5);
-  }
-
   
   #paypal_donate_button {
     outline: none;

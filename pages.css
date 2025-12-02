@@ -171,6 +171,232 @@ body {
     border-bottom: none !important;
 }
 
+/* ==================== SCRIPTURE HERO STYLES ==================== */
+
+.scripture-hero {
+    background-color: #001d3d;
+    padding: 60px 40px;
+    margin: 50px 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.scripture-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.scripture-verse {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.scripture-reference {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #00A7E1;
+    margin: 0;
+}
+
+/* ==================== FEATURED GIVE CARD STYLES ==================== */
+
+.give-card-featured {
+    position: relative;
+    background: linear-gradient(135deg, #003459 0%, #001d3d 100%);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(0, 52, 89, 0.4);
+    border: 2px solid #00A7E1;
+}
+
+.give-card-featured h3 {
+    color: white;
+}
+
+.give-card-featured p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00A7E1;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.give-btn-featured {
+    background-color: #00A7E1 !important;
+    border: 2px solid #00A7E1;
+}
+
+.give-btn-featured:hover {
+    background-color: white !important;
+    color: #003459 !important;
+}
+
+/* ==================== BUILDING FUND PAGE STYLES ==================== */
+
+.building-fund-header {
+    background: linear-gradient(135deg, #003459 0%, #001d3d 100%);
+    padding: 80px 40px;
+}
+
+.header-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.3rem;
+    margin-top: 15px;
+}
+
+.building-fund-intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.building-fund-intro h2 {
+    color: #003459;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.building-fund-goals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.goal-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+}
+
+.goal-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.goal-card h3 {
+    color: #003459;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.goal-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.donate-section {
+    background-color: #003459;
+    padding: 50px 40px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.donate-section h2 {
+    color: white;
+    font-family: 'Libre Baskerville', serif;
+    margin-bottom: 20px;
+}
+
+.donate-section > p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.donate-options {
+    margin-bottom: 40px;
+}
+
+.donate-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.donate-btn-primary {
+    background-color: #00A7E1;
+    color: white;
+}
+
+.donate-btn-primary:hover {
+    background-color: white;
+    color: #003459;
+}
+
+.scripture-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.scripture-box .scripture {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.scripture-box .scripture-ref {
+    color: #00A7E1;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-link a {
+    color: #003459;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+    color: #00A7E1;
+}
+
 /* ==================== MOBILE RESPONSIVE STYLES ==================== */
 
 /* Tablet and below (768px) */
@@ -227,6 +453,40 @@ body {
         min-width: 100%;
         max-width: 100%;
         padding: 30px 20px;
+    }
+
+    .give-card-featured {
+        transform: scale(1);
+        margin: 20px 0;
+    }
+
+    /* Scripture hero mobile */
+    .scripture-hero {
+        padding: 40px 20px;
+        margin: 30px 0;
+    }
+
+    .scripture-verse {
+        font-size: 1.4rem;
+    }
+
+    /* Building fund mobile */
+    .building-fund-header {
+        padding: 50px 20px;
+    }
+
+    .building-fund-goals {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .goal-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .donate-section {
+        padding: 40px 20px;
     }
 
     /* Ministry grid mobile */

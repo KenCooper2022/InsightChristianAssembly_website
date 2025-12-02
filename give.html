@@ -10,6 +10,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="./pages.css">
         <link rel="shortcut icon" type="image/x-icon" href="./assets/3554219.jpg" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
         <div id="nav_bar">
@@ -31,21 +32,29 @@
                 
                 <div class="give-options">
                     <div class="give-card">
-                        <h3>Tithes & Offerings</h3>
+                        <h3>Offering</h3>
                         <p>Support the ongoing ministry and operations of Insight Christian Assembly.</p>
                         <a href="https://www.sandbox.paypal.com/donate/?hosted_button_id=ZDG9AVNNACK58" class="give-btn">Give Now</a>
                     </div>
 
-                    <div class="give-card">
+                    <div class="give-card give-card-featured">
+                        <div class="featured-badge">Featured</div>
                         <h3>Building Fund</h3>
-                        <p>Help us expand and improve our facilities to better serve our congregation.</p>
-                        <a href="https://www.sandbox.paypal.com/donate/?hosted_button_id=ZDG9AVNNACK58" class="give-btn">Contribute</a>
+                        <p>Help us expand and improve our facilities to better serve our congregation. Your contribution directly supports our vision for growth.</p>
+                        <a href="./building_fund.html" class="give-btn give-btn-featured">Contribute</a>
                     </div>
 
                     <div class="give-card">
                         <h3>Missions</h3>
                         <p>Support our outreach programs and mission work around the world.</p>
                         <a href="https://www.sandbox.paypal.com/donate/?hosted_button_id=ZDG9AVNNACK58" class="give-btn">Support Missions</a>
+                    </div>
+                </div>
+
+                <div class="scripture-hero">
+                    <div class="scripture-content">
+                        <p class="scripture-verse">"A generous person will prosper; whoever refreshes others will be refreshed."</p>
+                        <p class="scripture-reference">— Proverbs 11:25</p>
                     </div>
                 </div>
 
@@ -56,15 +65,16 @@
             </div>
         </div>
 
-        <div class="bottmom_container">
+        <div class="bottom_container">
             <footer class="footer">
                 <ul class="nav justify-content-center pb-3 mb-3">
-                    <li class="nav-item"><a href="./index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
-                    <li class="nav-item"><a href="./about_us.html" class="nav-link px-2 text-body-secondary">About</a></li>
-                    <li class="nav-item"><a href="./contact_us.html" class="nav-link px-2 text-body-secondary">Contact Us</a></li>
+                    <li class="nav-item"><a href="./index.html" class="nav-link px-2">Home</a></li>
+                    <li class="nav-item"><a href="./about_us.html" class="nav-link px-2">About</a></li>
+                    <li class="nav-item"><a href="./contact_us.html" class="nav-link px-2">Contact Us</a></li>
                 </ul>
-                <p class="text-center text-body-secondary">© 2025 Insight Christian Assembly</p>
+                <p class="text-center">© 2025 Insight Christian Assembly</p>
             </footer>
         </div>
+        <script src="./give.js"></script>
     </body>
 </html>

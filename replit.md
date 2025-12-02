@@ -71,3 +71,8 @@ The project is configured as a static deployment:
 - The website uses external CDNs for Bootstrap, jQuery, and Google Fonts
 - PayPal integration is configured for donations (sandbox mode currently)
 - Contact form is currently frontend-only (no backend processing)
+
+## User Preferences
+- Backend development: Node.js with Express (preferred for future developments)
+- Color scheme: Navy blue (#001d3d), White, Teal (#00A7E1)
+- Fonts: Noto Sans (body), Libre Baskerville (headings)

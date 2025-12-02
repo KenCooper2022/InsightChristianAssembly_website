@@ -4,61 +4,113 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" type="image/x-icon" href="./assets/3554219.jpg" />
-        <link rel = "stylesheet" href ="contact.css"/>
-
-        <title>Contact Us Page</title>
+        <link rel="stylesheet" href="contact.css"/>
+        <title>Contact Us - Insight Christian Assembly</title>
     </head>
     <body>
-        <div id ="nav_bar">
-            <li><a href ="./index.html">Home</a></li>
-            <li><a href ="./about_us.html">About Us</a></li>
-            <li><a href ="./visit_us.html">Visit Us</a></li>
-            <li><a href ="./give.html">Give</a></li>
-            <li><a href ="./ministries.html">Ministries</a></li>
-            <li><a href ="./contact_us.html">Contact Us</a></li>
+        <div id="nav_bar">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about_us.html">About Us</a></li>
+            <li><a href="./visit_us.html">Visit Us</a></li>
+            <li><a href="./give.html">Give</a></li>
+            <li><a href="./ministries.html">Ministries</a></li>
+            <li><a href="./contact_us.html">Contact Us</a></li>
         </div>
         <hr>
-        <div id= "contact_element"class="container">
+        
+        <div id="contact_element" class="container">
             <div class="row">
-                    <h1>contact us</h1>
+                <h1>Contact Us</h1>
             </div>
             <div class="row">
-                    <h4 style="text-align:center">We'd love to hear from you!</h4>
+                <h4 style="text-align:center">We'd love to hear from you!</h4>
             </div>
             <div class="row input-container">
-                    <div class="col-xs-12">
-                        <div class="styled-input wide">
-                            <input type="text" required />
-                            <label>Name</label> 
-                        </div>
+                <div class="col-xs-12">
+                    <div class="styled-input wide">
+                        <input type="text" required />
+                        <label>Name</label> 
                     </div>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="styled-input">
-                            <input type="text" required />
-                            <label>Email</label> 
-                        </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="styled-input">
+                        <input type="text" required />
+                        <label>Email</label> 
                     </div>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="styled-input" style="float:right;">
-                            <input type="text" required />
-                            <label>Phone Number</label> 
-                        </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="styled-input" style="float:right;">
+                        <input type="text" required />
+                        <label>Phone Number</label> 
                     </div>
-                    <div class="col-xs-12">
-                        <div class="styled-input wide">
-                            <textarea required></textarea>
-                            <label>Message</label>
-                        </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="styled-input wide">
+                        <textarea required></textarea>
+                        <label>Message</label>
                     </div>
-                    <div class="col-xs-12">
-                        <div class="btn-lrg submit-btn">Send Message</div>
-                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="btn-lrg submit-btn">Send Message</div>
+                </div>
             </div>
+        </div>
+
+        <div id="location_section">
+            <div class="location_container">
+                <div class="location_header">
+                    <h2>Find Us</h2>
+                    <p>Visit us in person - we'd love to welcome you!</p>
+                </div>
+                <div class="location_content">
+                    <div class="map_wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.98!3d40.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMCcwMC4wIk4gNzPCsDU4JzQ4LjAiVw!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="address_wrapper">
+                        <h3>Our Location</h3>
+                        <div class="address_item">
+                            <div class="address_icon">📍</div>
+                            <div class="address_details">
+                                <h4>Address</h4>
+                                <p>123 Church Street<br>City, State 12345<br>United States</p>
+                            </div>
+                        </div>
+                        <div class="address_item">
+                            <div class="address_icon">📞</div>
+                            <div class="address_details">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+11234567890">(123) 456-7890</a></p>
+                            </div>
+                        </div>
+                        <div class="address_item">
+                            <div class="address_icon">✉️</div>
+                            <div class="address_details">
+                                <h4>Email</h4>
+                                <p><a href="mailto:info@insightca.org">info@insightca.org</a></p>
+                            </div>
+                        </div>
+                        <div class="address_item">
+                            <div class="address_icon">🕐</div>
+                            <div class="address_details">
+                                <h4>Service Times</h4>
+                                <p>Sunday: 10:00 AM<br>Wednesday: 7:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer_section">
+            <p>&copy; 2025 Insight Christian Assembly. All rights reserved.</p>
         </div>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src ="contact.js"></script>
-        
-
+        <script src="contact.js"></script>
     </body>
 </html>

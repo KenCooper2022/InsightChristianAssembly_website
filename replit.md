@@ -7,7 +7,7 @@ This is a static HTML/CSS/JavaScript website for Insight Christian Assembly, a c
 - Contact Us page with a contact form
 
 ## Project Structure
-- **HTML Pages**: `index.html`, `about_us.html`, `contact_us.html`, `ministries.html`, `ministry_page.html`, `give.html`, `building_fund.html`, `visit_us.html`, `shop.html`
+- **HTML Pages**: `index.html`, `about_us.html`, `contact_us.html`, `ministries.html`, `ministry_page.html`, `give.html`, `building_fund.html`, `visit_us.html`, `shop.html`, `prayer_requests.html`
 - **CSS Files**:
   - `style.css` - Main homepage styles
   - `about_us_style.css` - About Us page styles
@@ -18,7 +18,8 @@ This is a static HTML/CSS/JavaScript website for Insight Christian Assembly, a c
   - `css/ministries_style.css` - Ministries page styles
   - `css/visit_us_style.css` - Visit Us page styles
   - `css/shop_style.css` - Shop page styles
-- **JavaScript Files**: `index.js`, `contact.js`, `about_us.js`, `give.js`, `building_fund.js`, `shop.js`
+  - `css/prayer_requests.css` - Prayer Requests page styles
+- **JavaScript Files**: `index.js`, `contact.js`, `about_us.js`, `give.js`, `building_fund.js`, `shop.js`, `prayer_requests.js`
 - **Assets**: Images and videos stored in the `/assets` directory
 
 ## Technology Stack
@@ -72,6 +73,16 @@ The project is configured as a static deployment:
 - Redesigned events carousel: compact 800px width, navy gradient overlay, teal accent buttons, rounded corners
 - Created Shop page with hero section and expandable product cards with dropdown descriptions and prices
 - Added Shop link to navigation bar across all pages
+- Changed Shop page to display "Coming Soon" message instead of product cards
+- Fixed Contact Us page layout and alignment issues
+- Added contact form submission with localStorage save and animated thank you message
+- Created Prayer Requests page with:
+  - Prayer request submission form (saves to localStorage)
+  - Prayer session times section (editable)
+  - Animated thank you message with scripture verse
+  - Privacy note for confidentiality
+- Changed homepage "Community" card to "Prayer Requests" with link
+- Added Prayer link to navigation bar across all pages
 
 ## Design System
 - **Color Scheme**: Navy blue (#001d3d), White, Teal (#00A7E1)
@@ -81,7 +92,8 @@ The project is configured as a static deployment:
 ## Notes
 - The website uses external CDNs for Bootstrap, jQuery, and Google Fonts
 - PayPal integration is configured for donations (sandbox mode currently)
-- Contact form is currently frontend-only (no backend processing)
+- Contact form saves submissions to localStorage (to be connected to backend later)
+- Prayer request form saves submissions to localStorage (to be connected to backend later)
 
 ## User Preferences
 - Backend development: Node.js with Express (preferred for future developments)

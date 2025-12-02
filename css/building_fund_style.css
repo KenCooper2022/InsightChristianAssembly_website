@@ -82,7 +82,7 @@
 }
 
 .tracker-description {
-    color: white;
+    color: #ffffff !important;
     font-size: 0.95rem;
     margin-bottom: 25px;
 }

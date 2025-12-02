@@ -130,13 +130,16 @@ h2{
     position:absolute;
     width:100%;
     z-index:999;
-    height:100%;
+    min-height:100%;
     border-radius:0%;
     background-color: rgba(6, 105, 198, 0.5);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    overflow-y: auto;
 }
 .container{
     background-color: rgba(5, 28, 50, 0.5);
@@ -218,8 +221,8 @@ h2{
 }
 #donate_section{
     position:relative;
-    width:500px;
-    height:400px;
+    width:450px;
+    height:350px;
     border-radius: 10%;
 }
 #custom-cards{
@@ -245,7 +248,7 @@ h2{
 
 .thumbnail {
     position: relative;
-    width: 450px;
+    width: 400px;
     border-radius: 6%;
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.8);
     overflow: hidden;
@@ -364,7 +367,9 @@ h2{
   .more_info_section {
     width: 100%;
     max-width: 400px;
-    margin: 20px auto 0;
+    margin: 50px auto 100px;
+    position: relative;
+    z-index: 10;
   }
 
   .more_info_trigger {

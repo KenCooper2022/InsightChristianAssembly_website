@@ -84,8 +84,8 @@ h2{
     display: inline-block;
 }
 #nav_bar > li > a:hover{
-    background-color: rgba(0, 167, 225, 0.3);
-    color: #00A7E1;
+    background-color: rgba(0, 167, 225, 0.15);
+    color: #fff;
     transform: translateY(-2px);
 }
 #church-logo{

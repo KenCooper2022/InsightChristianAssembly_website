@@ -811,6 +811,27 @@ h2{
   margin: 0 auto;
 }
 
+.visit_card_link {
+  text-decoration: none;
+  display: block;
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+}
+
+.visit_card_link .visit_card {
+  min-width: unset;
+  max-width: unset;
+  height: 100%;
+}
+
+.visit_card_link:hover .visit_card {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 167, 225, 0.1);
+  border: 2px solid #00A7E1;
+}
+
 .visit_card {
   background-color: white;
   border-radius: 10px;

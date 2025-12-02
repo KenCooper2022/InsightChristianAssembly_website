@@ -87,6 +87,11 @@
     margin-bottom: 25px;
 }
 
+.tracker-primary .tracker-description,
+.tracker-secondary .tracker-description {
+    color: #ffffff !important;
+}
+
 .progress-stats {
     display: flex;
     justify-content: center;

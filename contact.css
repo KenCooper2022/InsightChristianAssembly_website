@@ -147,3 +147,86 @@ input[type=checkbox]:checked + label {
   color: #f00;
   font-style: normal;
 }
+
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+
+/* Tablet and below (768px) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+
+    #nav_bar {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 15px 10px;
+    }
+
+    #nav_bar > li {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    h4 {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .input-container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    input,
+    textarea {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    .styled-input label {
+        padding: 1rem 20px 1rem 20px;
+    }
+}
+
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+    body {
+        padding-top: 50px;
+    }
+
+    #nav_bar {
+        gap: 5px;
+        padding: 10px 5px;
+    }
+
+    #nav_bar > li {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h4 {
+        font-size: 14px;
+    }
+
+    input,
+    textarea {
+        padding: 15px;
+        font-size: 0.85rem;
+    }
+
+    .styled-input label {
+        padding: 0.8rem 15px;
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+}

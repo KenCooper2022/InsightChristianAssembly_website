@@ -632,9 +632,229 @@ h2{
   margin: 0;
 }
 
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+
+/* Tablet and below (768px) */
 @media (max-width: 768px) {
   .plan_visit_cards {
     flex-direction: column;
     align-items: center;
+  }
+
+  /* Hero section mobile */
+  #hero {
+    height: 400px;
+  }
+
+  #hero_content h1 {
+    font-size: 1.8rem;
+    padding: 0 20px;
+  }
+
+  #hero_content p {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+
+  /* Navigation mobile */
+  #nav_bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+  }
+
+  #nav_bar > li {
+    font-size: 14px;
+  }
+
+  #church-logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px auto;
+  }
+
+  /* Popup/Announcement dropdown mobile */
+  #announcement_dropdown {
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  #donate_section {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 80px;
+  }
+
+  .thumbnail {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .thumbnail__img:before {
+    font-size: 16px;
+    letter-spacing: 3px;
+    line-height: 1.6;
+  }
+
+  /* Close button mobile - positioned below donate section */
+  #x_button {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 20px;
+    width: 140px;
+    height: 45px;
+    font-size: 12px;
+  }
+
+  /* Welcome section mobile */
+  #welcome_section {
+    padding: 40px 20px;
+  }
+
+  .welcome_content h1 {
+    font-size: 1.8rem;
+  }
+
+  .welcome_content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Section 1 mobile */
+  #section_1 {
+    padding: 30px 20px;
+  }
+
+  #section_1 h1 {
+    font-size: 1.5rem;
+  }
+
+  #section_1 p {
+    font-size: 1rem;
+  }
+
+  /* Plan visit section mobile */
+  #plan_visit_section {
+    padding: 40px 20px;
+  }
+
+  #plan_visit_section h2 {
+    font-size: 1.8rem;
+  }
+
+  .visit_card {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 25px 20px;
+  }
+
+  /* Footer mobile */
+  .footer {
+    padding: 30px 15px;
+  }
+
+  .footer .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+  /* Hero section small mobile */
+  #hero {
+    height: 350px;
+  }
+
+  #hero_content h1 {
+    font-size: 1.4rem;
+    padding: 0 15px;
+  }
+
+  #hero_content p {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+
+  /* Navigation small mobile */
+  #nav_bar {
+    gap: 3px;
+    padding: 5px;
+  }
+
+  #nav_bar > li {
+    font-size: 12px;
+  }
+
+  #church-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Popup small mobile */
+  .thumbnail {
+    max-width: 280px;
+  }
+
+  .thumbnail__img:before {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  #x_button {
+    width: 120px;
+    height: 40px;
+    font-size: 11px;
+  }
+
+  #paypal_donate_button {
+    width: 110px;
+    height: 35px;
+    font-size: 11px;
+  }
+
+  /* Welcome section small mobile */
+  .welcome_content h1 {
+    font-size: 1.5rem;
+  }
+
+  .welcome_content p {
+    font-size: 0.95rem;
+  }
+
+  /* Plan visit section small mobile */
+  #plan_visit_section h2 {
+    font-size: 1.5rem;
+  }
+
+  .plan_visit_btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .visit_card h3 {
+    font-size: 1.25rem;
+  }
+
+  .visit_card p {
+    font-size: 0.9rem;
+  }
+
+  /* Cards section small mobile */
+  .cards__item {
+    padding: 0.5rem;
+  }
+
+  .card__title {
+    font-size: 1rem;
+  }
+
+  .card__text {
+    font-size: 0.8rem;
   }
 }

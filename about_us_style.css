@@ -253,3 +253,98 @@ figure {
     margin:0;
     background-color:#00A7E1;
   }
+
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+
+/* Tablet and below (768px) */
+@media (max-width: 768px) {
+    #nav_bar {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 15px 10px;
+    }
+
+    #nav_bar > li {
+        font-size: 14px;
+    }
+
+    .hero__title {
+        font-size: 10vw;
+        padding: 0 15px;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    blockquote {
+        font-size: 1.5rem;
+        padding-left: 1rem;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+
+    .content__title {
+        font-size: 2rem;
+    }
+
+    .content__author {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .image-container {
+        margin-left: 0;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .about-section {
+        padding: 30px 20px;
+    }
+
+    #mission_statement {
+        width: 100%;
+    }
+
+    #mission_statement_text {
+        margin-top: 20px;
+        margin-bottom: 50px;
+        padding: 20px;
+    }
+}
+
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+    #nav_bar {
+        gap: 5px;
+        padding: 10px 5px;
+    }
+
+    #nav_bar > li {
+        font-size: 12px;
+    }
+
+    .hero__title {
+        font-size: 12vw;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    blockquote {
+        font-size: 1.2rem;
+    }
+
+    .content__title {
+        font-size: 1.6rem;
+    }
+
+    .content__author {
+        font-size: 1rem;
+    }
+}

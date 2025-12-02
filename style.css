@@ -358,7 +358,34 @@ h2{
   }
 
   .donate_button {
+    margin-bottom: 10px;
+  }
 
+  .building_fund_link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #00A7E1 0%, #007ea8 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 10px rgba(0, 167, 225, 0.3);
+  }
+
+  .building_fund_link:hover {
+    background: linear-gradient(135deg, #007ea8 0%, #005a78 100%);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 167, 225, 0.4);
+  }
+
+  .building_fund_link svg {
+    fill: currentColor;
   }
 
   

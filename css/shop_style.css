@@ -31,6 +31,58 @@
     margin: 0 auto;
 }
 
+/* ==================== COMING SOON SECTION ==================== */
+
+.coming-soon-section {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #001d3d 0%, #003459 100%);
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.coming-soon-icon {
+    color: #00A7E1;
+    margin-bottom: 25px;
+}
+
+.coming-soon-icon svg {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+.coming-soon-section h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.coming-soon-section p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 500px;
+    margin: 0 auto 15px;
+    line-height: 1.7;
+}
+
+.coming-soon-note {
+    font-size: 0.95rem !important;
+    color: #00A7E1 !important;
+    font-style: italic;
+}
+
 /* ==================== PRODUCTS GRID ==================== */
 
 .products-grid {
@@ -265,6 +317,19 @@ footer {
 
     .footer-section {
         max-width: 100%;
+    }
+
+    .coming-soon-section {
+        padding: 40px 20px;
+    }
+
+    .coming-soon-section h3 {
+        font-size: 2rem;
+    }
+
+    .coming-soon-icon svg {
+        width: 60px;
+        height: 60px;
     }
 }
 

@@ -9,7 +9,7 @@ This is a static HTML/CSS/JavaScript website for Insight Christian Assembly, a c
 ## Project Structure
 - **HTML Pages**: `index.html`, `about_us.html`, `contact_us.html`, `ministries.html`, `ministry_page.html`, `give.html`, `building_fund.html`, `visit_us.html`
 - **CSS Files**: `style.css`, `about_us_style.css`, `contact.css`, `pages.css`
-- **JavaScript Files**: `index.js`, `contact.js`, `about_us.js`, `give.js`
+- **JavaScript Files**: `index.js`, `contact.js`, `about_us.js`, `give.js`, `building_fund.js`
 - **Assets**: Images and videos stored in the `/assets` directory
 
 ## Technology Stack
@@ -51,7 +51,8 @@ The project is configured as a static deployment:
 - Implemented comprehensive mobile responsive design across all pages
 - Enhanced About Us page: added scroll animations, updated fonts (Noto Sans/Libre Baskerville), single pastor card
 - Enhanced Give page: animated Proverbs 11:25 scripture hero, changed "Tithes & Offerings" to "Offering", featured Building Fund card
-- Created dedicated Building Fund page with goal cards, vision section, and PayPal donation integration
+- Created dedicated Building Fund page with scrolling image gallery, vision section, and PayPal donation integration
+- Added lightbox/expand feature for viewing gallery images individually with keyboard navigation support
 
 ## Design System
 - **Color Scheme**: Navy blue (#001d3d), White, Teal (#00A7E1)

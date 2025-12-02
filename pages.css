@@ -277,33 +277,72 @@ body {
     margin-bottom: 20px;
 }
 
-.progress-tracker {
-    background: linear-gradient(135deg, #001d3d 0%, #003459 100%);
-    border-radius: 15px;
-    padding: 40px;
+.progress-trackers-container {
+    display: flex;
+    gap: 30px;
     margin-bottom: 50px;
-    text-align: center;
-    box-shadow: 0 10px 40px rgba(0, 29, 61, 0.3);
 }
 
-.progress-header h2 {
+.progress-tracker {
+    flex: 1;
+    border-radius: 15px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.tracker-primary {
+    background: linear-gradient(135deg, #001d3d 0%, #003459 100%);
+    border: 2px solid rgba(0, 167, 225, 0.3);
+}
+
+.tracker-secondary {
+    background: linear-gradient(135deg, #003459 0%, #00A7E1 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.tracker-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tracker-primary .tracker-icon {
+    color: #00A7E1;
+}
+
+.tracker-secondary .tracker-icon {
+    color: white;
+}
+
+.tracker-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.progress-tracker h3 {
     color: white;
     font-family: 'Libre Baskerville', serif;
-    font-size: 2rem;
-    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    margin: 0 0 8px 0;
 }
 
-.progress-subtitle {
+.tracker-description {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 1rem;
-    margin-bottom: 30px;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
 }
 
 .progress-stats {
     display: flex;
     justify-content: center;
-    gap: 60px;
-    margin-bottom: 25px;
+    gap: 40px;
+    margin-bottom: 20px;
 }
 
 .stat-item {
@@ -314,32 +353,48 @@ body {
 
 .stat-label {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 5px;
 }
 
 .stat-value {
-    color: #00A7E1;
+    color: white;
     font-family: 'Libre Baskerville', serif;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
+}
+
+.tracker-primary .stat-value {
+    color: #00A7E1;
+}
+
+.tracker-secondary .stat-value {
+    color: white;
 }
 
 .progress-bar-container {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50px;
-    height: 20px;
+    height: 16px;
     overflow: hidden;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+}
+
+.tracker-primary .progress-bar {
+    background: linear-gradient(90deg, #00A7E1 0%, #00d4ff 100%);
+}
+
+.tracker-secondary .progress-bar {
+    background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
 }
 
 .progress-bar {
-    background: linear-gradient(90deg, #00A7E1 0%, #00d4ff 100%);
     height: 100%;
     border-radius: 50px;
-    transition: width 1s ease-in-out;
+    width: 0;
+    transition: width 1.5s ease-out;
     position: relative;
 }
 
@@ -350,7 +405,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
     animation: shimmer 2s infinite;
 }
 
@@ -361,49 +416,56 @@ body {
 
 .progress-percentage {
     color: white;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}
-
-.progress-percentage span {
-    color: #00A7E1;
-    font-weight: 700;
-    font-size: 1.3rem;
-}
-
-.progress-message {
-    color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
     margin: 0;
-    font-style: italic;
+}
+
+.tracker-primary .progress-percentage span {
+    color: #00A7E1;
+    font-weight: 700;
+}
+
+.tracker-secondary .progress-percentage span {
+    color: white;
+    font-weight: 700;
+}
+
+@media (max-width: 900px) {
+    .progress-trackers-container {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 768px) {
     .progress-tracker {
-        padding: 30px 20px;
+        padding: 25px 20px;
     }
 
     .progress-stats {
-        gap: 30px;
+        gap: 25px;
     }
 
     .stat-value {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
-    .progress-header h2 {
-        font-size: 1.6rem;
+    .progress-tracker h3 {
+        font-size: 1.3rem;
     }
 }
 
 @media (max-width: 480px) {
     .progress-stats {
-        flex-direction: column;
         gap: 20px;
     }
 
     .stat-value {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
+    }
+
+    .tracker-icon {
+        width: 40px;
+        height: 40px;
     }
 }
 

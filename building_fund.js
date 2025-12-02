@@ -1,4 +1,86 @@
 $(document).ready(function(){
+    
+    function animateValue(element, start, end, duration, prefix) {
+        prefix = prefix || '$';
+        var startTime = null;
+        
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            var timeElapsed = currentTime - startTime;
+            var progress = Math.min(timeElapsed / duration, 1);
+            
+            var easeProgress = 1 - Math.pow(1 - progress, 3);
+            var currentValue = Math.floor(start + (end - start) * easeProgress);
+            
+            element.text(prefix + currentValue.toLocaleString());
+            
+            if (progress < 1) {
+                requestAnimationFrame(animation);
+            }
+        }
+        
+        requestAnimationFrame(animation);
+    }
+    
+    function animateProgressBar(progressBar, targetPercent, duration) {
+        setTimeout(function() {
+            progressBar.css('width', targetPercent + '%');
+        }, 100);
+    }
+    
+    function animateTrackers() {
+        $('.progress-tracker').each(function() {
+            var tracker = $(this);
+            var raised = parseInt(tracker.data('raised')) || 0;
+            var goal = parseInt(tracker.data('goal')) || 1;
+            var percent = Math.round((raised / goal) * 100);
+            
+            var amountDisplay = tracker.find('.amount-display');
+            var goalDisplay = tracker.find('.goal-display');
+            var percentDisplay = tracker.find('.percent-display');
+            var progressBar = tracker.find('.progress-bar');
+            
+            animateValue(amountDisplay, 0, raised, 2000, '$');
+            animateValue(goalDisplay, 0, goal, 2000, '$');
+            
+            var percentStart = { value: 0 };
+            $({ value: 0 }).animate({ value: percent }, {
+                duration: 2000,
+                easing: 'swing',
+                step: function() {
+                    percentDisplay.text(Math.floor(this.value) + '%');
+                },
+                complete: function() {
+                    percentDisplay.text(percent + '%');
+                }
+            });
+            
+            animateProgressBar(progressBar, percent, 2000);
+        });
+    }
+    
+    var trackerAnimated = false;
+    
+    function checkTrackerVisibility() {
+        if (trackerAnimated) return;
+        
+        var trackerContainer = $('.progress-trackers-container');
+        if (trackerContainer.length === 0) return;
+        
+        var containerTop = trackerContainer.offset().top;
+        var containerBottom = containerTop + trackerContainer.outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        
+        if (containerBottom > viewportTop && containerTop < viewportBottom) {
+            trackerAnimated = true;
+            animateTrackers();
+        }
+    }
+    
+    $(window).on('scroll', checkTrackerVisibility);
+    checkTrackerVisibility();
+    
     var images = [];
     var currentIndex = 0;
     

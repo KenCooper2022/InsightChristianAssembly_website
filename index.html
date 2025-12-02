@@ -82,54 +82,61 @@
                 </div> 
             </div>
 
-            <div class="container">
-                <h2>Upcoming Events </h2>
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                  <!-- Indicators -->
-                  <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                  </ol>
-              
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner">
-              
-                    <div class="item active">
-                      <img src="./assets/stock_photo_1.jpg" alt="Upcoming Fasting">
-                      <div class="carousel-caption">
-                        <h3>Upcoming Fasting</h3>
-                        <p>Be Prepared Click for More Details</p>
-                      </div>
+            <div id="events_section">
+                <h2>Upcoming Events</h2>
+                <div class="events_carousel_wrapper">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="event_slide">
+                                    <img src="./assets/stock_photo_1.jpg" alt="Upcoming Fasting">
+                                    <div class="event_overlay"></div>
+                                    <div class="event_content">
+                                        <h3>Upcoming Fasting</h3>
+                                        <p>Be Prepared - Click for More Details</p>
+                                        <a href="#" class="event_btn">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="event_slide">
+                                    <img src="./assets/stock_photo_2.jpg" alt="Youth Night">
+                                    <div class="event_overlay"></div>
+                                    <div class="event_content">
+                                        <h3>Youth Night</h3>
+                                        <p>Bring your bible!</p>
+                                        <a href="#" class="event_btn">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="event_slide">
+                                    <img src="./assets/stock_photo_3.jpg" alt="Evangelism Day">
+                                    <div class="event_overlay"></div>
+                                    <div class="event_content">
+                                        <h3>Evangelism Day</h3>
+                                        <p>Come on out!</p>
+                                        <a href="#" class="event_btn">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="carousel_arrow carousel_arrow_left">&#10094;</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="carousel_arrow carousel_arrow_right">&#10095;</span>
+                        </a>
                     </div>
-              
-                    <div class="item">
-                      <img src="./assets/stock_photo_2.jpg" alt="Chicago">
-                      <div class="carousel-caption">
-                        <h3>Youth Night</h3>
-                        <p>Bring your bible !</p>
-                      </div>
-                    </div>
-                  
-                    <div class="item">
-                      <img src="./assets/stock_photo_3.jpg" alt="New York">
-                      <div class="carousel-caption">
-                        <h3>Evangelicism day </h3>
-                        <p>Come on out !</p>
-                      </div>
-                    </div>
-                
-                  </div>
-              
-                  <!-- Left and right controls -->
-                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
                 </div>
             </div>
 

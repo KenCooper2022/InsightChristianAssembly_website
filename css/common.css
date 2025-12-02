@@ -32,8 +32,9 @@ body {
 }
 
 #nav_bar > li > a:hover {
-    background-color: rgba(0, 167, 225, 0.15);
+    background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
 }
 

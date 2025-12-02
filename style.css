@@ -377,16 +377,17 @@ h2{
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 15px 25px;
+    padding: 18px 50px;
     background: rgba(255, 255, 255, 0.95);
     color: #001d3d;
     border-radius: 50px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
   }
 
   .more_info_trigger:hover {

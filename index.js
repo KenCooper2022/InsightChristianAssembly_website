@@ -65,3 +65,36 @@ $('#x_button').on('click',function(){
     .slideUp('slow')
 
 });
+
+function loadLatestYouTubeVideo() {
+    var container = $('#youtube_embed_container');
+    
+    $.ajax({
+        url: '/api/latest-video',
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            if (data.error) {
+                container.html('<p class="video_error">Unable to load video. Please check back later.</p>');
+                console.log('YouTube API Error:', data.error);
+                return;
+            }
+            
+            var embedHtml = '<div class="video_wrapper">' +
+                '<iframe src="https://www.youtube.com/embed/' + data.videoId + 
+                '?rel=0" title="' + data.title + 
+                '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
+                '</div>' +
+                '<p class="video_title">' + data.title + '</p>';
+            
+            container.html(embedHtml);
+        },
+        error: function() {
+            container.html('<p class="video_error">Unable to load video. Please check back later.</p>');
+        }
+    });
+}
+
+$(document).ready(function(){
+    loadLatestYouTubeVideo();
+});

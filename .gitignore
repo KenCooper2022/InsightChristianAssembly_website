@@ -21,3 +21,6 @@ ENV/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Cache files
+youtube_cache.json

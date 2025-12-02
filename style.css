@@ -75,17 +75,16 @@ h2{
 }
 
 #announcement_dropdown{
-
     position:absolute;
-
     width:100%;
     z-index:999;
     height:100%;
     border-radius:0%;
     background-color: rgba(6, 105, 198, 0.5);
-
-
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .container{
     background-color: rgba(5, 28, 50, 0.5);
@@ -97,15 +96,10 @@ h2{
     opacity: 0;
 }
 #donate_section{
-    
     position:relative;
-    margin-right:30px;
-    margin-top:60px;
     width:500px;
     height:400px;
     border-radius: 10%;
-    margin-left:450px;
-
 }
 #custom-cards{
     opacity:0.8;
@@ -462,4 +456,18 @@ h2{
 #section_1{
   margin-top:0;
   background-color: #003459;
+}
+
+#myCarousel .item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+#myCarousel .carousel-inner {
+  width: 100%;
+}
+
+#myCarousel {
+  width: 100%;
 }

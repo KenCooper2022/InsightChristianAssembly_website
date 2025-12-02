@@ -957,15 +957,17 @@ h2{
     line-height: 1.6;
   }
 
-  /* Close button mobile - positioned below donate section */
+  /* Close button mobile - fixed at bottom of screen */
   #x_button {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    margin-top: 20px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0;
     width: 140px;
     height: 45px;
     font-size: 12px;
+    z-index: 1000;
   }
 
   /* Welcome section mobile */
@@ -1065,9 +1067,14 @@ h2{
   }
 
   #x_button {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 120px;
     height: 40px;
     font-size: 11px;
+    z-index: 1000;
   }
 
   #paypal_donate_button {

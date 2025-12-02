@@ -17,21 +17,28 @@ This is a static HTML/CSS/JavaScript website for Insight Christian Assembly, a c
 - CSS3
 - JavaScript (with jQuery)
 - Bootstrap 5.3.8 and 3.4.1
+- Node.js with Express for the server
 - PayPal SDK for donations
 
 ## Development Setup
-The project uses a simple Python HTTP server to serve static files:
-- **Server**: Python 3.11 with built-in HTTP server
+The project uses a Node.js/Express server to serve static files:
+- **Server**: Node.js 20 with Express
 - **Port**: 5000 (frontend)
 - **Host**: 0.0.0.0 (to support Replit's proxy environment)
 
 ## Running the Project
 The workflow "Run Website" automatically starts the server using:
 ```bash
-python server.py
+node server.js
 ```
 
 The server includes cache-control headers to prevent browser caching issues during development.
+
+## Server Features
+- Static file serving with no-cache headers
+- YouTube API endpoint (`/api/latest-video`) for fetching latest church video
+- Weekly caching of YouTube API responses to minimize API calls
+- Environment variables: `YOUTUBE_API_KEY`, `CHANNEL_ID`
 
 ## Deployment
 The project is configured as a static deployment:
@@ -41,11 +48,11 @@ The project is configured as a static deployment:
 
 ## Recent Changes (December 2, 2025)
 - Imported GitHub repository to Replit
-- Installed Python 3.11 for HTTP server
-- Created `server.py` with cache-control headers and SO_REUSEADDR for reliable restarts
+- Replaced Python HTTP server with Node.js/Express server (`server.js`)
+- Added `package.json` with Express dependency
 - Configured "Run Website" workflow on port 5000
 - Set up static deployment configuration
-- Added `.gitignore` for Python files
+- Updated `.gitignore` for Node.js files (node_modules, etc.)
 - Created `replit.md` for project documentation
 - Fixed video hero background display (z-index and HTML attribute corrections)
 - Implemented comprehensive mobile responsive design across all pages
@@ -53,6 +60,7 @@ The project is configured as a static deployment:
 - Enhanced Give page: animated Proverbs 11:25 scripture hero, changed "Tithes & Offerings" to "Offering", featured Building Fund card
 - Created dedicated Building Fund page with scrolling image gallery, vision section, and PayPal donation integration
 - Added lightbox/expand feature for viewing gallery images individually with keyboard navigation support
+- Redesigned events carousel: compact 800px width, navy gradient overlay, teal accent buttons, rounded corners
 
 ## Design System
 - **Color Scheme**: Navy blue (#001d3d), White, Teal (#00A7E1)

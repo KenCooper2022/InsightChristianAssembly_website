@@ -700,9 +700,10 @@ h2{
 }
 
 .event_btn:hover {
-  background-color: white;
+  background-color: #fff;
   color: #003459;
   text-decoration: none;
+  transform: scale(1.05);
 }
 
 #myCarousel .carousel-indicators {
@@ -745,7 +746,9 @@ h2{
 }
 
 .carousel_arrow:hover {
-  background-color: #00A7E1;
+  background-color: #fff;
+  color: #003459;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .carousel_arrow_left {
@@ -798,8 +801,9 @@ h2{
 }
 
 .plan_visit_btn:hover {
-  background-color: #00A7E1;
-  color: white;
+  background-color: #003459;
+  color: #fff;
+  transform: scale(1.05);
 }
 
 .plan_visit_cards {
@@ -826,10 +830,18 @@ h2{
 }
 
 .visit_card_link:hover .visit_card {
-  transform: translateY(-5px);
+  transform: scale(1.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  background-color: rgba(0, 167, 225, 0.1);
-  border: 2px solid #00A7E1;
+  background-color: #003459;
+  border: 2px solid #fff;
+}
+
+.visit_card_link:hover .visit_card h3 {
+  color: #fff;
+}
+
+.visit_card_link:hover .visit_card p {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .visit_card {
@@ -840,11 +852,17 @@ h2{
   min-width: 280px;
   max-width: 350px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.visit_card h3,
+.visit_card p {
+  transition: color 0.3s ease;
 }
 
 .visit_card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.03);
 }
 
 .visit_card h3 {

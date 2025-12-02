@@ -364,98 +364,18 @@ h2{
     margin-bottom: 10px;
   }
 
-  .more_info_section {
-    width: 400px;
-    margin: 50px auto 100px;
-    position: relative;
-    z-index: 10;
-  }
-
-  .more_info_trigger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 18px 50px;
-    background: rgba(255, 255, 255, 0.95);
-    color: #001d3d;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    text-align: center;
-  }
-
-  .more_info_trigger:hover {
-    background: #fff;
-    transform: scale(1.02);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
-  }
-
-  .more_info_trigger .arrow_icon {
-    transition: transform 0.3s ease;
-  }
-
-  .more_info_trigger.active .arrow_icon {
-    transform: rotate(180deg);
-  }
-
-  .more_info_content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease, margin 0.4s ease;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    margin-top: 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .more_info_content.expanded {
-    max-height: 200px;
-    margin-top: 15px;
-    padding: 20px;
-  }
-
-  .info_cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .info_card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 20px 30px;
-    background: linear-gradient(135deg, #001d3d 0%, #003459 100%);
-    color: white;
+  .donate_link {
+    display: block;
     text-decoration: none;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-    min-width: 120px;
   }
 
-  .info_card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 29, 61, 0.4);
-    color: white;
+  .donate_link .thumbnail {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .info_card svg {
-    width: 30px;
-    height: 30px;
-    fill: #00A7E1;
-  }
-
-  .info_card span {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+  .donate_link:hover .thumbnail {
+    transform: scale(1.02);
+    box-shadow: 0 25px 20px -10px rgba(0, 0, 0, 0.5);
   }
 
   

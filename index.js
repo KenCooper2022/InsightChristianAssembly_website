@@ -66,11 +66,6 @@ $('#x_button').on('click',function(){
 
 });
 
-$('#moreInfoTrigger').on('click', function(){
-    $(this).toggleClass('active');
-    $('#moreInfoContent').toggleClass('expanded');
-});
-
 function loadLatestYouTubeVideo() {
     var container = $('#youtube_embed_container');
     

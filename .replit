@@ -34,9 +34,18 @@ localPort = 5000
 externalPort = 80
 
 [[ports]]
+localPort = 39447
+externalPort = 3001
+
+[[ports]]
 localPort = 45149
 externalPort = 3000
 
 [deployment]
 deploymentTarget = "static"
 publicDir = "."
+
+[userenv]
+
+[userenv.shared]
+CHANNEL_ID = "UCCBgiwEdpxE2OkFvPAqMJ3w"

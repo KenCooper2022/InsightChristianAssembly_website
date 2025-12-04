@@ -7,6 +7,7 @@ const app = express();
 const PORT = 5000;
 const CACHE_FILE = 'youtube_cache.json';
 const CACHE_DURATION_DAYS = 7;
+const SHORTS_MAX_DURATION = 60;
 
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || '';
 const CHANNEL_ID = process.env.CHANNEL_ID || 'UCYourChannelID';
@@ -41,56 +42,86 @@ function saveToCache(videoData) {
     }
 }
 
-function fetchLatestVideo() {
-    return new Promise((resolve) => {
-        if (!YOUTUBE_API_KEY) {
-            resolve({ error: 'YouTube API key not configured' });
-            return;
-        }
-
-        const uploadsPlaylistId = 'UU' + CHANNEL_ID.slice(2);
-        const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=1&key=${YOUTUBE_API_KEY}`;
-
+function httpsGet(url) {
+    return new Promise((resolve, reject) => {
         const request = https.get(url, { timeout: 10000 }, (response) => {
             let data = '';
-            
-            response.on('data', (chunk) => {
-                data += chunk;
-            });
-
+            response.on('data', (chunk) => { data += chunk; });
             response.on('end', () => {
                 try {
-                    const parsed = JSON.parse(data);
-                    
-                    if (parsed.items && parsed.items.length > 0) {
-                        const video = parsed.items[0].snippet;
-                        const videoData = {
-                            videoId: video.resourceId.videoId,
-                            title: video.title,
-                            publishedAt: video.publishedAt,
-                            thumbnail: video.thumbnails?.high?.url || '',
-                            description: (video.description || '').slice(0, 200)
-                        };
-                        saveToCache(videoData);
-                        resolve(videoData);
-                    } else {
-                        resolve({ error: 'No videos found' });
-                    }
+                    resolve(JSON.parse(data));
                 } catch (err) {
-                    resolve({ error: 'Failed to parse YouTube response' });
+                    reject(new Error('Failed to parse response'));
                 }
             });
         });
-
-        request.on('error', (err) => {
-            resolve({ error: err.message });
-        });
-
+        request.on('error', reject);
         request.on('timeout', () => {
             request.destroy();
-            resolve({ error: 'Request timeout' });
+            reject(new Error('Request timeout'));
         });
     });
+}
+
+function parseDuration(duration) {
+    const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+    if (!match) return 0;
+    const hours = parseInt(match[1] || 0);
+    const minutes = parseInt(match[2] || 0);
+    const seconds = parseInt(match[3] || 0);
+    return hours * 3600 + minutes * 60 + seconds;
+}
+
+async function fetchLatestVideo() {
+    if (!YOUTUBE_API_KEY) {
+        return { error: 'YouTube API key not configured' };
+    }
+
+    try {
+        const uploadsPlaylistId = 'UU' + CHANNEL_ID.slice(2);
+        const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=15&key=${YOUTUBE_API_KEY}`;
+        
+        const playlistData = await httpsGet(playlistUrl);
+        
+        if (!playlistData.items || playlistData.items.length === 0) {
+            return { error: 'No videos found' };
+        }
+
+        const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
+        const videosUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,snippet&id=${videoIds}&key=${YOUTUBE_API_KEY}`;
+        
+        const videosData = await httpsGet(videosUrl);
+        
+        if (!videosData.items || videosData.items.length === 0) {
+            return { error: 'Could not fetch video details' };
+        }
+
+        for (const video of videosData.items) {
+            const duration = parseDuration(video.contentDetails.duration);
+            
+            if (duration > SHORTS_MAX_DURATION) {
+                const videoData = {
+                    videoId: video.id,
+                    title: video.snippet.title,
+                    publishedAt: video.snippet.publishedAt,
+                    thumbnail: video.snippet.thumbnails?.high?.url || video.snippet.thumbnails?.default?.url || '',
+                    description: (video.snippet.description || '').slice(0, 200),
+                    duration: duration
+                };
+                saveToCache(videoData);
+                console.log(`Found full video: "${videoData.title}" (${duration} seconds)`);
+                return videoData;
+            } else {
+                console.log(`Skipping Short: "${video.snippet.title}" (${duration} seconds)`);
+            }
+        }
+
+        return { error: 'No full-length videos found (only Shorts)' };
+        
+    } catch (err) {
+        console.log('YouTube API error:', err.message);
+        return { error: err.message };
+    }
 }
 
 app.use((req, res, next) => {

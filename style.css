@@ -215,6 +215,25 @@ h2{
     font-family: 'Noto Sans', sans-serif;
     padding: 40px 20px;
 }
+
+.live_indicator {
+    display: inline-block;
+    background-color: #ff0000;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    animation: live_pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes live_pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
 .lower_container{
     background-color: #86b6d9;
     opacity: 0;

@@ -80,12 +80,18 @@ function loadLatestYouTubeVideo() {
                 return;
             }
             
+            var liveIndicator = data.isLive ? '<span class="live_indicator">LIVE</span>' : '';
+            var sectionTitle = data.isLive ? 'Live Now' : 'Latest Message';
+            
+            $('.video_section_content h2').text(sectionTitle);
+            $('.video_subtitle').text(data.isLive ? 'Watch our live stream' : 'Watch our most recent sermon');
+            
             var embedHtml = '<div class="video_wrapper">' +
                 '<iframe src="https://www.youtube.com/embed/' + data.videoId + 
-                '?rel=0" title="' + data.title + 
+                '?rel=0' + (data.isLive ? '&autoplay=1' : '') + '" title="' + data.title + 
                 '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
                 '</div>' +
-                '<p class="video_title">' + data.title + '</p>';
+                '<p class="video_title">' + liveIndicator + data.title + '</p>';
             
             container.html(embedHtml);
         },

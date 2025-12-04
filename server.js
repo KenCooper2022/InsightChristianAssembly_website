@@ -7,10 +7,14 @@ const app = express();
 const PORT = 5000;
 const CACHE_FILE = 'youtube_cache.json';
 const CACHE_DURATION_DAYS = 7;
+const LIVE_CHECK_INTERVAL_MINUTES = 5;
 const SHORTS_MAX_DURATION = 60;
 
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || '';
 const CHANNEL_ID = process.env.CHANNEL_ID || 'UCYourChannelID';
+
+let lastLiveCheck = null;
+let cachedLiveStream = null;
 
 function getCachedVideo() {
     try {
@@ -72,12 +76,56 @@ function parseDuration(duration) {
     return hours * 3600 + minutes * 60 + seconds;
 }
 
+async function checkForLiveStream() {
+    if (!YOUTUBE_API_KEY) {
+        return null;
+    }
+
+    const now = new Date();
+    if (lastLiveCheck && (now - lastLiveCheck) < LIVE_CHECK_INTERVAL_MINUTES * 60 * 1000) {
+        return cachedLiveStream;
+    }
+
+    try {
+        const liveUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&eventType=live&type=video&key=${YOUTUBE_API_KEY}`;
+        const liveData = await httpsGet(liveUrl);
+        
+        lastLiveCheck = now;
+
+        if (liveData.items && liveData.items.length > 0) {
+            const liveVideo = liveData.items[0];
+            cachedLiveStream = {
+                videoId: liveVideo.id.videoId,
+                title: liveVideo.snippet.title,
+                publishedAt: liveVideo.snippet.publishedAt,
+                thumbnail: liveVideo.snippet.thumbnails?.high?.url || liveVideo.snippet.thumbnails?.default?.url || '',
+                description: (liveVideo.snippet.description || '').slice(0, 200),
+                isLive: true
+            };
+            console.log(`Live stream found: "${cachedLiveStream.title}"`);
+            return cachedLiveStream;
+        } else {
+            cachedLiveStream = null;
+            return null;
+        }
+    } catch (err) {
+        console.log('Live stream check error:', err.message);
+        cachedLiveStream = null;
+        return null;
+    }
+}
+
 async function fetchLatestVideo() {
     if (!YOUTUBE_API_KEY) {
         return { error: 'YouTube API key not configured' };
     }
 
     try {
+        const liveStream = await checkForLiveStream();
+        if (liveStream) {
+            return liveStream;
+        }
+
         const uploadsPlaylistId = 'UU' + CHANNEL_ID.slice(2);
         const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=15&key=${YOUTUBE_API_KEY}`;
         
@@ -106,7 +154,8 @@ async function fetchLatestVideo() {
                     publishedAt: video.snippet.publishedAt,
                     thumbnail: video.snippet.thumbnails?.high?.url || video.snippet.thumbnails?.default?.url || '',
                     description: (video.snippet.description || '').slice(0, 200),
-                    duration: duration
+                    duration: duration,
+                    isLive: false
                 };
                 saveToCache(videoData);
                 console.log(`Found full video: "${videoData.title}" (${duration} seconds)`);
@@ -137,8 +186,13 @@ app.get('/api/latest-video', async (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     res.set('Content-Type', 'application/json');
 
+    const liveStream = await checkForLiveStream();
+    if (liveStream) {
+        return res.json(liveStream);
+    }
+
     const cached = getCachedVideo();
-    if (cached) {
+    if (cached && !cached.isLive) {
         return res.json(cached);
     }
 

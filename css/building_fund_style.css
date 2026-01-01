@@ -262,6 +262,133 @@
     font-weight: 700;
 }
 
+/* ==================== NIGERIA PROJECT SECTION ==================== */
+
+.nigeria-project-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    padding: 50px 40px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.nigeria-project-section h2 {
+    color: #001d3d;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.project-intro {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.project-details {
+    margin-bottom: 40px;
+}
+
+.project-stat {
+    background: linear-gradient(135deg, #001d3d 0%, #003459 100%);
+    border-radius: 15px;
+    padding: 30px 40px;
+    display: inline-block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.project-stat h4 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+}
+
+.stat-amount {
+    color: #00A7E1;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.stat-note {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.project-breakdown {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.project-breakdown h3 {
+    color: #001d3d;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.breakdown-item {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #00A7E1;
+}
+
+.breakdown-item h4 {
+    color: #003459;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.1rem;
+    margin: 0 0 15px 0;
+}
+
+.breakdown-item ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #555;
+}
+
+.breakdown-item li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .nigeria-project-section {
+        padding: 30px 20px;
+    }
+
+    .nigeria-project-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .stat-amount {
+        font-size: 1.8rem;
+    }
+
+    .breakdown-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-stat {
+        padding: 20px 30px;
+    }
+}
+
 /* ==================== GOAL CARDS ==================== */
 
 .building-fund-goals {

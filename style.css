@@ -236,7 +236,6 @@ h2{
 
 .lower_container{
     background-color: #86b6d9;
-    opacity: 0;
 }
 #donate_section{
     position:relative;
@@ -245,7 +244,6 @@ h2{
     border-radius: 10%;
 }
 #custom-cards{
-    opacity:0.8;
 }
 .card_color{
     background-color:#00A7E1;
@@ -363,10 +361,10 @@ h2{
   }
   
   .thumbnail__caption {
-    color: #ABABAB;
+    color: #555555;
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.5;
     overflow: hidden;
     opacity: 0;
@@ -503,7 +501,7 @@ h2{
       .btn {
         background-color: white;
         border: 1px solid #cccccc;
-        color: #696969;
+        color: #333333;
         padding: 0.5rem;
         text-transform: lowercase;
       }
@@ -583,9 +581,9 @@ h2{
         background-image: url(./assets/pastor_preaching_img_2.jpeg);
       }
       .card__title {
-        color: #696969;
+        color: #003459;
         font-size: 1.25rem;
-        font-weight: 300;
+        font-weight: 500;
         letter-spacing: 2px;
         text-transform: uppercase;
       }

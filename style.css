@@ -994,15 +994,28 @@ h2{
 
   /* Close button mobile - fixed at bottom of screen */
   #x_button {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     margin-top: 0;
     width: 140px;
     height: 45px;
     font-size: 12px;
-    z-index: 1000;
+    z-index: 9999 !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  /* Button container on mobile */
+  #announcement_dropdown > div:last-child {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 9999;
   }
 
   /* Welcome section mobile */
@@ -1102,14 +1115,27 @@ h2{
   }
 
   #x_button {
-    position: fixed;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed !important;
+    bottom: 15px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     width: 120px;
     height: 40px;
     font-size: 11px;
-    z-index: 1000;
+    z-index: 9999 !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  /* Button container on small mobile */
+  #announcement_dropdown > div:last-child {
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 9999;
   }
 
   #paypal_donate_button {

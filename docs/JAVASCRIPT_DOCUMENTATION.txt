@@ -1,0 +1,1606 @@
+================================================================================
+                  JAVASCRIPT FILES - COMPLETE DOCUMENTATION
+                     Insight Christian Assembly Website
+================================================================================
+
+This document provides an exhaustive, line-by-line explanation of every
+JavaScript file in the project. Every function, statement, and concept
+is explained in complete detail.
+
+================================================================================
+                         TABLE OF CONTENTS
+================================================================================
+
+    1.  JAVASCRIPT FUNDAMENTALS (Complete Reference)
+    2.  jQuery Fundamentals
+    3.  index.js (Homepage - Complete Breakdown)
+    4.  contact.js (Contact Form)
+    5.  prayer_requests.js (Prayer Form)
+    6.  building_fund.js (Gallery Lightbox)
+    7.  visit_us.js (Accordion)
+    8.  about_us.js (Scroll Animations)
+    9.  give.js (Give Page)
+    10. shop.js (Shop Page)
+    11. server.js (Node.js Backend)
+
+================================================================================
+                    SECTION 1: JAVASCRIPT FUNDAMENTALS
+================================================================================
+
+------------------------------------------------------------------------------
+WHAT IS JAVASCRIPT?
+------------------------------------------------------------------------------
+
+JavaScript is a programming language that runs in web browsers. It allows
+web pages to be interactive and dynamic. Unlike HTML (structure) and CSS
+(styling), JavaScript provides logic and behavior.
+
+JavaScript can:
+- Respond to user actions (clicks, typing, scrolling)
+- Modify HTML content dynamically
+- Make requests to servers (AJAX)
+- Animate elements
+- Validate forms
+- Store data locally
+- And much more
+
+------------------------------------------------------------------------------
+VARIABLES
+------------------------------------------------------------------------------
+
+Variables store data. JavaScript has three ways to declare variables:
+
+VAR (old way):
+    var name = "John";
+    var age = 30;
+
+    - Function-scoped (visible throughout function)
+    - Can be redeclared
+    - Hoisted (moved to top of function)
+
+LET (modern):
+    let name = "John";
+    let age = 30;
+
+    - Block-scoped (visible only in current block { })
+    - Cannot be redeclared in same scope
+    - Not hoisted in same way
+
+CONST (constant):
+    const PI = 3.14159;
+    const CONFIG = { api: "url" };
+
+    - Block-scoped
+    - Cannot be reassigned
+    - For values that shouldn't change
+    - Objects/arrays can still be modified
+
+NAMING RULES:
+    - Must start with letter, $, or _
+    - Can contain letters, numbers, $, _
+    - Case sensitive (name and Name are different)
+    - Cannot use reserved words (function, if, var, etc.)
+
+------------------------------------------------------------------------------
+DATA TYPES
+------------------------------------------------------------------------------
+
+PRIMITIVE TYPES:
+
+String - Text:
+    var name = "John";
+    var message = 'Hello';
+    var template = `Hello ${name}`;  // Template literal
+
+Number - Integers and decimals:
+    var age = 30;
+    var price = 19.99;
+
+Boolean - True or false:
+    var isActive = true;
+    var isLoggedIn = false;
+
+Undefined - No value assigned:
+    var x;  // x is undefined
+
+Null - Intentionally empty:
+    var data = null;
+
+REFERENCE TYPES:
+
+Object - Collection of key-value pairs:
+    var person = {
+        name: "John",
+        age: 30,
+        isStudent: false
+    };
+    // Access: person.name or person["name"]
+
+Array - Ordered list:
+    var colors = ["red", "green", "blue"];
+    // Access: colors[0] = "red"
+    // Length: colors.length = 3
+
+Function - Reusable code block:
+    function greet(name) {
+        return "Hello " + name;
+    }
+
+------------------------------------------------------------------------------
+OPERATORS
+------------------------------------------------------------------------------
+
+ARITHMETIC:
+    +   Addition          5 + 3 = 8
+    -   Subtraction       5 - 3 = 2
+    *   Multiplication    5 * 3 = 15
+    /   Division          6 / 3 = 2
+    %   Modulo (remainder) 5 % 3 = 2
+    **  Exponent          2 ** 3 = 8
+    ++  Increment         x++ (x = x + 1)
+    --  Decrement         x-- (x = x - 1)
+
+ASSIGNMENT:
+    =   Assign            x = 5
+    +=  Add and assign    x += 3 (x = x + 3)
+    -=  Subtract assign   x -= 3
+    *=  Multiply assign   x *= 3
+    /=  Divide assign     x /= 3
+
+COMPARISON:
+    ==  Equal (loose)     5 == "5" (true)
+    === Equal (strict)    5 === "5" (false)
+    !=  Not equal         5 != 3 (true)
+    !== Not equal strict  5 !== "5" (true)
+    >   Greater than      5 > 3 (true)
+    <   Less than         5 < 3 (false)
+    >=  Greater or equal  5 >= 5 (true)
+    <=  Less or equal     5 <= 5 (true)
+
+LOGICAL:
+    &&  AND               true && true = true
+    ||  OR                true || false = true
+    !   NOT               !true = false
+
+STRING:
+    +   Concatenation     "Hello" + " World" = "Hello World"
+
+------------------------------------------------------------------------------
+FUNCTIONS
+------------------------------------------------------------------------------
+
+FUNCTION DECLARATION:
+    function functionName(parameter1, parameter2) {
+        // code to execute
+        return result;
+    }
+
+    // Call the function:
+    var result = functionName(arg1, arg2);
+
+FUNCTION EXPRESSION:
+    var functionName = function(parameter) {
+        return result;
+    };
+
+ARROW FUNCTION (ES6):
+    var functionName = (parameter) => {
+        return result;
+    };
+
+    // Short form (single expression):
+    var double = (x) => x * 2;
+
+PARAMETERS vs ARGUMENTS:
+    - Parameters: Variables in function definition
+    - Arguments: Values passed when calling function
+
+    function greet(name) {  // name is parameter
+        return "Hello " + name;
+    }
+    greet("John");  // "John" is argument
+
+RETURN:
+    - Returns a value from function
+    - Stops function execution
+    - Function without return returns undefined
+
+SCOPE:
+    - Variables inside function are local
+    - Cannot be accessed outside function
+
+------------------------------------------------------------------------------
+CONTROL FLOW
+------------------------------------------------------------------------------
+
+IF STATEMENT:
+    if (condition) {
+        // code if true
+    } else if (anotherCondition) {
+        // code if first false, this true
+    } else {
+        // code if all false
+    }
+
+TERNARY OPERATOR:
+    var result = condition ? valueIfTrue : valueIfFalse;
+
+SWITCH:
+    switch (expression) {
+        case value1:
+            // code
+            break;
+        case value2:
+            // code
+            break;
+        default:
+            // code if no match
+    }
+
+------------------------------------------------------------------------------
+LOOPS
+------------------------------------------------------------------------------
+
+FOR LOOP:
+    for (var i = 0; i < 10; i++) {
+        // runs 10 times (i = 0 to 9)
+    }
+
+    // Parts:
+    // var i = 0    - initialization (runs once)
+    // i < 10       - condition (checked each iteration)
+    // i++          - increment (runs after each iteration)
+
+WHILE LOOP:
+    while (condition) {
+        // runs while condition is true
+    }
+
+DO WHILE:
+    do {
+        // runs at least once
+    } while (condition);
+
+FOR...OF (arrays):
+    var arr = [1, 2, 3];
+    for (var item of arr) {
+        // item is 1, then 2, then 3
+    }
+
+FOR...IN (objects):
+    var obj = {a: 1, b: 2};
+    for (var key in obj) {
+        // key is "a", then "b"
+    }
+
+BREAK and CONTINUE:
+    break;      // exits loop entirely
+    continue;   // skips to next iteration
+
+------------------------------------------------------------------------------
+ARRAYS
+------------------------------------------------------------------------------
+
+CREATING:
+    var arr = [1, 2, 3];
+    var arr = new Array(1, 2, 3);
+
+ACCESSING:
+    arr[0]      // first element
+    arr[arr.length - 1]  // last element
+
+COMMON METHODS:
+
+    arr.push(item)      Add to end
+    arr.pop()           Remove from end
+    arr.unshift(item)   Add to beginning
+    arr.shift()         Remove from beginning
+    arr.length          Number of elements
+
+    arr.indexOf(item)   Find index of item (-1 if not found)
+    arr.includes(item)  Check if item exists (true/false)
+
+    arr.slice(1, 3)     Extract portion (doesn't modify original)
+    arr.splice(1, 2)    Remove elements (modifies original)
+
+    arr.join(", ")      Convert to string with separator
+
+    arr.forEach(fn)     Run function on each element
+    arr.map(fn)         Create new array with transformed elements
+    arr.filter(fn)      Create new array with matching elements
+    arr.find(fn)        Find first matching element
+    arr.reduce(fn, init) Reduce to single value
+
+EXAMPLES:
+    var numbers = [1, 2, 3, 4, 5];
+
+    // forEach - no return value
+    numbers.forEach(function(num) {
+        console.log(num);
+    });
+
+    // map - returns new array
+    var doubled = numbers.map(function(num) {
+        return num * 2;
+    });
+    // doubled = [2, 4, 6, 8, 10]
+
+    // filter - returns matching elements
+    var evens = numbers.filter(function(num) {
+        return num % 2 === 0;
+    });
+    // evens = [2, 4]
+
+    // find - returns first match
+    var found = numbers.find(function(num) {
+        return num > 3;
+    });
+    // found = 4
+
+------------------------------------------------------------------------------
+OBJECTS
+------------------------------------------------------------------------------
+
+CREATING:
+    var person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 30,
+        greet: function() {
+            return "Hello, I'm " + this.firstName;
+        }
+    };
+
+ACCESSING:
+    person.firstName        // Dot notation
+    person["firstName"]     // Bracket notation
+
+    // Bracket notation required when:
+    // - Property name has spaces/special chars
+    // - Property name is in a variable
+
+MODIFYING:
+    person.age = 31;        // Change value
+    person.email = "a@b.c"; // Add new property
+    delete person.age;      // Remove property
+
+THIS KEYWORD:
+    Inside object method, 'this' refers to the object:
+
+    var person = {
+        name: "John",
+        greet: function() {
+            return "Hello, " + this.name;  // this.name = "John"
+        }
+    };
+
+------------------------------------------------------------------------------
+DOM MANIPULATION
+------------------------------------------------------------------------------
+
+DOM = Document Object Model
+JavaScript's interface to HTML.
+
+SELECTING ELEMENTS:
+
+    document.getElementById("id")
+        Returns single element with that ID
+
+    document.getElementsByClassName("class")
+        Returns collection of elements with that class
+
+    document.getElementsByTagName("div")
+        Returns collection of elements with that tag
+
+    document.querySelector(".class")
+        Returns first element matching CSS selector
+
+    document.querySelectorAll(".class")
+        Returns all elements matching CSS selector
+
+MODIFYING ELEMENTS:
+
+    element.innerHTML = "<p>HTML content</p>";
+        Set inner HTML
+
+    element.textContent = "Text only";
+        Set text content (no HTML)
+
+    element.style.color = "red";
+        Set inline style
+
+    element.classList.add("newClass");
+        Add CSS class
+
+    element.classList.remove("oldClass");
+        Remove CSS class
+
+    element.classList.toggle("active");
+        Toggle class on/off
+
+    element.setAttribute("href", "url");
+        Set attribute
+
+    element.getAttribute("href");
+        Get attribute value
+
+CREATING ELEMENTS:
+
+    var div = document.createElement("div");
+    div.textContent = "New element";
+    document.body.appendChild(div);
+
+------------------------------------------------------------------------------
+EVENTS
+------------------------------------------------------------------------------
+
+Events are actions that happen (clicks, keypresses, etc.)
+
+ADDING EVENT LISTENERS:
+
+    element.addEventListener("click", function() {
+        // code to run when clicked
+    });
+
+    // Or with named function:
+    function handleClick() {
+        // code
+    }
+    element.addEventListener("click", handleClick);
+
+COMMON EVENTS:
+    click       Mouse click
+    dblclick    Double click
+    mouseenter  Mouse enters element
+    mouseleave  Mouse leaves element
+    mousemove   Mouse moves over element
+    keydown     Key pressed
+    keyup       Key released
+    focus       Element focused
+    blur        Element loses focus
+    submit      Form submitted
+    change      Input value changed
+    load        Page/resource loaded
+    scroll      Page scrolled
+    resize      Window resized
+
+EVENT OBJECT:
+    element.addEventListener("click", function(event) {
+        event.target        // Element that triggered event
+        event.type          // Type of event ("click")
+        event.preventDefault()   // Stop default behavior
+        event.stopPropagation()  // Stop event bubbling
+    });
+
+------------------------------------------------------------------------------
+ASYNCHRONOUS JAVASCRIPT
+------------------------------------------------------------------------------
+
+JavaScript is single-threaded but handles async operations.
+
+CALLBACKS:
+    function doSomething(callback) {
+        // do work
+        callback(result);
+    }
+
+    doSomething(function(result) {
+        // handle result
+    });
+
+PROMISES:
+    var promise = new Promise(function(resolve, reject) {
+        // async operation
+        if (success) {
+            resolve(result);
+        } else {
+            reject(error);
+        }
+    });
+
+    promise
+        .then(function(result) {
+            // handle success
+        })
+        .catch(function(error) {
+            // handle error
+        });
+
+ASYNC/AWAIT (modern):
+    async function getData() {
+        try {
+            var result = await someAsyncOperation();
+            return result;
+        } catch (error) {
+            // handle error
+        }
+    }
+
+================================================================================
+                    SECTION 2: JQUERY FUNDAMENTALS
+================================================================================
+
+jQuery is a JavaScript library that simplifies DOM manipulation,
+event handling, animations, and AJAX.
+
+------------------------------------------------------------------------------
+BASIC SYNTAX
+------------------------------------------------------------------------------
+
+SELECTING ELEMENTS:
+    $("selector")
+
+    $("#id")            Select by ID
+    $(".class")         Select by class
+    $("div")            Select by tag
+    $("div.class")      Select div with class
+    $("div, p")         Select divs AND paragraphs
+    $("ul li")          Select li inside ul
+
+DOCUMENT READY:
+    $(document).ready(function() {
+        // code runs when DOM is ready
+    });
+
+    // Shorthand:
+    $(function() {
+        // same thing
+    });
+
+------------------------------------------------------------------------------
+DOM MANIPULATION
+------------------------------------------------------------------------------
+
+GET/SET CONTENT:
+    $("p").text()               Get text content
+    $("p").text("New text")     Set text content
+    $("div").html()             Get HTML content
+    $("div").html("<p>New</p>") Set HTML content
+    $("input").val()            Get input value
+    $("input").val("text")      Set input value
+
+GET/SET ATTRIBUTES:
+    $("a").attr("href")         Get attribute
+    $("a").attr("href", "url")  Set attribute
+    $("a").removeAttr("href")   Remove attribute
+
+CSS:
+    $("div").css("color")               Get CSS property
+    $("div").css("color", "red")        Set CSS property
+    $("div").css({color: "red", fontSize: "20px"})  Set multiple
+
+CLASSES:
+    $("div").addClass("new")            Add class
+    $("div").removeClass("old")         Remove class
+    $("div").toggleClass("active")      Toggle class
+    $("div").hasClass("active")         Check for class
+
+------------------------------------------------------------------------------
+EVENTS
+------------------------------------------------------------------------------
+
+EVENT HANDLERS:
+    $("button").click(function() {
+        // click handler
+    });
+
+    $("input").focus(function() {
+        // focus handler
+    });
+
+    $("form").submit(function(e) {
+        e.preventDefault();  // prevent form submission
+    });
+
+.on() METHOD (preferred):
+    $("button").on("click", function() {
+        // handler
+    });
+
+    // Multiple events:
+    $("input").on("focus blur", function() {
+        // handler
+    });
+
+    // Event delegation:
+    $(document).on("click", ".dynamic-element", function() {
+        // works for dynamically added elements
+    });
+
+EVENT OBJECT:
+    $("button").on("click", function(event) {
+        event.preventDefault();     // Stop default action
+        event.stopPropagation();    // Stop bubbling
+        $(this)                     // The clicked element
+        event.target                // Same as this usually
+    });
+
+------------------------------------------------------------------------------
+ANIMATIONS
+------------------------------------------------------------------------------
+
+SHOW/HIDE:
+    $("div").hide()             Hide immediately
+    $("div").show()             Show immediately
+    $("div").hide("slow")       Hide with animation
+    $("div").show(1000)         Show over 1 second
+    $("div").toggle()           Toggle visibility
+
+FADE:
+    $("div").fadeIn()           Fade in
+    $("div").fadeOut()          Fade out
+    $("div").fadeToggle()       Toggle fade
+    $("div").fadeTo(1000, 0.5)  Fade to 50% opacity
+
+SLIDE:
+    $("div").slideDown()        Slide down (reveal)
+    $("div").slideUp()          Slide up (hide)
+    $("div").slideToggle()      Toggle slide
+
+CUSTOM ANIMATION:
+    $("div").animate({
+        left: "100px",
+        opacity: 0.5,
+        height: "200px"
+    }, 1000);  // 1000ms duration
+
+CHAINING:
+    $("div")
+        .hide()
+        .css("color", "red")
+        .slideDown("slow");
+
+------------------------------------------------------------------------------
+AJAX
+------------------------------------------------------------------------------
+
+$.ajax() - Full featured:
+    $.ajax({
+        url: "/api/data",
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            // handle success
+        },
+        error: function(xhr, status, error) {
+            // handle error
+        }
+    });
+
+Shorthand methods:
+    $.get("/api/data", function(data) {
+        // handle data
+    });
+
+    $.post("/api/data", {name: "John"}, function(response) {
+        // handle response
+    });
+
+    $.getJSON("/api/data", function(json) {
+        // handle JSON
+    });
+
+------------------------------------------------------------------------------
+TRAVERSAL
+------------------------------------------------------------------------------
+
+PARENT/CHILD:
+    $("li").parent()            Direct parent
+    $("div").parents()          All ancestors
+    $("div").children()         Direct children
+    $("div").find("p")          All descendant p elements
+
+SIBLINGS:
+    $("li").siblings()          All siblings
+    $("li").next()              Next sibling
+    $("li").prev()              Previous sibling
+
+FILTERING:
+    $("li").first()             First element
+    $("li").last()              Last element
+    $("li").eq(2)               Element at index 2
+    $("li").filter(".active")   Elements matching selector
+    $("li").not(".disabled")    Elements NOT matching
+
+================================================================================
+                    SECTION 3: index.js (HOMEPAGE)
+================================================================================
+
+This is the main JavaScript file for the homepage. It handles:
+- Popup animation
+- Scroll animations
+- YouTube video loading
+- Close button functionality
+
+------------------------------------------------------------------------------
+COMPLETE CODE WITH LINE-BY-LINE EXPLANATION
+------------------------------------------------------------------------------
+
+function element_dropdown(element) {
+    $(element)
+        .hide()
+        .css('opacity', 0)
+        .slideDown('slow')
+        .animate({opacity: 1},
+            {queue: false, duration: 'slow'}
+        )
+}
+
+    LINE-BY-LINE:
+
+    function element_dropdown(element) {
+        Declares a function named "element_dropdown"
+        Takes one parameter: "element" (a CSS selector string)
+
+    $(element)
+        Uses jQuery to select the element
+        Returns a jQuery object wrapping that element
+
+    .hide()
+        Immediately hides the element (display: none)
+        This is the starting state
+
+    .css('opacity', 0)
+        Sets CSS opacity to 0 (invisible)
+        Even when shown, it will be transparent
+
+    .slideDown('slow')
+        Animates the element sliding down
+        'slow' = 600ms (jQuery predefined)
+        Changes display and height
+
+    .animate({opacity: 1}, {queue: false, duration: 'slow'})
+        Custom animation changing opacity to 1
+
+        {opacity: 1}
+            Properties to animate
+            Opacity goes from 0 to 1
+
+        {queue: false, duration: 'slow'}
+            Options object
+            queue: false = run simultaneously with slideDown
+            Without this, opacity would animate AFTER slideDown
+
+    RESULT:
+    Element slides down AND fades in at the same time.
+
+............................................................................
+
+$(document).ready(function() {
+    element_dropdown('#announcement_dropdown');
+
+    LINE-BY-LINE:
+
+    $(document).ready(function() {
+        jQuery shorthand for "when DOM is fully loaded"
+        Code inside runs after HTML is parsed
+        Images may not be loaded yet
+
+    element_dropdown('#announcement_dropdown');
+        Calls our function with the popup selector
+        Makes popup slide down when page loads
+
+............................................................................
+
+    $('#welcome_section .welcome_content').hide().css('opacity', 0);
+    $('#plan_visit_section .plan_visit_content').hide().css('opacity', 0);
+    $('#plan_visit_section .plan_visit_cards').hide().css('opacity', 0);
+
+    WHAT THIS DOES:
+    Hides these elements initially so they can be animated in on scroll.
+
+    SELECTOR BREAKDOWN:
+    '#welcome_section .welcome_content'
+        Element with class "welcome_content" inside element with ID "welcome_section"
+
+    .hide()
+        Sets display: none
+
+    .css('opacity', 0)
+        Sets opacity to 0 for fade effect
+
+............................................................................
+
+    var welcomeAnimated = false;
+    var planVisitAnimated = false;
+
+    WHAT THIS DOES:
+    Creates flags to track if animations have played.
+    Prevents animation from running multiple times on scroll.
+
+............................................................................
+
+    $(window).on('scroll', function() {
+        var scrollPosition = $(window).scrollTop();
+        var windowHeight = $(window).height();
+
+    LINE-BY-LINE:
+
+    $(window).on('scroll', function() {
+        Adds scroll event listener to window
+        Function runs every time user scrolls
+
+    var scrollPosition = $(window).scrollTop();
+        Gets how far user has scrolled from top
+        Returns pixels scrolled
+
+    var windowHeight = $(window).height();
+        Gets viewport height in pixels
+
+............................................................................
+
+        var welcomeSection = $('#welcome_section');
+        var welcomeOffset = welcomeSection.offset().top;
+
+    LINE-BY-LINE:
+
+    var welcomeSection = $('#welcome_section');
+        Stores reference to welcome section element
+
+    var welcomeOffset = welcomeSection.offset().top;
+        Gets distance from top of page to element
+        offset() returns {top: x, left: y}
+        .top extracts top value
+
+............................................................................
+
+        if (!welcomeAnimated && scrollPosition + windowHeight > welcomeOffset + 100) {
+            welcomeAnimated = true;
+            $('#welcome_section .welcome_content')
+                .slideDown('slow')
+                .animate({opacity: 1}, {queue: false, duration: 'slow'});
+        }
+
+    LINE-BY-LINE:
+
+    if (!welcomeAnimated && ...)
+        Only runs if welcomeAnimated is false
+        ! means NOT
+        Prevents animation from repeating
+
+    scrollPosition + windowHeight > welcomeOffset + 100
+        Checks if user has scrolled far enough
+        scrollPosition + windowHeight = bottom of viewport
+        welcomeOffset + 100 = 100px into the section
+        When bottom of viewport is 100px into section, trigger
+
+    welcomeAnimated = true;
+        Sets flag so this only runs once
+
+    .slideDown('slow').animate({opacity: 1}, ...)
+        Same slide+fade animation as before
+
+............................................................................
+
+        // Similar logic for plan visit section
+        var planVisitSection = $('#plan_visit_section');
+        var planVisitOffset = planVisitSection.offset().top;
+
+        if (!planVisitAnimated && scrollPosition + windowHeight > planVisitOffset + 100) {
+            planVisitAnimated = true;
+            $('#plan_visit_section .plan_visit_content')
+                .slideDown('slow')
+                .animate({opacity: 1}, {queue: false, duration: 'slow'});
+
+            setTimeout(function() {
+                $('#plan_visit_section .plan_visit_cards')
+                    .slideDown('slow')
+                    .animate({opacity: 1}, {queue: false, duration: 'slow'});
+            }, 300);
+        }
+    });
+});
+
+    NEW ELEMENT - setTimeout:
+
+    setTimeout(function() { ... }, 300);
+        Delays execution by 300 milliseconds
+        Cards animate 300ms after content
+        Creates staggered effect
+
+............................................................................
+
+$('#x_button').on('click', function() {
+    $('#announcement_dropdown')
+        .slideUp('slow')
+});
+
+    WHAT THIS DOES:
+    When X button is clicked, slides up the popup.
+
+    .slideUp('slow')
+        Animates height to 0, then sets display: none
+        Opposite of slideDown
+
+------------------------------------------------------------------------------
+YOUTUBE API CODE
+------------------------------------------------------------------------------
+
+var YOUTUBE_CONFIG = {
+    API_KEY: 'AIzaSyDIa7kCQwpPdp8P4VScRMgfzw8UFGQA24I',
+    CHANNEL_ID: 'UCCBgiwEdpxE2OkFvPAqMJ3w',
+    SHORTS_MAX_DURATION: 60
+};
+
+    WHAT THIS IS:
+    Configuration object storing YouTube API settings.
+
+    API_KEY:
+        Credentials for YouTube Data API
+        Obtained from Google Cloud Console
+
+    CHANNEL_ID:
+        Unique identifier for the church's YouTube channel
+        "UC" prefix = User Channel
+
+    SHORTS_MAX_DURATION:
+        Videos under 60 seconds are considered Shorts
+        We skip these to show only full sermons
+
+............................................................................
+
+function parseDuration(duration) {
+    var match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+    if (!match) return 0;
+    var hours = parseInt(match[1] || 0);
+    var minutes = parseInt(match[2] || 0);
+    var seconds = parseInt(match[3] || 0);
+    return hours * 3600 + minutes * 60 + seconds;
+}
+
+    WHAT THIS DOES:
+    Converts YouTube's duration format to total seconds.
+
+    YouTube returns: "PT1H30M45S" (1 hour 30 minutes 45 seconds)
+    This function returns: 5445 (total seconds)
+
+    REGEX BREAKDOWN:
+    /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/
+
+    PT          - Literal "PT" (Period Time)
+    (?:...)?    - Optional non-capturing group
+    (\d+)       - Capture one or more digits
+    H, M, S     - Literal hour/minute/second markers
+
+    match[1] = hours (or undefined)
+    match[2] = minutes (or undefined)
+    match[3] = seconds (or undefined)
+
+    parseInt(match[1] || 0)
+        Converts to integer, uses 0 if undefined
+
+    hours * 3600 + minutes * 60 + seconds
+        Converts to total seconds
+
+............................................................................
+
+function displayVideo(data) {
+    var container = $('#youtube_embed_container');
+    var liveIndicator = data.isLive ? '<span class="live_indicator">LIVE</span>' : '';
+    var sectionTitle = data.isLive ? 'Live Now' : 'Latest Message';
+
+    $('.video_section_content h2').text(sectionTitle);
+    $('.video_subtitle').text(data.isLive ? 'Watch our live stream' : 'Watch our most recent sermon');
+
+    var embedHtml = '<div class="video_wrapper">' +
+        '<iframe src="https://www.youtube.com/embed/' + data.videoId +
+        '?rel=0' + (data.isLive ? '&autoplay=1' : '') + '" title="' + data.title +
+        '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
+        '</div>' +
+        '<p class="video_title">' + liveIndicator + data.title + '</p>';
+
+    container.html(embedHtml);
+}
+
+    WHAT THIS DOES:
+    Takes video data and displays it on the page.
+
+    LINE-BY-LINE:
+
+    var container = $('#youtube_embed_container');
+        Gets the container where video will go
+
+    var liveIndicator = data.isLive ? '<span...>LIVE</span>' : '';
+        Ternary operator: condition ? valueIfTrue : valueIfFalse
+        If live, creates LIVE badge HTML
+        If not live, empty string
+
+    var sectionTitle = data.isLive ? 'Live Now' : 'Latest Message';
+        Sets appropriate title
+
+    $('.video_section_content h2').text(sectionTitle);
+        Updates the heading text
+
+    var embedHtml = '...'
+        Builds HTML string for video embed
+
+        '<iframe src="https://www.youtube.com/embed/' + data.videoId
+            YouTube embed URL with video ID
+
+        '?rel=0'
+            URL parameter: don't show related videos
+
+        (data.isLive ? '&autoplay=1' : '')
+            If live, add autoplay parameter
+
+        'allow="accelerometer; autoplay; clipboard-write..."'
+            Permission policy for iframe
+
+    container.html(embedHtml);
+        Replaces container content with our HTML
+
+............................................................................
+
+function checkForLiveStream() {
+    return new Promise(function(resolve) {
+        var liveUrl = 'https://www.googleapis.com/youtube/v3/search' +
+            '?part=snippet' +
+            '&channelId=' + YOUTUBE_CONFIG.CHANNEL_ID +
+            '&eventType=live' +
+            '&type=video' +
+            '&key=' + YOUTUBE_CONFIG.API_KEY;
+
+        $.ajax({
+            url: liveUrl,
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                if (data.items && data.items.length > 0) {
+                    var liveVideo = data.items[0];
+                    resolve({
+                        videoId: liveVideo.id.videoId,
+                        title: liveVideo.snippet.title,
+                        isLive: true
+                    });
+                } else {
+                    resolve(null);
+                }
+            },
+            error: function() {
+                resolve(null);
+            }
+        });
+    });
+}
+
+    WHAT THIS DOES:
+    Checks if channel is currently live streaming.
+    Returns a Promise that resolves with live stream data or null.
+
+    PROMISE:
+    new Promise(function(resolve) { ... })
+        Creates a Promise object
+        resolve() is called when done with result
+
+    API URL BREAKDOWN:
+    /youtube/v3/search      YouTube Search API
+    ?part=snippet           Include video snippet data
+    &channelId=...          Only this channel
+    &eventType=live         Only live videos
+    &type=video             Only videos (not playlists)
+    &key=...                API authentication
+
+    $.ajax({...})
+        Makes HTTP request to YouTube API
+
+    success: function(data) { ... }
+        Runs when request succeeds
+        data is parsed JSON response
+
+    if (data.items && data.items.length > 0)
+        Checks if any live streams found
+
+    resolve({videoId: ..., title: ..., isLive: true})
+        Returns video data through Promise
+
+    resolve(null)
+        No live stream found
+
+............................................................................
+
+function fetchLatestVideo() {
+    return new Promise(function(resolve, reject) {
+        var uploadsPlaylistId = 'UU' + YOUTUBE_CONFIG.CHANNEL_ID.slice(2);
+
+    WHAT THIS LINE DOES:
+    Converts channel ID to uploads playlist ID.
+
+    Channel ID: UCCBgiwEdpxE2OkFvPAqMJ3w
+    Uploads playlist: UUCBgiwEdpxE2OkFvPAqMJ3w
+
+    .slice(2) removes first 2 characters ("UC")
+    Prepending "UU" creates playlist ID
+
+............................................................................
+
+        var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems' +
+            '?part=snippet' +
+            '&playlistId=' + uploadsPlaylistId +
+            '&maxResults=15' +
+            '&key=' + YOUTUBE_CONFIG.API_KEY;
+
+        $.ajax({
+            url: playlistUrl,
+            method: 'GET',
+            dataType: 'json',
+            success: function(playlistData) {
+                if (!playlistData.items || playlistData.items.length === 0) {
+                    reject('No videos found');
+                    return;
+                }
+
+                var videoIds = playlistData.items.map(function(item) {
+                    return item.snippet.resourceId.videoId;
+                }).join(',');
+
+    WHAT THIS DOES:
+    Gets list of recent uploads, extracts video IDs.
+
+    playlistData.items.map(function(item) { ... })
+        Transforms array of playlist items
+        Extracts videoId from each
+
+    .join(',')
+        Converts array to comma-separated string
+        "abc,def,ghi"
+
+............................................................................
+
+                var videosUrl = 'https://www.googleapis.com/youtube/v3/videos' +
+                    '?part=contentDetails,snippet' +
+                    '&id=' + videoIds +
+                    '&key=' + YOUTUBE_CONFIG.API_KEY;
+
+                $.ajax({
+                    url: videosUrl,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(videosData) {
+                        for (var i = 0; i < videosData.items.length; i++) {
+                            var video = videosData.items[i];
+                            var duration = parseDuration(video.contentDetails.duration);
+
+                            if (duration > YOUTUBE_CONFIG.SHORTS_MAX_DURATION) {
+                                resolve({
+                                    videoId: video.id,
+                                    title: video.snippet.title,
+                                    isLive: false
+                                });
+                                return;
+                            }
+                        }
+                        reject('No full-length videos found');
+                    },
+                    error: function() {
+                        reject('Failed to fetch video details');
+                    }
+                });
+            },
+            error: function() {
+                reject('Failed to fetch playlist');
+            }
+        });
+    });
+}
+
+    WHAT THIS DOES:
+    Gets video details to check duration.
+    Finds first video longer than 60 seconds (not a Short).
+
+    for (var i = 0; i < videosData.items.length; i++)
+        Loops through each video
+
+    var duration = parseDuration(video.contentDetails.duration);
+        Gets duration in seconds
+
+    if (duration > YOUTUBE_CONFIG.SHORTS_MAX_DURATION)
+        If longer than 60 seconds, it's a full video
+
+    resolve({...})
+        Return this video's data
+        return; exits the function
+
+    reject('No full-length videos found')
+        If loop completes without finding full video
+
+............................................................................
+
+function loadLatestYouTubeVideo() {
+    var container = $('#youtube_embed_container');
+
+    checkForLiveStream().then(function(liveStream) {
+        if (liveStream) {
+            displayVideo(liveStream);
+            return;
+        }
+
+        fetchLatestVideo().then(function(video) {
+            displayVideo(video);
+        }).catch(function(error) {
+            container.html('<p class="video_error">Unable to load video. Please check back later.</p>');
+            console.log('YouTube Error:', error);
+        });
+    });
+}
+
+    WHAT THIS DOES:
+    Main function that orchestrates video loading.
+
+    .then(function(liveStream) { ... })
+        Handles Promise result
+        If checkForLiveStream resolves, this runs
+
+    if (liveStream) { displayVideo(liveStream); return; }
+        If live stream found, display it and stop
+
+    fetchLatestVideo().then(...)
+        If no live stream, get latest uploaded video
+
+    .catch(function(error) { ... })
+        Handles any errors in the Promise chain
+
+............................................................................
+
+$(document).ready(function() {
+    loadLatestYouTubeVideo();
+
+    setInterval(function() {
+        checkForLiveStream().then(function(liveStream) {
+            if (liveStream) {
+                displayVideo(liveStream);
+            }
+        });
+    }, 60000);
+});
+
+    WHAT THIS DOES:
+    Loads video on page load, then checks for live streams every minute.
+
+    setInterval(function() { ... }, 60000);
+        Runs function every 60000ms (60 seconds)
+        Continuous polling for live streams
+
+================================================================================
+                    SECTION 4: contact.js
+================================================================================
+
+$(document).ready(function() {
+    $('.submit-btn').on('click', function(e) {
+        e.preventDefault();
+
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        var message = $('#message').val();
+
+        if (!name || !email || !phone || !message) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        var submission = {
+            name: name,
+            email: email,
+            phone: phone,
+            message: message,
+            timestamp: new Date().toISOString()
+        };
+
+        var submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+        submissions.push(submission);
+        localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+
+        $('.form-container').fadeOut(300, function() {
+            $('#thank-you-message').fadeIn(500);
+        });
+    });
+});
+
+    LINE-BY-LINE:
+
+    e.preventDefault();
+        Stops form from submitting normally
+        Prevents page reload
+
+    var name = $('#name').val();
+        Gets value from input with id="name"
+        .val() gets current input value
+
+    if (!name || !email || !phone || !message)
+        Checks if any field is empty
+        Empty string is "falsy" in JavaScript
+
+    var submission = { ... }
+        Creates object with form data
+        new Date().toISOString() creates timestamp
+
+    localStorage.getItem('contactSubmissions')
+        Gets saved data from browser storage
+        Returns null if nothing saved
+
+    JSON.parse(... || '[]')
+        Parses JSON string to array
+        || '[]' provides default empty array
+
+    submissions.push(submission);
+        Adds new submission to array
+
+    localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+        Saves updated array back to storage
+        JSON.stringify converts to string
+
+    $('.form-container').fadeOut(300, function() { ... })
+        Fades out form over 300ms
+        Callback function runs after fade completes
+
+    $('#thank-you-message').fadeIn(500);
+        Fades in thank you message over 500ms
+
+================================================================================
+                    SECTION 5: prayer_requests.js
+================================================================================
+
+Similar structure to contact.js but for prayer requests.
+Saves to localStorage under 'prayerRequests' key.
+Shows animated thank you message with scripture.
+
+================================================================================
+                    SECTION 6: building_fund.js
+================================================================================
+
+Handles the image gallery lightbox functionality.
+
+var images = [];
+$('.image-item img').each(function() {
+    images.push($(this).attr('src'));
+});
+
+    Collects all image sources into array.
+
+    .each(function() { ... })
+        Iterates over each matched element
+        $(this) refers to current element
+
+    .attr('src')
+        Gets src attribute value
+
+............................................................................
+
+$('.image-item').on('click', function() {
+    var index = $(this).data('index');
+    showImage(index);
+    $('#lightboxOverlay').fadeIn();
+});
+
+    data('index')
+        Gets data-index attribute value
+        data-index="0" -> returns 0
+
+............................................................................
+
+$(document).on('keydown', function(e) {
+    if ($('#lightboxOverlay').is(':visible')) {
+        if (e.key === 'ArrowLeft') $('#lightboxPrev').click();
+        if (e.key === 'ArrowRight') $('#lightboxNext').click();
+        if (e.key === 'Escape') $('#lightboxClose').click();
+    }
+});
+
+    Keyboard navigation:
+    - Left arrow: previous image
+    - Right arrow: next image
+    - Escape: close lightbox
+
+    e.key
+        Key that was pressed
+        Modern way to check key
+
+    .is(':visible')
+        Checks if element is visible
+
+    .click()
+        Programmatically triggers click
+
+================================================================================
+                    SECTION 7: visit_us.js
+================================================================================
+
+Accordion functionality for expandable sections.
+
+$('.accordion-header').on('click', function() {
+    var item = $(this).parent();
+    var content = item.find('.accordion-content');
+    var icon = $(this).find('.vertical-line');
+
+    if (item.hasClass('active')) {
+        item.removeClass('active');
+        content.slideUp();
+        icon.css('transform', 'rotate(0deg)');
+    } else {
+        $('.accordion-item.active').removeClass('active');
+        $('.accordion-content').slideUp();
+        $('.vertical-line').css('transform', 'rotate(0deg)');
+
+        item.addClass('active');
+        content.slideDown();
+        icon.css('transform', 'rotate(90deg)');
+    }
+});
+
+    LOGIC:
+    1. If clicked item is already open, close it
+    2. If clicked item is closed:
+       - Close all open items first
+       - Open clicked item
+
+    .parent()
+        Gets parent element (.accordion-item)
+
+    .find('.accordion-content')
+        Finds descendant with that class
+
+    .hasClass('active')
+        Returns true/false
+
+    Icon rotation creates + to - transformation
+
+================================================================================
+                    SECTION 11: server.js (NODE.JS BACKEND)
+================================================================================
+
+This runs on the server, not in the browser.
+
+------------------------------------------------------------------------------
+IMPORTS
+------------------------------------------------------------------------------
+
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const https = require('https');
+
+    require()
+        Node.js way to import modules
+
+    express
+        Web framework for Node.js
+
+    fs
+        File system module (read/write files)
+
+    path
+        Path utilities (join paths, etc.)
+
+    https
+        Module for HTTPS requests
+
+------------------------------------------------------------------------------
+SETUP
+------------------------------------------------------------------------------
+
+const app = express();
+const PORT = 5000;
+
+    express()
+        Creates Express application instance
+
+    PORT = 5000
+        Server will listen on port 5000
+
+------------------------------------------------------------------------------
+ENVIRONMENT VARIABLES
+------------------------------------------------------------------------------
+
+const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || '';
+const CHANNEL_ID = process.env.CHANNEL_ID || 'UCYourChannelID';
+
+    process.env.VARIABLE_NAME
+        Accesses environment variable
+        Set in system or .env file
+
+    || ''
+        Default value if not set
+
+------------------------------------------------------------------------------
+MIDDLEWARE
+------------------------------------------------------------------------------
+
+app.use((req, res, next) => {
+    res.set({
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+    });
+    next();
+});
+
+    app.use()
+        Adds middleware (runs for every request)
+
+    (req, res, next) => { ... }
+        Middleware function
+        req = request object
+        res = response object
+        next = function to continue to next middleware
+
+    res.set({ ... })
+        Sets response headers
+        These headers disable caching
+
+    next();
+        Passes control to next handler
+        Without this, request would hang
+
+------------------------------------------------------------------------------
+API ENDPOINT
+------------------------------------------------------------------------------
+
+app.get('/api/latest-video', async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Content-Type', 'application/json');
+
+    const liveStream = await checkForLiveStream();
+    if (liveStream) {
+        return res.json(liveStream);
+    }
+
+    const cached = getCachedVideo();
+    if (cached) {
+        return res.json(cached);
+    }
+
+    const videoData = await fetchLatestVideo();
+    res.json(videoData);
+});
+
+    app.get('/api/latest-video', ...)
+        Handles GET requests to /api/latest-video
+
+    async (req, res) => { ... }
+        Async function (can use await)
+
+    'Access-Control-Allow-Origin', '*'
+        CORS header allowing any origin
+
+    await checkForLiveStream()
+        Waits for async function to complete
+
+    return res.json(liveStream);
+        Sends JSON response
+        return exits the handler
+
+------------------------------------------------------------------------------
+STATIC FILES
+------------------------------------------------------------------------------
+
+app.use(express.static('.', {
+    index: 'index.html'
+}));
+
+    express.static('.')
+        Serves static files from current directory
+
+    index: 'index.html'
+        Default file for / request
+
+------------------------------------------------------------------------------
+START SERVER
+------------------------------------------------------------------------------
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running at http://0.0.0.0:${PORT}/`);
+});
+
+    app.listen(PORT, HOST, callback)
+        Starts server listening
+
+    '0.0.0.0'
+        Listen on all network interfaces
+        Required for Replit
+
+    () => { console.log(...) }
+        Runs when server starts
+
+================================================================================
+                    END OF JAVASCRIPT DOCUMENTATION
+================================================================================

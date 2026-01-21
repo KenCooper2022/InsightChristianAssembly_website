@@ -1,0 +1,1487 @@
+================================================================================
+                    HTML FILES - COMPLETE DOCUMENTATION
+                    Insight Christian Assembly Website
+================================================================================
+
+This document provides an exhaustive, line-by-line explanation of every HTML
+file in the project. Nothing is left abstract - every tag, attribute, and
+structure is fully explained.
+
+================================================================================
+                         TABLE OF CONTENTS
+================================================================================
+
+    1.  HTML FUNDAMENTALS (Reference Guide)
+    2.  index.html (Homepage)
+    3.  about_us.html (About Us Page)
+    4.  visit_us.html (Visit Us Page)
+    5.  give.html (Donations Page)
+    6.  building_fund.html (Building Fund Page)
+    7.  ministries.html (Ministries Page)
+    8.  prayer_requests.html (Prayer Requests Page)
+    9.  contact_us.html (Contact Page)
+    10. shop.html (Shop Page)
+
+================================================================================
+                    SECTION 1: HTML FUNDAMENTALS
+================================================================================
+
+Before diving into the files, here is a complete reference of HTML concepts
+used throughout this project.
+
+------------------------------------------------------------------------------
+WHAT IS HTML?
+------------------------------------------------------------------------------
+
+HTML stands for HyperText Markup Language. It is the standard language for
+creating web pages. HTML describes the structure of a web page using "tags"
+that tell the browser how to display content.
+
+HTML is NOT a programming language - it is a markup language. It does not
+have logic, loops, or conditions. It simply describes what content exists
+and how it should be structured.
+
+------------------------------------------------------------------------------
+BASIC HTML STRUCTURE
+------------------------------------------------------------------------------
+
+Every HTML document follows this basic structure:
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <!-- Metadata goes here -->
+        </head>
+        <body>
+            <!-- Visible content goes here -->
+        </body>
+    </html>
+
+EXPLANATION:
+
+<!DOCTYPE html>
+    - This is a declaration, not a tag
+    - It tells the browser "this is an HTML5 document"
+    - Must be the very first line of every HTML file
+    - Without it, browsers may render the page in "quirks mode"
+      which can cause inconsistent styling
+
+<html>
+    - The root element of the page
+    - All other elements must be inside this tag
+    - The closing </html> tag should be the last line
+
+<head>
+    - Contains metadata (data about the document)
+    - Content here is NOT displayed on the page
+    - Includes: title, stylesheets, scripts, meta tags
+    - Processed first by the browser
+
+<body>
+    - Contains all visible content
+    - Everything users see goes here
+    - Text, images, links, forms, etc.
+
+------------------------------------------------------------------------------
+TAGS AND ELEMENTS
+------------------------------------------------------------------------------
+
+Tags are written with angle brackets:
+
+    <tagname>content</tagname>
+
+    - Opening tag: <tagname>
+    - Closing tag: </tagname> (note the forward slash)
+    - Content: anything between the tags
+
+Some tags are "self-closing" (no content):
+
+    <img src="image.jpg">
+    <br>
+    <input type="text">
+
+An "element" refers to the complete structure:
+    Opening tag + Content + Closing tag = Element
+
+------------------------------------------------------------------------------
+ATTRIBUTES
+------------------------------------------------------------------------------
+
+Attributes provide additional information about elements:
+
+    <tagname attribute="value">content</tagname>
+
+Common attributes used in this project:
+
+    id="unique-name"
+        - Unique identifier for ONE element on the page
+        - Used by CSS (#id) and JavaScript (getElementById)
+        - Must be unique - no two elements can share an ID
+
+    class="class-name"
+        - Identifies elements that share styling
+        - Multiple elements can have the same class
+        - An element can have multiple classes: class="class1 class2"
+        - Used by CSS (.class) and JavaScript (getElementsByClassName)
+
+    href="url"
+        - Used on <a> tags to specify link destination
+        - Can be absolute (https://...) or relative (./page.html)
+
+    src="path"
+        - Used on <img>, <video>, <script> to specify source file
+        - Path to the file to load
+
+    style="css-properties"
+        - Inline CSS styling
+        - Generally avoided in favor of external stylesheets
+
+    data-*="value"
+        - Custom data attributes
+        - Used to store extra data for JavaScript
+        - Example: data-slide-to="0"
+
+------------------------------------------------------------------------------
+COMMON HTML TAGS REFERENCE
+------------------------------------------------------------------------------
+
+DOCUMENT STRUCTURE:
+    <html>      Root element
+    <head>      Metadata container
+    <body>      Visible content container
+    <div>       Generic block container (most used)
+    <span>      Generic inline container
+    <section>   Thematic grouping of content
+    <header>    Introductory content
+    <footer>    Footer content
+    <nav>       Navigation links
+    <main>      Main content
+    <article>   Self-contained content
+    <aside>     Sidebar content
+
+TEXT CONTENT:
+    <h1>-<h6>   Headings (h1 largest, h6 smallest)
+    <p>         Paragraph
+    <br>        Line break (self-closing)
+    <hr>        Horizontal rule/line (self-closing)
+    <strong>    Bold/important text
+    <em>        Italic/emphasized text
+    <blockquote> Long quotation
+
+LINKS AND MEDIA:
+    <a>         Hyperlink
+    <img>       Image (self-closing)
+    <video>     Video player
+    <audio>     Audio player
+    <source>    Media source (inside video/audio)
+    <iframe>    Embedded external content
+
+LISTS:
+    <ul>        Unordered (bullet) list
+    <ol>        Ordered (numbered) list
+    <li>        List item
+
+FORMS:
+    <form>      Form container
+    <input>     Input field (self-closing)
+    <textarea>  Multi-line text input
+    <button>    Clickable button
+    <select>    Dropdown menu
+    <option>    Dropdown option
+    <label>     Label for input
+
+TABLES:
+    <table>     Table container
+    <tr>        Table row
+    <td>        Table cell
+    <th>        Table header cell
+
+------------------------------------------------------------------------------
+THE <head> SECTION ELEMENTS
+------------------------------------------------------------------------------
+
+<meta charset="UTF-8">
+    - Specifies character encoding
+    - UTF-8 supports all international characters
+    - Should always be included
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    - Controls viewport on mobile devices
+    - width=device-width: page width matches device screen
+    - initial-scale=1.0: no initial zoom
+    - Essential for responsive design
+
+<title>Page Title</title>
+    - Text shown in browser tab
+    - Also used by search engines
+    - Important for SEO
+
+<link rel="stylesheet" href="style.css">
+    - Links external CSS file
+    - rel="stylesheet" identifies it as CSS
+    - href points to the file
+
+<link rel="shortcut icon" href="favicon.ico">
+    - Sets the favicon (small icon in browser tab)
+    - type="image/x-icon" specifies file type
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    - Pre-establishes connection to external domain
+    - Speeds up loading of resources from that domain
+
+<script src="script.js"></script>
+    - Links external JavaScript file
+    - Can also contain inline JavaScript
+
+================================================================================
+                    SECTION 2: index.html (HOMEPAGE)
+================================================================================
+
+This is the main homepage of the website. Below is the complete file with
+line-by-line explanations.
+
+------------------------------------------------------------------------------
+LINE 1: Document Type Declaration
+------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+
+    WHAT IT DOES:
+    Declares that this document is HTML5.
+
+    WHY IT'S NEEDED:
+    Without this declaration, browsers enter "quirks mode" which uses
+    older, inconsistent rendering rules. With it, browsers use "standards
+    mode" for consistent, predictable rendering.
+
+    SYNTAX NOTES:
+    - Not technically an HTML tag (it's a declaration)
+    - No closing tag
+    - Case-insensitive but conventionally uppercase
+    - Must be the absolute first line (no whitespace before it)
+
+------------------------------------------------------------------------------
+LINE 2: HTML Root Element
+------------------------------------------------------------------------------
+
+<html>
+
+    WHAT IT DOES:
+    Opens the root element that contains the entire document.
+
+    WHY IT'S NEEDED:
+    All HTML content must be wrapped in this element. It establishes
+    the document as an HTML document.
+
+    ATTRIBUTES THAT COULD BE ADDED:
+    - lang="en" (specifies language - good for accessibility)
+
+------------------------------------------------------------------------------
+LINES 3-17: The <head> Section
+------------------------------------------------------------------------------
+
+    <head>
+
+        WHAT IT DOES:
+        Opens the metadata section of the document.
+
+        CONTENT THAT GOES HERE:
+        - Character encoding
+        - Viewport settings
+        - Page title
+        - CSS links
+        - JavaScript links
+        - Favicon
+        - SEO meta tags
+
+    ............................................................................
+
+        <meta charset="UTF-8">
+
+            WHAT IT DOES:
+            Tells the browser to use UTF-8 character encoding.
+
+            WHY UTF-8:
+            UTF-8 can represent every character in the Unicode standard.
+            This includes:
+            - All English letters and numbers
+            - Accented characters (é, ñ, ü)
+            - Non-Latin scripts (Chinese, Arabic, Hebrew)
+            - Symbols and emoji
+
+            WHAT HAPPENS WITHOUT IT:
+            Special characters may display as question marks or garbled text.
+
+    ............................................................................
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            WHAT IT DOES:
+            Controls how the page is displayed on mobile devices.
+
+            BREAKDOWN OF content VALUE:
+
+            width=device-width
+                - Sets viewport width to match device screen width
+                - Without this, mobile browsers assume page is 980px wide
+                  and zoom out to fit it all on screen (making text tiny)
+
+            initial-scale=1.0
+                - Sets initial zoom level to 100% (no zoom)
+                - 1.0 means 1:1 ratio between CSS pixels and device pixels
+
+            WHY IT'S ESSENTIAL:
+            Without this meta tag, responsive design doesn't work on mobile.
+            The browser would shrink the entire page to fit, ignoring media
+            queries and making everything unreadably small.
+
+    ............................................................................
+
+        <title>Welcome to Insight Christian Assembly</title>
+
+            WHAT IT DOES:
+            Sets the text that appears in:
+            - Browser tab
+            - Bookmarks when page is saved
+            - Search engine results
+
+            SEO IMPORTANCE:
+            Search engines give significant weight to the title tag.
+            It should be descriptive and include relevant keywords.
+
+    ............................................................................
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+            WHAT IT DOES:
+            Pre-establishes network connections to Google Fonts servers.
+
+            HOW IT HELPS:
+            Loading fonts requires:
+            1. DNS lookup (finding server IP)
+            2. TCP connection
+            3. TLS handshake (for HTTPS)
+
+            preconnect does steps 1-3 before the fonts are actually needed,
+            saving time when the font request is made.
+
+            crossorigin ATTRIBUTE:
+            Required for fonts because they use CORS (Cross-Origin Resource
+            Sharing). Without it, the preconnect won't work properly for
+            font files.
+
+    ............................................................................
+
+        <link href="https://fonts.googleapis.com/css2?family=Average+Sans&
+              family=Libertinus+Keyboard&family=Libre+Baskerville:ital,
+              wght@0,400;0,700;1,400&family=Noto+Sans:ital,wght@0,100..900;
+              1,100..900&display=swap" rel="stylesheet">
+
+            WHAT IT DOES:
+            Loads custom fonts from Google Fonts.
+
+            FONTS LOADED:
+            - Average Sans: Simple sans-serif font
+            - Libertinus Keyboard: Decorative font
+            - Libre Baskerville: Elegant serif font (used for headings)
+              - ital: Includes italic versions
+              - wght@0,400;0,700;1,400: Weights 400 (normal), 700 (bold)
+            - Noto Sans: Clean sans-serif (used for body text)
+              - wght@0,100..900: All weights from 100 (thin) to 900 (black)
+
+            display=swap:
+            Tells browser to show fallback font immediately, then swap to
+            custom font when loaded. Prevents "invisible text" while loading.
+
+    ............................................................................
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/
+              bootstrap.min.css" rel="stylesheet" integrity="sha384-..."
+              crossorigin="anonymous">
+
+            WHAT IT DOES:
+            Loads Bootstrap CSS framework from a CDN.
+
+            WHAT IS BOOTSTRAP:
+            A CSS framework providing pre-built:
+            - Grid system for layouts
+            - Typography styles
+            - Button styles
+            - Form styles
+            - Components (cards, modals, etc.)
+            - Utility classes
+
+            integrity="sha384-...":
+            Subresource Integrity (SRI) hash. Browser verifies the file
+            hasn't been tampered with by checking its hash. Security feature.
+
+            crossorigin="anonymous":
+            Requests the file without sending cookies or credentials.
+            Required when using integrity attribute.
+
+    ............................................................................
+
+        <link rel="stylesheet" href="./style.css">
+
+            WHAT IT DOES:
+            Loads our custom CSS file.
+
+            PATH EXPLANATION:
+            ./  means "current directory"
+            style.css  is the filename
+
+            ORDER MATTERS:
+            This is loaded AFTER Bootstrap, so our styles can override
+            Bootstrap's default styles when needed.
+
+    ............................................................................
+
+        <link rel="shortcut icon" type="image/x-icon"
+              href="./assets/ica_logo.jpeg" />
+
+            WHAT IT DOES:
+            Sets the favicon - the small icon in the browser tab.
+
+            type="image/x-icon":
+            Specifies the image format. Despite saying x-icon, browsers
+            accept various formats including JPEG, PNG, ICO.
+
+    ............................................................................
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/
+              bootstrap/3.4.1/css/bootstrap.min.css">
+
+            WHAT IT DOES:
+            Loads Bootstrap 3 CSS (older version).
+
+            WHY BOTH BOOTSTRAP 3 AND 5:
+            The carousel component used on this page is from Bootstrap 3.
+            Bootstrap 5 changed the carousel significantly. Rather than
+            rewrite the carousel, both versions are loaded.
+
+            POTENTIAL ISSUE:
+            Having two Bootstrap versions can cause style conflicts.
+            This is technical debt that could be cleaned up.
+
+    ............................................................................
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/
+                jquery.min.js"></script>
+
+            WHAT IT DOES:
+            Loads jQuery library.
+
+            WHAT IS JQUERY:
+            A JavaScript library that simplifies:
+            - DOM manipulation
+            - Event handling
+            - AJAX requests
+            - Animations
+
+            VERSION 3.7.1:
+            Current stable version of jQuery.
+
+            WHY IN <head>:
+            Normally scripts go at end of <body>, but jQuery is needed
+            by Bootstrap 3's JavaScript, so it's loaded early.
+
+    ............................................................................
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/
+                bootstrap.min.js"></script>
+
+            WHAT IT DOES:
+            Loads Bootstrap 3 JavaScript.
+
+            WHAT IT PROVIDES:
+            - Carousel functionality
+            - Modal windows
+            - Dropdown menus
+            - Collapse/expand
+            - Tabs
+            - And more interactive components
+
+            DEPENDS ON JQUERY:
+            Must be loaded AFTER jQuery.
+
+    ............................................................................
+
+        <script src="https://www.paypal.com/sdk/js?client-id=...&
+                components=hosted-buttons&enable-funding=venmo&currency=USD">
+        </script>
+
+            WHAT IT DOES:
+            Loads PayPal SDK for donation buttons.
+
+            QUERY PARAMETERS:
+            client-id=...: Your PayPal business account ID
+            components=hosted-buttons: Loads hosted button component
+            enable-funding=venmo: Enables Venmo as payment option
+            currency=USD: Sets currency to US dollars
+
+    </head>
+
+------------------------------------------------------------------------------
+LINES 18-55: The Hero Section
+------------------------------------------------------------------------------
+
+    <body>
+
+        WHAT IT DOES:
+        Opens the body section containing all visible content.
+
+    ............................................................................
+
+        <div id="hero">
+
+            WHAT IT DOES:
+            Container for the hero section (top of page).
+
+            id="hero":
+            Unique identifier used by CSS to style this section.
+            In style.css, #hero sets width, height, and positioning.
+
+            WHAT'S INSIDE:
+            - Announcement popup
+            - Navigation bar
+            - Hero text content
+            - Background video
+
+    ............................................................................
+
+            <div id="announcement_dropdown">
+
+                WHAT IT DOES:
+                Container for the popup that appears when page loads.
+                Shows the building fund donation call-to-action.
+
+                HOW IT WORKS:
+                - CSS positions it absolutely over the hero
+                - JavaScript makes it slide down when page loads
+                - Close button hides it
+
+    ............................................................................
+
+                <div id="donate_section">
+                    <div class="thumbnail">
+                        <div class="thumbnail__container">
+                            <div class="thumbnail__img"
+                                 style="background-image: url(...)">
+                            </div>
+                            <div class="thumbnail__content">
+                                <div class="donate_button">
+                                    <a href="./building_fund.html">
+                                        <button id="paypal_donate_button">
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                STRUCTURE BREAKDOWN:
+
+                #donate_section:
+                    Container for the donation card, sets dimensions
+
+                .thumbnail:
+                    Card that has hover effect (image zooms, content slides up)
+
+                .thumbnail__container:
+                    Flexbox container that stacks image and content vertically
+
+                .thumbnail__img:
+                    Background image using inline style
+                    style="background-image: url(...)" sets the image
+
+                .thumbnail__content:
+                    Hidden by default, slides up on hover
+
+                .donate_button:
+                    Contains the actual donate button
+
+                <a href="./building_fund.html">:
+                    Link wrapper - clicking button goes to building fund page
+
+                <button id="paypal_donate_button">:
+                    Empty button - CSS adds "Donate" text via ::after pseudo-element
+
+    ............................................................................
+
+                <div><button id="x_button"></button></div>
+
+                WHAT IT DOES:
+                Close button for the popup.
+
+                HOW IT WORKS:
+                - CSS styles it as a white rounded button
+                - CSS adds "Close" text via ::after pseudo-element
+                - JavaScript adds click handler to hide popup
+
+    ............................................................................
+
+            </div> <!-- End announcement_dropdown -->
+
+    ............................................................................
+
+            <div id="nav_bar">
+                <img src="./assets/ica_logo.jpeg" id="church-logo">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about_us.html">About Us</a></li>
+                <li><a href="./visit_us.html">Visit Us</a></li>
+                <li><a href="./give.html">Give</a></li>
+                <li><a href="./ministries.html">Ministries</a></li>
+                <li><a href="./prayer_requests.html">Prayer</a></li>
+                <li><a href="./shop.html">Shop</a></li>
+                <li><a href="./contact_us.html">Contact Us</a></li>
+            </div>
+
+                STRUCTURE BREAKDOWN:
+
+                #nav_bar:
+                    Container styled as flexbox
+                    justify-content: flex-end pushes items to right
+                    The logo has margin-right: auto which pushes it left
+
+                <img id="church-logo">:
+                    Church logo image
+                    CSS makes it circular with border-radius: 50%
+                    margin-right: auto creates space between logo and nav
+
+                <li> elements:
+                    List items (though not inside <ul> - not ideal but works)
+                    CSS removes bullet points with list-style: none
+
+                <a href="...">:
+                    Links to each page
+                    ./ means same directory
+                    CSS styles links white, adds padding, rounded corners
+                    Hover effect changes background to white, text to navy
+
+    ............................................................................
+
+            <div id="hero_content">
+                <h1>Insight Christian Assembly</h1>
+                <p>Dedicated to Spreading the Good Word of God</p>
+            </div>
+
+                WHAT IT DOES:
+                Displays the main headline over the video.
+
+                POSITIONING:
+                CSS sets position: relative and z-index: 2
+                This puts it above the video (z-index: 0) and overlay (z-index: 1)
+
+                <h1>:
+                    Main heading - church name
+                    Largest heading level, only one per page ideally
+
+                <p>:
+                    Tagline paragraph
+
+    ............................................................................
+
+            <video id="video_bg" autoplay loop muted playsinline>
+                <source src="./assets/service_background_vid.mp4"
+                        type="video/mp4">
+            </video>
+
+                WHAT IT DOES:
+                Background video behind the hero content.
+
+                ATTRIBUTES EXPLAINED:
+
+                autoplay:
+                    Video starts playing automatically when page loads
+                    Only works when combined with muted (browser restriction)
+
+                loop:
+                    Video repeats from beginning when it ends
+
+                muted:
+                    Video has no sound
+                    Required for autoplay to work in modern browsers
+                    Browsers block autoplaying videos with sound
+
+                playsinline:
+                    On mobile, plays inline instead of fullscreen
+                    Without this, iOS would open video in fullscreen player
+
+                <source>:
+                    Specifies the video file
+                    src: path to video file
+                    type: MIME type (helps browser know format)
+                    Can have multiple <source> tags for different formats
+
+                CSS POSITIONING:
+                position: absolute centers video in container
+                object-fit: cover makes it fill space, cropping if needed
+
+        </div> <!-- End hero -->
+
+------------------------------------------------------------------------------
+LINES 56-142: Main Content Sections
+------------------------------------------------------------------------------
+
+        <div id="body_background">
+
+            WHAT IT DOES:
+            Container for all content below the hero.
+
+            CSS BACKGROUND:
+            Has a fixed background image with filters applied
+            ::before pseudo-element has the image
+            ::after pseudo-element has a gradient overlay
+
+    ............................................................................
+
+            <div id="welcome_section">
+                <div class="welcome_content">
+                    <h1>Welcome to ICA</h1>
+                    <p>At Insight Christian Assembly, we are a community...</p>
+                </div>
+            </div>
+
+                WHAT IT DOES:
+                Welcome message section.
+
+                ANIMATION:
+                JavaScript hides this initially, then slides it in when
+                user scrolls to this section.
+
+    ............................................................................
+
+            <div id="latest_video_section">
+                <div class="video_section_content">
+                    <h2>Latest Message</h2>
+                    <p class="video_subtitle">Watch our most recent sermon</p>
+                    <div id="youtube_embed_container">
+                        <div class="video_loading">Loading latest video...</div>
+                    </div>
+                </div>
+            </div>
+
+                WHAT IT DOES:
+                Section for the embedded YouTube video.
+
+                HOW IT WORKS:
+                1. Page loads with "Loading latest video..." message
+                2. JavaScript calls YouTube API
+                3. If live stream found, embeds that
+                4. Otherwise, embeds latest uploaded video
+                5. JavaScript replaces loading message with iframe
+
+                #youtube_embed_container:
+                    This div's content is replaced by JavaScript
+                    Initially contains loading message
+                    After API call, contains video iframe
+
+    ............................................................................
+
+            <div id="section_1" class="p-5 mb-4 bg-body-tertiary rounded-3">
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">What's Going On</h1>
+                    <p class="col-md-8 fs-4">Stay connected with what's
+                       happening at Insight Christian Assembly...</p>
+                </div>
+            </div>
+
+                WHAT IT DOES:
+                Announcement banner section.
+
+                BOOTSTRAP CLASSES:
+                p-5: padding of 5 units (3rem) on all sides
+                mb-4: margin-bottom of 4 units
+                bg-body-tertiary: background color
+                rounded-3: border-radius
+                container-fluid: full-width container
+                py-5: padding on y-axis (top and bottom)
+                display-5: large display heading style
+                fw-bold: font-weight bold
+                col-md-8: takes up 8/12 columns on medium+ screens
+                fs-4: font-size 4
+
+    ............................................................................
+
+            <div id="events_section">
+                <h2>Upcoming Events</h2>
+                <div class="events_carousel_wrapper">
+                    <div id="myCarousel" class="carousel slide"
+                         data-ride="carousel" data-interval="5000">
+
+                WHAT IT DOES:
+                Events carousel section using Bootstrap 3 carousel.
+
+                data-ride="carousel":
+                    Tells Bootstrap to automatically initialize this
+                    carousel when page loads
+
+                data-interval="5000":
+                    Time between slides in milliseconds (5 seconds)
+
+    ............................................................................
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel"
+                                data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel"
+                                data-slide-to="1"></li>
+                            <li data-target="#myCarousel"
+                                data-slide-to="2"></li>
+                        </ol>
+
+                WHAT IT DOES:
+                Dot indicators showing which slide is active.
+
+                <ol>:
+                    Ordered list (dots are styled to not show numbers)
+
+                data-target="#myCarousel":
+                    Links this indicator to the carousel with id="myCarousel"
+
+                data-slide-to="0":
+                    When clicked, jumps to slide 0 (first slide)
+
+                class="active":
+                    First item has active class (currently selected)
+
+    ............................................................................
+
+                        <div class="carousel-inner">
+
+                WHAT IT DOES:
+                Container for all the slides.
+
+    ............................................................................
+
+                            <div class="item active">
+                                <div class="event_slide">
+                                    <img src="./assets/stock_photo_1.jpg"
+                                         alt="Upcoming Fasting">
+                                    <div class="event_overlay"></div>
+                                    <div class="event_content">
+                                        <h3>Upcoming Fasting</h3>
+                                        <p>Be Prepared - Click for More Details</p>
+                                        <a href="#" class="event_btn">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                STRUCTURE BREAKDOWN:
+
+                .item:
+                    Bootstrap 3's class for carousel items
+                    Only one should have "active" class
+
+                .event_slide:
+                    Custom container for slide content
+                    position: relative allows absolute positioning of children
+
+                <img>:
+                    Background image for the slide
+                    alt: describes image for accessibility/screen readers
+
+                .event_overlay:
+                    Empty div with gradient overlay
+                    CSS applies dark gradient from bottom
+                    Makes text readable over any image
+
+                .event_content:
+                    Text content positioned at bottom of slide
+                    position: absolute; bottom: 40px;
+
+                <a class="event_btn">:
+                    Button link styled with teal background
+
+    ............................................................................
+
+                        </div> <!-- End carousel-inner -->
+
+                        <a class="left carousel-control" href="#myCarousel"
+                           data-slide="prev">
+                            <span class="carousel_arrow carousel_arrow_left">
+                                &#10094;
+                            </span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel"
+                           data-slide="next">
+                            <span class="carousel_arrow carousel_arrow_right">
+                                &#10095;
+                            </span>
+                        </a>
+
+                WHAT IT DOES:
+                Left and right navigation arrows.
+
+                data-slide="prev" / data-slide="next":
+                    Bootstrap data attributes that control navigation
+
+                &#10094; and &#10095;:
+                    HTML entities for left and right arrows (< and >)
+
+                    </div> <!-- End myCarousel -->
+                </div> <!-- End events_carousel_wrapper -->
+            </div> <!-- End events_section -->
+
+------------------------------------------------------------------------------
+LINES 143-171: Plan a Visit Section
+------------------------------------------------------------------------------
+
+            <div id="plan_visit_section">
+                <div class="plan_visit_content">
+                    <h2>Plan a Visit</h2>
+                    <p>We'd love to have you join us for worship...</p>
+                    <a href="./visit_us.html" class="plan_visit_btn">
+                        Visit Us
+                    </a>
+                </div>
+
+                WHAT IT DOES:
+                Call-to-action section inviting people to visit.
+
+                ANIMATION:
+                JavaScript hides initially, animates in on scroll.
+
+    ............................................................................
+
+                <div class="plan_visit_cards">
+                    <div class="visit_card">
+                        <h3>Sunday School</h3>
+                        <p>Join us every Sunday at 9:00 AM...</p>
+                    </div>
+
+                    <a href="https://www.youtube.com/@InsightChristianAssembly"
+                       target="_blank" class="visit_card_link">
+                        <div class="visit_card">
+                            <h3>Sunday Service</h3>
+                            <p>Join us every Sunday at 10:00 AM...</p>
+                        </div>
+                    </a>
+
+                    <div class="visit_card">
+                        <h3>Bible Study</h3>
+                        <p>Deepen your faith with our Wednesday evening...</p>
+                    </div>
+
+                    <a href="./prayer_requests.html" class="visit_card_link">
+                        <div class="visit_card">
+                            <h3>Prayer Requests</h3>
+                            <p>Share your prayer needs with us...</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+                STRUCTURE BREAKDOWN:
+
+                .plan_visit_cards:
+                    Flexbox container for the cards
+                    flex-wrap: wrap allows cards to wrap on smaller screens
+
+                .visit_card:
+                    Individual card with white background
+                    Some are standalone, some are wrapped in links
+
+                <a ... class="visit_card_link">:
+                    Makes the entire card clickable
+                    target="_blank" opens in new tab (for YouTube link)
+
+                LINKED CARDS:
+                - Sunday Service links to YouTube channel
+                - Prayer Requests links to prayer request page
+
+                UNLINKED CARDS:
+                - Sunday School (informational only)
+                - Bible Study (informational only)
+
+------------------------------------------------------------------------------
+LINES 172-186: Footer and Scripts
+------------------------------------------------------------------------------
+
+            <div class="bottom_container">
+                <footer class="footer">
+                    <ul class="nav justify-content-center pb-3 mb-3">
+                        <li class="nav-item">
+                            <a href="./index.html"
+                               class="nav-link px-2 text-body-secondary">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./about_us.html"
+                               class="nav-link px-2 text-body-secondary">
+                                About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./contact_us.html"
+                               class="nav-link px-2 text-body-secondary">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="text-center text-body-secondary">
+                        (c) 2025 Insight Christian Assembly
+                    </p>
+                </footer>
+            </div>
+
+                WHAT IT DOES:
+                Footer section with navigation links and copyright.
+
+                BOOTSTRAP CLASSES:
+                nav: navigation styles
+                justify-content-center: centers items
+                pb-3: padding-bottom
+                mb-3: margin-bottom
+                nav-item: styles list item as nav item
+                nav-link: styles link
+                px-2: horizontal padding
+                text-body-secondary: muted text color
+                text-center: centers text
+
+    ............................................................................
+
+        </div> <!-- End body_background -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/
+                jquery.min.js"></script>
+        <script src="index.js"></script>
+
+            WHAT IT DOES:
+            Loads jQuery (again, for safety) and our custom JavaScript.
+
+            WHY AT END OF BODY:
+            Scripts at end of body:
+            1. Don't block page rendering
+            2. DOM is ready when script runs
+            3. Page appears faster to user
+
+    </body>
+</html>
+
+================================================================================
+                    SECTION 3: about_us.html (ABOUT US PAGE)
+================================================================================
+
+This page features parallax scrolling hero sections and pastor information.
+
+------------------------------------------------------------------------------
+KEY STRUCTURAL DIFFERENCES FROM INDEX.HTML
+------------------------------------------------------------------------------
+
+1. Uses about_us_style.css instead of style.css
+2. No video background
+3. Multiple hero sections with parallax effect
+4. Pastor card with hover-reveal biography
+5. Mission statement section
+
+------------------------------------------------------------------------------
+PARALLAX HERO SECTIONS
+------------------------------------------------------------------------------
+
+<section class="hero">
+    <div class="hero-inner" id="section-0">
+        <figure></figure>
+        <h2 class="hero__title">Ardent Adherence</h2>
+    </div>
+</section>
+
+    HOW PARALLAX WORKS:
+
+    <section class="hero">:
+        Full viewport height section (100vh)
+        position: relative
+
+    <div class="hero-inner">:
+        position: absolute with clip: rect(0, auto, auto, 0)
+        The clip creates a clipping mask
+        Content only visible within this rectangle
+
+    <figure>:
+        position: fixed
+        Background image covers entire viewport
+        Because it's fixed, it doesn't scroll with page
+        The clip on parent limits where it's visible
+        This creates parallax effect
+
+    <h2 class="hero__title">:
+        position: fixed
+        Centered text over the image
+        Same fixed positioning principle
+
+    THE PARALLAX EFFECT:
+    When you scroll, the section scrolls up, but the fixed elements
+    don't move. The clip mask reveals/hides the fixed background,
+    creating the illusion that images move slower than content.
+
+------------------------------------------------------------------------------
+PASTOR CARD WITH HOVER REVEAL
+------------------------------------------------------------------------------
+
+<div class="image-container">
+    <div class="pastor-card">
+        <div class="pastor-image-wrapper">
+            <img src="./assets/pastor_charles.jpeg" alt="Pastor Charles"/>
+            <div class="pastor-bio">
+                <h4>Pastor Charles</h4>
+                <p>Pastor Charles has been faithfully serving...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    HOW THE HOVER EFFECT WORKS:
+
+    .pastor-image-wrapper:
+        position: relative
+        overflow: hidden
+        Contains both image and bio
+
+    <img>:
+        Fills the container
+        Visible normally
+
+    .pastor-bio:
+        position: absolute
+        bottom: 0
+        transform: translateY(100%) - positioned below visible area
+        opacity: 0 - invisible
+
+    ON HOVER (CSS handles this):
+        transform: translateY(0) - slides up into view
+        opacity: 1 - becomes visible
+        transition makes it smooth
+
+================================================================================
+                    SECTION 4: visit_us.html (VISIT US PAGE)
+================================================================================
+
+This page uses an accordion pattern for expandable content sections.
+
+------------------------------------------------------------------------------
+ACCORDION STRUCTURE
+------------------------------------------------------------------------------
+
+<div class="accordion-container">
+    <div class="accordion-item">
+        <div class="accordion-header">
+            <h3>Service Times</h3>
+            <div class="accordion-icon">
+                <svg>
+                    <line x1="12" y1="5" x2="12" y2="19"
+                          class="vertical-line"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </div>
+        </div>
+        <div class="accordion-content">
+            <p><strong>Sunday School:</strong> 9:00 AM - 9:45 AM</p>
+            <p><strong>Sunday Worship:</strong> 10:00 AM - 12:00 PM</p>
+            ...
+        </div>
+    </div>
+    ...
+</div>
+
+    STRUCTURE BREAKDOWN:
+
+    .accordion-container:
+        Wrapper for all accordion items
+
+    .accordion-item:
+        Single expandable section
+        Contains header and content
+
+    .accordion-header:
+        Clickable header row
+        JavaScript adds click listener here
+
+    <h3>:
+        Section title
+
+    .accordion-icon:
+        Plus/minus icon using SVG
+
+    <svg>:
+        Scalable Vector Graphics
+        Two lines that form a plus (+)
+        When open, CSS rotates vertical line to form minus (-)
+
+    .accordion-content:
+        Hidden by default (display: none or height: 0)
+        JavaScript shows/hides on click
+
+    HOW IT WORKS (JavaScript):
+    1. User clicks .accordion-header
+    2. JavaScript finds parent .accordion-item
+    3. Toggles 'active' class
+    4. CSS/jQuery slides content open/closed
+    5. Rotates icon
+
+================================================================================
+                    SECTION 5: give.html (DONATIONS PAGE)
+================================================================================
+
+Simple donation page with cards linking to different giving options.
+
+------------------------------------------------------------------------------
+DONATION CARDS
+------------------------------------------------------------------------------
+
+<div class="give-options">
+    <div class="give-card">
+        <h3>Offering</h3>
+        <p>Support the ongoing ministry...</p>
+        <a href="https://www.sandbox.paypal.com/donate/?hosted_button_id=..."
+           class="give-btn">Give Now</a>
+    </div>
+
+    <div class="give-card give-card-featured">
+        <div class="featured-badge">Featured</div>
+        <h3>Building Fund</h3>
+        <p>Help us expand and improve our facilities...</p>
+        <a href="./building_fund.html" class="give-btn give-btn-featured">
+            Contribute
+        </a>
+    </div>
+
+    <div class="give-card">
+        <h3>Missions</h3>
+        <p>Support our outreach programs...</p>
+        <a href="..." class="give-btn">Support Missions</a>
+    </div>
+</div>
+
+    KEY ELEMENTS:
+
+    .give-card-featured:
+        Additional class for highlighted card
+        Different styling (larger, different colors)
+
+    .featured-badge:
+        "Featured" label positioned absolutely in corner
+
+    PayPal Links:
+        sandbox.paypal.com indicates test/sandbox mode
+        hosted_button_id references a button created in PayPal dashboard
+
+================================================================================
+                    SECTION 6: building_fund.html
+================================================================================
+
+Detailed page for the building fund with gallery and donation options.
+
+------------------------------------------------------------------------------
+IMAGE GALLERY WITH LIGHTBOX
+------------------------------------------------------------------------------
+
+<div class="image-gallery-section">
+    <div class="image-wall-container">
+        <div class="image-wall">
+            <div class="image-item" data-index="0">
+                <img src="./assets/nigeria_building-1.jpg"
+                     alt="Nigeria building project image 1">
+            </div>
+            <div class="image-item" data-index="1">
+                <img src="./assets/nigeria_building-2.jpg"
+                     alt="Nigeria building project image 2">
+            </div>
+            ...
+        </div>
+    </div>
+    <button class="expand-gallery-btn" id="expandGalleryBtn">
+        View All Images
+    </button>
+</div>
+
+    KEY ELEMENTS:
+
+    data-index="0", data-index="1", etc.:
+        Custom data attributes storing image position
+        JavaScript uses these for lightbox navigation
+
+    .image-wall:
+        CSS Grid or Flexbox layout showing thumbnails
+
+------------------------------------------------------------------------------
+LIGHTBOX OVERLAY
+------------------------------------------------------------------------------
+
+<div class="lightbox-overlay" id="lightboxOverlay">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+        &#10094;
+    </button>
+    <div class="lightbox-content">
+        <img src="" alt="Gallery image" id="lightboxImage">
+        <p class="lightbox-counter" id="lightboxCounter"></p>
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext">
+        &#10095;
+    </button>
+</div>
+
+    HOW LIGHTBOX WORKS:
+
+    Initial State:
+    - Overlay is hidden (display: none)
+    - src="" because image is set by JavaScript
+
+    When Image Clicked:
+    1. JavaScript gets data-index of clicked image
+    2. Sets #lightboxImage src to that image
+    3. Shows overlay (display: flex or block)
+    4. Updates counter text
+
+    Navigation:
+    - Prev/Next buttons call JavaScript
+    - JavaScript changes image and counter
+    - Keyboard events also trigger navigation
+
+    Closing:
+    - X button click hides overlay
+    - Clicking overlay background hides it
+    - Escape key hides it
+
+    &times; is HTML entity for multiplication sign (x)
+    &#10094; is left arrow
+    &#10095; is right arrow
+
+================================================================================
+                    SECTION 7: prayer_requests.html
+================================================================================
+
+Form for submitting prayer requests and displaying prayer times.
+
+------------------------------------------------------------------------------
+PRAYER REQUEST FORM
+------------------------------------------------------------------------------
+
+<div class="prayer_form_container">
+    <div class="form-group">
+        <div class="styled-input">
+            <input type="text" id="name" placeholder="">
+            <label for="name">Your Name (Optional)</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="styled-input">
+            <input type="email" id="email" placeholder="">
+            <label for="email">Email (Optional - for follow up)</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="styled-input">
+            <textarea id="prayer_request" required placeholder=""></textarea>
+            <label for="prayer_request">Your Prayer Request</label>
+        </div>
+    </div>
+    <div class="privacy-note">
+        <svg>...</svg>
+        <span>Your prayer request is confidential...</span>
+    </div>
+    <button class="submit-btn" id="submit-prayer">Submit Prayer Request</button>
+</div>
+
+    FLOATING LABEL PATTERN:
+
+    .styled-input:
+        position: relative (for label positioning)
+
+    <input> / <textarea>:
+        placeholder="" - empty but present (important for CSS)
+        required - makes field mandatory
+
+    <label>:
+        position: absolute
+        Initially positioned over input
+        CSS :focus and :valid selectors move label up when:
+        - Input is focused
+        - Input has valid content
+
+    for="name":
+        Links label to input with id="name"
+        Clicking label focuses the input
+
+------------------------------------------------------------------------------
+PRAYER TIMES GRID
+------------------------------------------------------------------------------
+
+<div class="prayer_times_grid">
+    <div class="prayer_time_card">
+        <div class="prayer_time_icon">
+            <svg>... clock icon ...</svg>
+        </div>
+        <h3>Sunday Morning Prayer</h3>
+        <p class="time">9:00 AM - 9:45 AM</p>
+        <p class="description">Start your Sunday with prayer...</p>
+    </div>
+    ...
+</div>
+
+    CSS Grid layout displays cards in responsive grid.
+
+================================================================================
+                    SECTION 8: contact_us.html
+================================================================================
+
+Contact form and church location information.
+
+------------------------------------------------------------------------------
+GOOGLE MAPS EMBED
+------------------------------------------------------------------------------
+
+<div class="map_wrapper">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3097.6
+             !2d-76.9186!3d39.0347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1
+             !3m3!1m2!1s0x89b7c6c1f4b7f7e7%3A0x0!2s10716%20Baltimore%20Ave
+             %2C%20Beltsville%2C%20MD%2020705!5e0!3m2!1sen!2sus
+             !4v1700000000000!5m2!1sen!2sus"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+    IFRAME ATTRIBUTES:
+
+    src:
+        Google Maps embed URL
+        Contains encoded location data
+        Generated from Google Maps "Share > Embed" feature
+
+    allowfullscreen:
+        Allows fullscreen button in map
+
+    loading="lazy":
+        Delays loading until map scrolls into view
+        Improves initial page load performance
+
+    referrerpolicy="no-referrer-when-downgrade":
+        Security setting for HTTP/HTTPS transitions
+
+================================================================================
+                    SECTION 9: shop.html
+================================================================================
+
+Currently displays "Coming Soon" message.
+
+<div class="coming-soon-section">
+    <div class="coming-soon-icon">
+        <svg>... clock icon ...</svg>
+    </div>
+    <h3>Coming Soon</h3>
+    <p>We're preparing something special for you...</p>
+    <p class="coming-soon-note">All proceeds will support our church's
+       mission and community programs.</p>
+</div>
+
+Simple placeholder content until shop functionality is implemented.
+
+================================================================================
+                    END OF HTML DOCUMENTATION
+================================================================================

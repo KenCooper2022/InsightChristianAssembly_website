@@ -1,0 +1,1085 @@
+================================================================================
+INSIGHT CHRISTIAN ASSEMBLY WEBSITE - COMPREHENSIVE TECHNICAL DOCUMENTATION
+================================================================================
+
+TABLE OF CONTENTS
+-----------------
+1. PROJECT OVERVIEW
+2. FILE STRUCTURE
+3. HTML FILES - DETAILED BREAKDOWN
+4. CSS FILES - DETAILED BREAKDOWN
+5. JAVASCRIPT FILES - DETAILED BREAKDOWN
+6. SERVER (server.js) - DETAILED BREAKDOWN
+7. HOW EVERYTHING WORKS TOGETHER
+8. KEY CONCEPTS AND SYNTAX EXPLAINED
+
+================================================================================
+1. PROJECT OVERVIEW
+================================================================================
+
+This is a static church website built with:
+- HTML5 (page structure)
+- CSS3 (styling and animations)
+- JavaScript with jQuery (interactivity)
+- Node.js with Express (development server)
+- YouTube Data API (for fetching latest videos)
+- PayPal SDK (for donations)
+
+Color Scheme:
+- Navy Blue: #001d3d (primary background)
+- Dark Blue: #003459 (secondary)
+- Teal: #00A7E1 (accent/highlights)
+- White: #ffffff (text and contrast)
+
+Fonts:
+- Libre Baskerville (headings - serif, elegant)
+- Noto Sans (body text - sans-serif, readable)
+
+================================================================================
+2. FILE STRUCTURE
+================================================================================
+
+Root Directory:
+---------------
+index.html          - Homepage
+about_us.html       - About Us page
+visit_us.html       - Visit Us page
+give.html           - Donation page
+building_fund.html  - Building Fund donation page
+ministries.html     - Ministries listing
+prayer_requests.html - Prayer request form
+shop.html           - Shop page (Coming Soon)
+contact_us.html     - Contact form page
+
+style.css           - Main homepage styles
+about_us_style.css  - About Us page styles
+contact.css         - Contact page styles
+
+index.js            - Homepage JavaScript
+about_us.js         - About Us animations
+contact.js          - Contact form handling
+give.js             - Give page animations
+building_fund.js    - Gallery/lightbox functionality
+prayer_requests.js  - Prayer form handling
+visit_us.js         - Accordion functionality
+shop.js             - Shop page logic
+
+server.js           - Node.js/Express server
+
+css/ Directory:
+---------------
+common.css              - Shared navigation/footer styles
+give_style.css          - Give page styles
+building_fund_style.css - Building Fund page styles
+ministries_style.css    - Ministries page styles
+prayer_requests.css     - Prayer Requests page styles
+shop_style.css          - Shop page styles
+visit_us_style.css      - Visit Us page styles
+
+assets/ Directory:
+------------------
+Contains all images, videos, and media files
+
+================================================================================
+3. HTML FILES - DETAILED BREAKDOWN
+================================================================================
+
+--------------------------------------------------------------------------------
+index.html (HOMEPAGE)
+--------------------------------------------------------------------------------
+
+STRUCTURE OVERVIEW:
+The homepage is divided into several sections stacked vertically.
+
+LINE-BY-LINE EXPLANATION:
+
+<!DOCTYPE html>
+  - Declares this is an HTML5 document
+
+<html>
+  - Root element of the page
+
+<head>
+  - Contains metadata (not visible on page)
+  
+  <meta charset="UTF-8">
+    - Sets character encoding to UTF-8 (supports all characters)
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    - Makes page responsive on mobile devices
+    - width=device-width: page width matches screen width
+    - initial-scale=1.0: no zoom when page loads
+  
+  <title>Welcome to Insight Christian Assembly</title>
+    - Text shown in browser tab
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    - Pre-establishes connection to Google Fonts for faster loading
+  
+  <link href="https://fonts.googleapis.com/css2?family=..." rel="stylesheet">
+    - Loads custom fonts from Google Fonts
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    - Loads Bootstrap CSS framework for responsive grid and components
+  
+  <link rel="stylesheet" href="./style.css">
+    - Loads our custom CSS file
+  
+  <link rel="shortcut icon" type="image/x-icon" href="./assets/ica_logo.jpeg">
+    - Sets the favicon (small icon in browser tab)
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    - Loads jQuery library for easier JavaScript
+  
+  <script src="https://www.paypal.com/sdk/js?client-id=...">
+    - Loads PayPal SDK for donation buttons
+
+<body>
+  - Contains all visible content
+
+  <div id="hero">
+    - Hero section (top of page with video background)
+    - Uses CSS to position elements absolutely
+    
+    <div id="announcement_dropdown">
+      - Popup modal for building fund donation
+      - Slides down when page loads
+      - Contains donation card with image
+      
+      <div class="thumbnail">
+        - Card that expands on hover
+        - Shows "Donate to our Building Fund" text
+        - Links to building_fund.html
+      
+      <button id="x_button">
+        - Close button for the popup
+        - Positioned at bottom left
+    
+    <div id="nav_bar">
+      - Navigation bar with links
+      - Uses flexbox for horizontal layout
+      - Each <li> is a nav item with <a> link inside
+      - Church logo on left (margin-right:auto pushes it left)
+    
+    <div id="hero_content">
+      - Centered text overlay on video
+      - Contains church name and tagline
+      - z-index:2 puts it above video
+    
+    <video id="video_bg" autoplay loop muted playsinline>
+      - Background video
+      - autoplay: starts automatically
+      - loop: repeats forever
+      - muted: no sound (required for autoplay)
+      - playsinline: plays inline on mobile (not fullscreen)
+      - <source>: specifies video file path and type
+  
+  <div id="body_background">
+    - Container for all content below hero
+    - Has fixed background image with filter
+    
+    <div id="welcome_section">
+      - Welcome message section
+      - Dark navy background
+      - Contains heading and paragraph
+    
+    <div id="latest_video_section">
+      - YouTube video embed section
+      - JavaScript dynamically loads latest video
+      - Shows "Loading..." until video loads
+    
+    <div id="section_1">
+      - "What's Going On" announcement section
+      - Uses Bootstrap Jumbotron styling
+    
+    <div id="events_section">
+      - Events carousel
+      - Uses Bootstrap 3 carousel component
+      
+      <div id="myCarousel" class="carousel slide">
+        - data-ride="carousel": auto-rotates
+        - data-interval="5000": 5 seconds per slide
+        
+        <ol class="carousel-indicators">
+          - Dots at bottom showing current slide
+          - data-slide-to="0": jumps to slide 0 when clicked
+        
+        <div class="carousel-inner">
+          - Container for all slides
+          
+          <div class="item active">
+            - First slide (active = visible initially)
+            
+            <div class="event_slide">
+              - Contains image, overlay, and content
+              
+              <img src="...">
+                - Event image
+              
+              <div class="event_overlay">
+                - Semi-transparent gradient overlay
+                - Makes text readable over image
+              
+              <div class="event_content">
+                - Event title, description, button
+        
+        <a class="left carousel-control">
+          - Left arrow button
+          - href="#myCarousel": targets this carousel
+          - data-slide="prev": goes to previous slide
+    
+    <div id="plan_visit_section">
+      - "Plan a Visit" section
+      - Grid of cards for service times
+      - Some cards are wrapped in <a> tags (clickable)
+    
+    <div class="bottom_container">
+      - Footer section
+      - Contains navigation links and copyright
+
+  <script src="index.js">
+    - Loads homepage JavaScript
+
+--------------------------------------------------------------------------------
+OTHER HTML FILES FOLLOW SIMILAR PATTERNS
+--------------------------------------------------------------------------------
+
+about_us.html:
+- Hero sections with parallax scrolling backgrounds
+- Pastor card with hover-reveal bio
+- Mission statement section
+
+visit_us.html:
+- Accordion-style expandable sections
+- Each accordion has header and hidden content
+
+give.html:
+- Donation option cards
+- Scripture quote section
+- Links to PayPal
+
+building_fund.html:
+- Project breakdown grids
+- Image gallery with lightbox
+- Donation buttons
+
+contact_us.html:
+- Contact form with floating labels
+- Google Maps embed
+- Address/phone/email info
+
+ministries.html:
+- Grid of ministry cards
+- Each card has title and description
+
+prayer_requests.html:
+- Prayer request form
+- Prayer times grid
+- Animated thank you message
+
+shop.html:
+- Coming soon message
+- Placeholder for future products
+
+================================================================================
+4. CSS FILES - DETAILED BREAKDOWN
+================================================================================
+
+CSS SYNTAX BASICS:
+------------------
+
+selector {
+    property: value;
+}
+
+- selector: What element(s) to style
+- property: What aspect to change
+- value: The setting for that property
+
+SELECTOR TYPES:
+---------------
+
+#id         - Selects element with id="id"
+.class      - Selects elements with class="class"
+element     - Selects all elements of that type
+element.class - Selects elements of type with that class
+parent > child - Selects direct children only
+parent child - Selects all descendants
+element:hover - Selects when mouse hovers
+
+--------------------------------------------------------------------------------
+style.css (MAIN HOMEPAGE STYLES)
+--------------------------------------------------------------------------------
+
+/* Hero Section */
+#hero {
+    width: 100%;           /* Full width of screen */
+    height: 550px;         /* Fixed height */
+    overflow: hidden;      /* Hide content that extends beyond */
+    position: relative;    /* Enables absolute positioning of children */
+    z-index: 1;            /* Stacking order (higher = on top) */
+}
+
+#hero::after {
+    /* ::after creates a pseudo-element */
+    content: "";           /* Required for pseudo-elements */
+    position: absolute;    /* Positioned relative to #hero */
+    top: 0; left: 0;       /* Start at top-left corner */
+    width: 100%; height: 100%;  /* Cover entire parent */
+    background: linear-gradient(...);  /* Gradient overlay */
+    z-index: 1;            /* Above video, below content */
+    pointer-events: none;  /* Clicks pass through to elements below */
+}
+
+/* Video Background */
+#video_bg {
+    position: absolute;    /* Removed from document flow */
+    top: 50%; left: 50%;   /* Center point */
+    transform: translate(-50%, -50%);  /* Offset by half its size (centers it) */
+    min-width: 100%;       /* At least as wide as container */
+    min-height: 100%;      /* At least as tall as container */
+    object-fit: cover;     /* Crop to fill, maintain aspect ratio */
+    z-index: 0;            /* Behind everything */
+}
+
+/* Navigation Bar */
+#nav_bar {
+    display: flex;         /* Flexbox layout */
+    justify-content: flex-end;  /* Push items to right */
+    gap: 10px;             /* Space between items */
+}
+
+#nav_bar > li {
+    list-style: none;      /* Remove bullet points */
+}
+
+#nav_bar > li > a {
+    text-decoration: none;  /* Remove underline */
+    padding: 10px 25px;    /* Space inside link */
+    border-radius: 25px;   /* Rounded corners */
+    transition: all 0.3s ease;  /* Animate changes over 0.3 seconds */
+}
+
+#nav_bar > li > a:hover {
+    background-color: #fff;  /* White background on hover */
+    color: #003459;        /* Dark text on hover */
+    transform: scale(1.05);  /* Slightly larger */
+}
+
+/* Welcome Section */
+#welcome_section {
+    background-color: #001d3d;  /* Navy blue */
+    padding: 60px 40px;    /* Space inside */
+}
+
+/* Events Carousel */
+.event_slide {
+    position: relative;    /* For absolute positioning of overlay */
+    height: 400px;
+}
+
+.event_overlay {
+    position: absolute;    /* Overlay on top of image */
+    background: linear-gradient(to top, rgba(0, 29, 61, 0.9) 0%, ...);
+    /* Gradient from dark at bottom to transparent at top */
+}
+
+.event_content {
+    position: absolute;
+    bottom: 40px;          /* 40px from bottom */
+}
+
+/* Visit Cards */
+.visit_card {
+    background-color: white;
+    border-radius: 10px;   /* Rounded corners */
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  /* Drop shadow */
+    transition: all 0.3s ease;  /* Smooth hover effect */
+}
+
+.visit_card:hover {
+    transform: scale(1.03);  /* Grow slightly */
+}
+
+/* Responsive Design - Media Queries */
+@media (max-width: 768px) {
+    /* Styles for screens 768px wide or less */
+    #hero {
+        height: 400px;     /* Shorter on mobile */
+    }
+    
+    #nav_bar {
+        flex-wrap: wrap;   /* Allow wrapping to new lines */
+        justify-content: center;  /* Center items */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Styles for very small screens */
+    #hero_content h1 {
+        font-size: 1.5rem;  /* Smaller text */
+    }
+}
+
+/* Keyframe Animations */
+@keyframes live_pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+/* Creates pulsing effect - fades in and out */
+
+.live_indicator {
+    animation: live_pulse 1.5s ease-in-out infinite;
+    /* Run animation for 1.5s, ease timing, repeat forever */
+}
+
+--------------------------------------------------------------------------------
+COMMON CSS PATTERNS USED THROUGHOUT
+--------------------------------------------------------------------------------
+
+FLEXBOX:
+display: flex;             /* Enable flexbox */
+flex-direction: column;    /* Stack children vertically */
+justify-content: center;   /* Center along main axis */
+align-items: center;       /* Center along cross axis */
+gap: 20px;                 /* Space between items */
+flex-wrap: wrap;           /* Allow wrapping */
+
+CENTERING:
+/* Method 1: Flexbox */
+display: flex;
+justify-content: center;
+align-items: center;
+
+/* Method 2: Absolute positioning */
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+/* Method 3: Auto margins */
+margin: 0 auto;            /* Center horizontally */
+
+GRADIENTS:
+background: linear-gradient(direction, color1 position1, color2 position2);
+/* Example: */
+background: linear-gradient(135deg, #001d3d 0%, #003459 50%, #00A7E1 100%);
+
+SHADOWS:
+box-shadow: x-offset y-offset blur spread color;
+/* Example: */
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+TRANSITIONS:
+transition: property duration timing-function;
+/* Example: */
+transition: all 0.3s ease;
+/* Animates all changes over 0.3 seconds with ease timing */
+
+================================================================================
+5. JAVASCRIPT FILES - DETAILED BREAKDOWN
+================================================================================
+
+JAVASCRIPT SYNTAX BASICS:
+-------------------------
+
+Variables:
+var name = value;          /* Function-scoped */
+let name = value;          /* Block-scoped, reassignable */
+const name = value;        /* Block-scoped, not reassignable */
+
+Functions:
+function name(parameters) {
+    // code
+    return value;
+}
+
+/* Arrow function (ES6) */
+const name = (parameters) => {
+    return value;
+};
+
+jQuery Basics:
+$(selector)                /* Select elements */
+$(selector).method()       /* Call method on elements */
+$(document).ready(fn)      /* Run when page loads */
+
+--------------------------------------------------------------------------------
+index.js (HOMEPAGE JAVASCRIPT)
+--------------------------------------------------------------------------------
+
+/* Slide down animation function */
+function element_dropdown(element) {
+    $(element)                    /* Select element with jQuery */
+        .hide()                   /* Hide it first */
+        .css('opacity', 0)        /* Set opacity to 0 */
+        .slideDown('slow')        /* Animate sliding down */
+        .animate({opacity: 1},    /* Animate opacity to 1 */
+            {queue: false,        /* Run simultaneously, not after */
+             duration: 'slow'}
+        );
+}
+
+/* When document is ready (page loaded) */
+$(document).ready(function() {
+    /* Show announcement popup */
+    element_dropdown('#announcement_dropdown');
+    
+    /* Hide sections initially for scroll animation */
+    $('#welcome_section .welcome_content').hide().css('opacity', 0);
+    $('#plan_visit_section .plan_visit_content').hide().css('opacity', 0);
+    
+    /* Track if animations have played */
+    var welcomeAnimated = false;
+    var planVisitAnimated = false;
+    
+    /* Scroll event listener */
+    $(window).on('scroll', function() {
+        var scrollPosition = $(window).scrollTop();  /* How far scrolled */
+        var windowHeight = $(window).height();       /* Viewport height */
+        
+        /* Get welcome section's position */
+        var welcomeSection = $('#welcome_section');
+        var welcomeOffset = welcomeSection.offset().top;
+        
+        /* If scrolled to welcome section */
+        if (!welcomeAnimated && scrollPosition + windowHeight > welcomeOffset + 100) {
+            welcomeAnimated = true;  /* Mark as done */
+            $('#welcome_section .welcome_content')
+                .slideDown('slow')
+                .animate({opacity: 1}, {queue: false, duration: 'slow'});
+        }
+        
+        /* Similar logic for plan visit section */
+    });
+});
+
+/* Close button click handler */
+$('#x_button').on('click', function() {
+    $('#announcement_dropdown').slideUp('slow');
+});
+
+/* YouTube Configuration */
+var YOUTUBE_CONFIG = {
+    API_KEY: '...',           /* YouTube Data API key */
+    CHANNEL_ID: '...',        /* Church's channel ID */
+    SHORTS_MAX_DURATION: 60   /* Skip videos under 60 seconds */
+};
+
+/* Parse YouTube duration format */
+function parseDuration(duration) {
+    /* YouTube returns "PT1H30M45S" for 1h 30m 45s */
+    var match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+    if (!match) return 0;
+    var hours = parseInt(match[1] || 0);
+    var minutes = parseInt(match[2] || 0);
+    var seconds = parseInt(match[3] || 0);
+    return hours * 3600 + minutes * 60 + seconds;
+}
+
+/* Display video in embed container */
+function displayVideo(data) {
+    var container = $('#youtube_embed_container');
+    var liveIndicator = data.isLive ? '<span class="live_indicator">LIVE</span>' : '';
+    var sectionTitle = data.isLive ? 'Live Now' : 'Latest Message';
+    
+    /* Update section heading */
+    $('.video_section_content h2').text(sectionTitle);
+    
+    /* Build embed HTML */
+    var embedHtml = '<div class="video_wrapper">' +
+        '<iframe src="https://www.youtube.com/embed/' + data.videoId + 
+        '?rel=0' + (data.isLive ? '&autoplay=1' : '') + '"...></iframe>' +
+        '</div>' +
+        '<p class="video_title">' + liveIndicator + data.title + '</p>';
+    
+    container.html(embedHtml);  /* Insert into page */
+}
+
+/* Check for live stream */
+function checkForLiveStream() {
+    return new Promise(function(resolve) {
+        /* Build API URL */
+        var liveUrl = 'https://www.googleapis.com/youtube/v3/search' +
+            '?part=snippet' +
+            '&channelId=' + YOUTUBE_CONFIG.CHANNEL_ID +
+            '&eventType=live' +  /* Only live streams */
+            '&type=video' +
+            '&key=' + YOUTUBE_CONFIG.API_KEY;
+        
+        /* Make AJAX request */
+        $.ajax({
+            url: liveUrl,
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                if (data.items && data.items.length > 0) {
+                    /* Live stream found */
+                    resolve({
+                        videoId: data.items[0].id.videoId,
+                        title: data.items[0].snippet.title,
+                        isLive: true
+                    });
+                } else {
+                    resolve(null);  /* No live stream */
+                }
+            },
+            error: function() {
+                resolve(null);
+            }
+        });
+    });
+}
+
+/* Fetch latest uploaded video */
+function fetchLatestVideo() {
+    return new Promise(function(resolve, reject) {
+        /* Channel uploads playlist ID */
+        var uploadsPlaylistId = 'UU' + YOUTUBE_CONFIG.CHANNEL_ID.slice(2);
+        
+        /* Get playlist items */
+        $.ajax({
+            url: 'https://www.googleapis.com/youtube/v3/playlistItems...',
+            success: function(playlistData) {
+                /* Get video details (including duration) */
+                $.ajax({
+                    url: 'https://www.googleapis.com/youtube/v3/videos...',
+                    success: function(videosData) {
+                        /* Find first non-Short video */
+                        for (var i = 0; i < videosData.items.length; i++) {
+                            var video = videosData.items[i];
+                            var duration = parseDuration(video.contentDetails.duration);
+                            
+                            if (duration > YOUTUBE_CONFIG.SHORTS_MAX_DURATION) {
+                                resolve({
+                                    videoId: video.id,
+                                    title: video.snippet.title,
+                                    isLive: false
+                                });
+                                return;
+                            }
+                        }
+                        reject('No full-length videos found');
+                    }
+                });
+            }
+        });
+    });
+}
+
+/* Main function to load video */
+function loadLatestYouTubeVideo() {
+    var container = $('#youtube_embed_container');
+    
+    /* Check for live stream first */
+    checkForLiveStream().then(function(liveStream) {
+        if (liveStream) {
+            displayVideo(liveStream);
+            return;
+        }
+        
+        /* If no live stream, get latest video */
+        fetchLatestVideo().then(function(video) {
+            displayVideo(video);
+        }).catch(function(error) {
+            container.html('<p class="video_error">Unable to load video...</p>');
+        });
+    });
+}
+
+/* On page load */
+$(document).ready(function() {
+    loadLatestYouTubeVideo();
+    
+    /* Check for live streams every 60 seconds */
+    setInterval(function() {
+        checkForLiveStream().then(function(liveStream) {
+            if (liveStream) {
+                displayVideo(liveStream);
+            }
+        });
+    }, 60000);
+});
+
+--------------------------------------------------------------------------------
+contact.js (CONTACT FORM)
+--------------------------------------------------------------------------------
+
+$(document).ready(function() {
+    $('.submit-btn').on('click', function(e) {
+        e.preventDefault();  /* Stop form from submitting normally */
+        
+        /* Get form values */
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        var message = $('#message').val();
+        
+        /* Validate required fields */
+        if (!name || !email || !phone || !message) {
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        /* Create submission object */
+        var submission = {
+            name: name,
+            email: email,
+            phone: phone,
+            message: message,
+            timestamp: new Date().toISOString()
+        };
+        
+        /* Get existing submissions from localStorage */
+        var submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+        submissions.push(submission);
+        
+        /* Save back to localStorage */
+        localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+        
+        /* Hide form, show thank you */
+        $('.form-container').hide();
+        $('#thank-you-message').fadeIn();
+    });
+});
+
+--------------------------------------------------------------------------------
+building_fund.js (LIGHTBOX GALLERY)
+--------------------------------------------------------------------------------
+
+$(document).ready(function() {
+    /* Get all gallery images */
+    var images = [];
+    $('.image-item img').each(function() {
+        images.push($(this).attr('src'));
+    });
+    
+    var currentIndex = 0;
+    
+    /* Show image in lightbox */
+    function showImage(index) {
+        currentIndex = index;
+        $('#lightboxImage').attr('src', images[index]);
+        $('#lightboxCounter').text((index + 1) + ' / ' + images.length);
+    }
+    
+    /* Open lightbox when image clicked */
+    $('.image-item').on('click', function() {
+        var index = $(this).data('index');
+        showImage(index);
+        $('#lightboxOverlay').fadeIn();
+    });
+    
+    /* Navigation buttons */
+    $('#lightboxPrev').on('click', function() {
+        var newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+        showImage(newIndex);
+    });
+    
+    $('#lightboxNext').on('click', function() {
+        var newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+        showImage(newIndex);
+    });
+    
+    /* Close lightbox */
+    $('#lightboxClose, #lightboxOverlay').on('click', function(e) {
+        if (e.target === this) {
+            $('#lightboxOverlay').fadeOut();
+        }
+    });
+    
+    /* Keyboard navigation */
+    $(document).on('keydown', function(e) {
+        if ($('#lightboxOverlay').is(':visible')) {
+            if (e.key === 'ArrowLeft') $('#lightboxPrev').click();
+            if (e.key === 'ArrowRight') $('#lightboxNext').click();
+            if (e.key === 'Escape') $('#lightboxClose').click();
+        }
+    });
+});
+
+--------------------------------------------------------------------------------
+visit_us.js (ACCORDION)
+--------------------------------------------------------------------------------
+
+$(document).ready(function() {
+    $('.accordion-header').on('click', function() {
+        var item = $(this).parent();  /* Get parent .accordion-item */
+        var content = item.find('.accordion-content');
+        var icon = $(this).find('.vertical-line');
+        
+        if (item.hasClass('active')) {
+            /* Close if already open */
+            item.removeClass('active');
+            content.slideUp();
+            icon.css('transform', 'rotate(0deg)');
+        } else {
+            /* Close all others first */
+            $('.accordion-item.active').removeClass('active');
+            $('.accordion-content').slideUp();
+            $('.vertical-line').css('transform', 'rotate(0deg)');
+            
+            /* Open this one */
+            item.addClass('active');
+            content.slideDown();
+            icon.css('transform', 'rotate(90deg)');
+        }
+    });
+});
+
+================================================================================
+6. SERVER (server.js) - DETAILED BREAKDOWN
+================================================================================
+
+/* Import required modules */
+const express = require('express');  /* Web framework */
+const fs = require('fs');            /* File system operations */
+const path = require('path');        /* Path utilities */
+const https = require('https');      /* HTTPS requests */
+
+/* Create Express app */
+const app = express();
+const PORT = 5000;
+
+/* Configuration */
+const CACHE_FILE = 'youtube_cache.json';
+const CACHE_DURATION_DAYS = 7;
+const LIVE_CHECK_INTERVAL_MINUTES = 5;
+
+/* Get API credentials from environment */
+const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || '';
+const CHANNEL_ID = process.env.CHANNEL_ID || 'UCYourChannelID';
+
+/* Caching variables */
+let lastLiveCheck = null;
+let cachedLiveStream = null;
+
+/* Read cached video from file */
+function getCachedVideo() {
+    try {
+        if (fs.existsSync(CACHE_FILE)) {
+            const cache = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
+            const cachedTime = new Date(cache.cached_at);
+            const now = new Date();
+            const daysDiff = (now - cachedTime) / (1000 * 60 * 60 * 24);
+            
+            if (daysDiff < CACHE_DURATION_DAYS) {
+                return cache.video_data;  /* Return if not expired */
+            }
+        }
+    } catch (err) {
+        console.log('Cache read error:', err.message);
+    }
+    return null;
+}
+
+/* Save video to cache file */
+function saveToCache(videoData) {
+    const cache = {
+        cached_at: new Date().toISOString(),
+        video_data: videoData
+    };
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2));
+}
+
+/* Make HTTPS GET request (returns Promise) */
+function httpsGet(url) {
+    return new Promise((resolve, reject) => {
+        https.get(url, (response) => {
+            let data = '';
+            response.on('data', (chunk) => { data += chunk; });
+            response.on('end', () => {
+                resolve(JSON.parse(data));
+            });
+        }).on('error', reject);
+    });
+}
+
+/* Middleware: Disable caching for all responses */
+app.use((req, res, next) => {
+    res.set({
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+    });
+    next();  /* Continue to next handler */
+});
+
+/* API endpoint for latest video */
+app.get('/api/latest-video', async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');  /* Allow cross-origin */
+    res.set('Content-Type', 'application/json');
+    
+    /* Check for live stream */
+    const liveStream = await checkForLiveStream();
+    if (liveStream) {
+        return res.json(liveStream);
+    }
+    
+    /* Check cache */
+    const cached = getCachedVideo();
+    if (cached) {
+        return res.json(cached);
+    }
+    
+    /* Fetch fresh data */
+    const videoData = await fetchLatestVideo();
+    res.json(videoData);
+});
+
+/* Serve static files from current directory */
+app.use(express.static('.', {
+    index: 'index.html'  /* Default file */
+}));
+
+/* Start server */
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running at http://0.0.0.0:${PORT}/`);
+});
+
+================================================================================
+7. HOW EVERYTHING WORKS TOGETHER
+================================================================================
+
+PAGE LOAD SEQUENCE:
+-------------------
+1. Browser requests index.html
+2. Server sends HTML file
+3. Browser parses HTML, finds CSS and JS links
+4. Browser requests CSS files (styles applied)
+5. Browser requests JS files (jQuery, Bootstrap, custom)
+6. $(document).ready() runs when DOM is ready
+7. Animations trigger (popup slides down)
+8. YouTube API call fetches latest video
+9. Scroll events registered for section animations
+
+USER INTERACTION FLOW:
+----------------------
+1. User scrolls page
+   -> JavaScript detects scroll position
+   -> If section enters viewport, animation triggers
+   
+2. User clicks navigation link
+   -> Browser navigates to new page
+   -> Process repeats
+
+3. User clicks close button on popup
+   -> Click event captured
+   -> slideUp() animation runs
+   -> Popup disappears
+
+4. User submits contact form
+   -> Form data collected
+   -> Saved to localStorage
+   -> Thank you message shown
+
+YOUTUBE VIDEO LOADING:
+----------------------
+1. Page loads
+2. loadLatestYouTubeVideo() called
+3. First checks for live stream
+   -> Makes API request to YouTube
+   -> If live stream found, displays it
+4. If no live stream, fetches latest upload
+   -> Gets playlist items
+   -> Filters out Shorts (< 60 seconds)
+   -> Displays first full video
+5. Every 60 seconds, checks for new live streams
+
+RESPONSIVE DESIGN:
+------------------
+1. Base styles apply to all screen sizes
+2. Media queries override styles for smaller screens
+3. @media (max-width: 768px) targets tablets
+4. @media (max-width: 480px) targets phones
+5. Flexbox with wrap allows content to reflow
+
+================================================================================
+8. KEY CONCEPTS AND SYNTAX EXPLAINED
+================================================================================
+
+HTML CONCEPTS:
+--------------
+DOCTYPE: Tells browser to use HTML5 standards mode
+Semantic elements: Use meaningful tags (<header>, <footer>, <section>)
+Attributes: Provide extra info (id, class, href, src)
+Forms: Collect user input (<form>, <input>, <textarea>)
+Links: Navigate between pages (<a href="...">)
+Images: Display pictures (<img src="...">)
+Videos: Embed video (<video>, <source>)
+Iframes: Embed external content (<iframe src="...">)
+
+CSS CONCEPTS:
+-------------
+Selectors: Target specific elements
+Properties: What to change (color, size, position)
+Values: Settings for properties
+Units: px (pixels), rem (relative to root), % (percentage), vw/vh (viewport)
+Box Model: content + padding + border + margin
+Flexbox: Flexible box layout for alignment
+Grid: Two-dimensional layout system
+Position: static, relative, absolute, fixed, sticky
+Z-index: Stacking order (higher = in front)
+Transitions: Animate property changes
+Animations: Keyframe-based movement
+Media Queries: Conditional styles based on screen size
+Pseudo-elements: ::before, ::after (add content via CSS)
+Pseudo-classes: :hover, :focus, :active (state-based styling)
+
+JAVASCRIPT CONCEPTS:
+--------------------
+Variables: Store data (var, let, const)
+Functions: Reusable code blocks
+Objects: Collections of key-value pairs
+Arrays: Ordered lists
+Events: User actions (click, scroll, submit)
+DOM: Document Object Model (page structure)
+jQuery: Library that simplifies DOM manipulation
+AJAX: Asynchronous requests without page reload
+Promises: Handle asynchronous operations
+Callbacks: Functions passed to other functions
+localStorage: Browser storage that persists
+
+JQUERY METHODS USED:
+--------------------
+$(selector) - Select elements
+.on('event', fn) - Add event listener
+.click(fn) - Click handler
+.hide() - Hide element
+.show() - Show element
+.fadeIn() - Fade in animation
+.fadeOut() - Fade out animation
+.slideUp() - Slide up animation
+.slideDown() - Slide down animation
+.animate() - Custom animation
+.css() - Get/set CSS properties
+.val() - Get/set input values
+.html() - Get/set inner HTML
+.text() - Get/set text content
+.attr() - Get/set attributes
+.addClass() - Add CSS class
+.removeClass() - Remove CSS class
+.hasClass() - Check for class
+.find() - Find descendants
+.parent() - Get parent element
+.each() - Loop through elements
+$.ajax() - Make HTTP request
+
+EXPRESS.JS CONCEPTS:
+--------------------
+express() - Create app
+app.use() - Add middleware
+app.get() - Handle GET requests
+app.post() - Handle POST requests
+app.listen() - Start server
+res.json() - Send JSON response
+res.send() - Send response
+req.params - URL parameters
+req.body - Request body
+next() - Pass to next handler
+express.static() - Serve static files
+
+================================================================================
+END OF DOCUMENTATION
+================================================================================
